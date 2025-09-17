@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Filter, AlertCircle, Clock, FileText } from "lucide-react";
+import { Search, AlertCircle, Clock, FileText } from "lucide-react";
 import { notices } from "@/data/demoData";
 
 export default function Notices() {

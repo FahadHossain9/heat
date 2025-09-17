@@ -3,7 +3,6 @@
 import {
   Calendar,
   MapPin,
-  Users,
   Clock,
   CheckCircle,
   AlertCircle,

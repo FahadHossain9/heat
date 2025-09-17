@@ -11,13 +11,11 @@ import {
   Trash2,
   Plus,
   Save,
-  X,
   Calendar,
 } from "lucide-react";
 
 export default function Admin() {
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [isEditing, setIsEditing] = useState(false);
 
   const tabs = [
     { id: "dashboard", name: "Dashboard", icon: BarChart3 },
@@ -92,7 +90,8 @@ export default function Admin() {
             <div className="flex items-center">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
               <span className="text-sm text-gray-600">
-                New notice published: "ATF Window 1 Deadline Extended"
+                New notice published: &ldquo;ATF Window 1 Deadline
+                Extended&rdquo;
               </span>
             </div>
             <span className="text-xs text-gray-500">2 hours ago</span>
@@ -101,7 +100,7 @@ export default function Admin() {
             <div className="flex items-center">
               <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
               <span className="text-sm text-gray-600">
-                Event updated: "Faculty Development Workshop"
+                Event updated: &ldquo;Faculty Development Workshop&rdquo;
               </span>
             </div>
             <span className="text-xs text-gray-500">4 hours ago</span>
@@ -110,7 +109,7 @@ export default function Admin() {
             <div className="flex items-center">
               <div className="w-2 h-2 bg-purple-500 rounded-full mr-3"></div>
               <span className="text-sm text-gray-600">
-                Document uploaded: "ATF Guidelines v2.1"
+                Document uploaded: &ldquo;ATF Guidelines v2.1&rdquo;
               </span>
             </div>
             <span className="text-xs text-gray-500">1 day ago</span>

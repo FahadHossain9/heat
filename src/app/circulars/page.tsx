@@ -1,14 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Search,
-  Filter,
-  FileText,
-  Calendar,
-  User,
-  CheckCircle,
-} from "lucide-react";
+import { Search, FileText, Calendar, User, CheckCircle } from "lucide-react";
 import { circularCategories, recentCirculars } from "@/data/demoData";
 
 export default function Circulars() {

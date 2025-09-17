@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, Users, Award, Briefcase } from "lucide-react";
+import { Mail, MapPin, Phone, Award } from "lucide-react";
 import { projectLeadership, wings, contactInfo } from "@/data/demoData";
 
 export default function Officials() {

@@ -139,7 +139,7 @@ export default function ATF() {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {atfWindows.map((window, index) => (
+            {atfWindows.map((window) => (
               <div
                 key={window.id}
                 className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
@@ -330,7 +330,7 @@ export default function ATF() {
             Ready to Transform Your Institution?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Join the ATF program and be part of Bangladesh's educational
+            Join the ATF program and be part of Bangladesh&apos;s educational
             transformation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

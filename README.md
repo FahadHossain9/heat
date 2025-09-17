@@ -43,18 +43,20 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/FahadHossain9/heat.git
 cd heat
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -62,6 +64,7 @@ yarn install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -73,6 +76,7 @@ yarn dev
 ## 📱 Pages Overview
 
 ### Public Pages
+
 - **Home**: Project overview with statistics and component cards
 - **About**: Project background, objectives, and target beneficiaries
 - **Components**: Six detailed component pages (ATF, Training, Network, BdREN, Monitoring, Emergency)
@@ -82,6 +86,7 @@ yarn dev
 - **Officials**: Wing-based staff directory
 
 ### Admin Panel
+
 - **Dashboard**: Overview of system statistics
 - **Content Management**: Edit homepage statistics and content
 - **ATF Management**: Manage ATF windows and documents
@@ -91,21 +96,25 @@ yarn dev
 ## 🎯 Key Components
 
 ### ATF (Academic Transformation Fund)
+
 - Six windows system with detailed focus areas
 - SPP document downloads
 - Application guidelines and evaluation criteria
 
 ### Training Programs
+
 - Local and international expert programs
 - Digital skills development
 - Research capacity building
 
 ### Campus Network
+
 - Universal connectivity initiative
 - High-speed internet access for all public universities
 - Implementation features and benefits
 
 ### BdREN Strengthening
+
 - Network expansion overview
 - Virtual Desktop Infrastructure (VDI)
 - Learning Management Infrastructure (LMI)
@@ -126,6 +135,7 @@ No environment variables required for basic functionality.
 ## 📊 Data Management
 
 All demo data is stored in `src/data/demoData.ts` and includes:
+
 - Homepage statistics
 - ATF windows and documents
 - Wing structure and officials

@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Users,
   Clock,
   Award,
   MapPin,
@@ -9,7 +8,6 @@ import {
   TrendingUp,
   Globe,
   BookOpen,
-  Laptop,
   GraduationCap,
 } from "lucide-react";
 
@@ -111,21 +109,6 @@ export default function Training() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {programCategories.map((program, index) => {
-              const getTypeIcon = (type: string) => {
-                switch (type) {
-                  case "Local":
-                    return <MapPin className="h-5 w-5" />;
-                  case "International":
-                    return <Globe className="h-5 w-5" />;
-                  case "Digital":
-                    return <Laptop className="h-5 w-5" />;
-                  case "Research":
-                    return <BookOpen className="h-5 w-5" />;
-                  default:
-                    return <Award className="h-5 w-5" />;
-                }
-              };
-
               const getTypeColor = (type: string) => {
                 switch (type) {
                   case "Local":

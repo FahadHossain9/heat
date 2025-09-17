@@ -22,9 +22,9 @@ export default function About() {
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-4xl mx-auto">
               <p className="text-lg italic">
-                "To transform Bangladesh's higher education sector through
-                quality enhancement, infrastructure development, and capacity
-                building initiatives"
+                &ldquo;To transform Bangladesh&apos;s higher education sector
+                through quality enhancement, infrastructure development, and
+                capacity building initiatives&rdquo;
               </p>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function About() {
               Main Objectives
             </h2>
             <p className="text-lg text-gray-600">
-              Key goals driving the HEAT project's success
+              Key goals driving the HEAT project&apos;s success
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -118,10 +118,11 @@ export default function About() {
             </div>
             <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-                Women's Leadership
+                Women&apos;s Leadership
               </h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Strengthen women's leadership skills for managerial positions
+                Strengthen women&apos;s leadership skills for managerial
+                positions
               </p>
             </div>
             <div className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow">

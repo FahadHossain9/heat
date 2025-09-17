@@ -10,36 +10,6 @@ import {
 } from "lucide-react";
 
 export default function Emergency() {
-  const crisisFramework = [
-    {
-      title: "Early Warning Systems",
-      features: [
-        "Monitoring: Continuous threat assessment",
-        "Alerts: Multi-channel notification system",
-        "Protocols: Standardized response procedures",
-        "Coordination: Inter-agency communication networks",
-      ],
-    },
-    {
-      title: "Business Continuity",
-      features: [
-        "Backup Systems: Redundant infrastructure",
-        "Remote Operations: Distance learning capabilities",
-        "Data Protection: Secure backup and recovery",
-        "Alternative Sites: Emergency operation centers",
-      ],
-    },
-    {
-      title: "Recovery Planning",
-      features: [
-        "Damage Assessment: Rapid evaluation protocols",
-        "Resource Mobilization: Emergency fund allocation",
-        "Reconstruction: Priority-based rebuilding",
-        "Lessons Integration: Continuous improvement processes",
-      ],
-    },
-  ];
-
   const preparednessStats = [
     { label: "Response Time", value: "15 minutes", icon: Clock },
     { label: "Coverage", value: "100%", icon: Shield },

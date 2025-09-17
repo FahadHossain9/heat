@@ -409,18 +409,21 @@ export const projectLeadership: Official[] = [
     background: "Ph.D. in Education Administration, 20+ years experience",
     email: "director@heat.ugc.gov.bd",
     office: "UGC Bhaban, Dhaka",
+    wing: "Project Management",
   },
   {
     name: "Professor Dr. Rashida Akter",
     position: "Deputy Project Director",
     specialization: "Academic Development and Quality Assurance",
     email: "deputy@heat.ugc.gov.bd",
+    wing: "Academic Affairs",
   },
   {
     name: "Mohammad Ashraf Hossain, CPA",
     position: "Financial Controller",
     experience: "15+ years in project financial management",
     email: "finance@heat.ugc.gov.bd",
+    wing: "Finance & Administration",
   },
 ];
 
@@ -431,6 +434,7 @@ export const wingStructure: Official[] = [
     responsibility: "ATF implementation, curriculum development",
     teamSize: "12 specialists",
     email: "academic@heat.ugc.gov.bd",
+    wing: "Academic Transformation Fund (ATF)",
   },
   {
     name: "Professor Dr. Abdul Karim",
@@ -438,6 +442,7 @@ export const wingStructure: Official[] = [
     responsibility: "Faculty development, professional training",
     teamSize: "15 trainers and coordinators",
     email: "training@heat.ugc.gov.bd",
+    wing: "Training Programs",
   },
   {
     name: "Engr. Md. Rafiqul Islam",
@@ -445,6 +450,7 @@ export const wingStructure: Official[] = [
     responsibility: "Network infrastructure, technical systems",
     teamSize: "20 technical specialists",
     email: "tech@heat.ugc.gov.bd",
+    wing: "Campus Network Infrastructure",
   },
   {
     name: "Dr. Fahmida Khatun",
@@ -452,6 +458,7 @@ export const wingStructure: Official[] = [
     responsibility: "Research network, global partnerships",
     teamSize: "8 network specialists",
     email: "bdren@heat.ugc.gov.bd",
+    wing: "BdREN Strengthening",
   },
   {
     name: "Md. Kamrul Hassan, PMP",
@@ -459,6 +466,7 @@ export const wingStructure: Official[] = [
     responsibility: "Project tracking, performance monitoring",
     teamSize: "10 monitoring specialists",
     email: "monitoring@heat.ugc.gov.bd",
+    wing: "Project Management & Monitoring",
   },
   {
     name: "Brigadier General (Retd.) Md. Jahangir Alam",
@@ -466,6 +474,7 @@ export const wingStructure: Official[] = [
     responsibility: "Crisis management, business continuity",
     teamSize: "6 emergency specialists",
     email: "emergency@heat.ugc.gov.bd",
+    wing: "Emergency Response",
   },
   {
     name: "Ms. Sultana Razia",
@@ -473,6 +482,7 @@ export const wingStructure: Official[] = [
     responsibility: "Administrative support, public relations",
     teamSize: "8 administrative staff",
     email: "admin@heat.ugc.gov.bd",
+    wing: "Administration",
   },
 ];
 
