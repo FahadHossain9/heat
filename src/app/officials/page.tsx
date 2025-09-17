@@ -1,0 +1,310 @@
+"use client";
+
+import { Mail, MapPin, Phone, Users, Award, Briefcase } from "lucide-react";
+import { projectLeadership, wings, contactInfo } from "@/data/demoData";
+
+export default function Officials() {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              HEAT Project Officials Directory
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100">
+              Meet our leadership team and wing coordinators driving educational
+              transformation
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Leadership */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Project Leadership Team
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projectLeadership.map((official, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
+              >
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white text-2xl font-bold">
+                      {official.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {official.name}
+                  </h3>
+                  <p className="text-blue-600 font-semibold mb-3">
+                    {official.position}
+                  </p>
+
+                  {official.background && (
+                    <p className="text-sm text-gray-600 mb-3">
+                      {official.background}
+                    </p>
+                  )}
+
+                  {official.specialization && (
+                    <p className="text-sm text-gray-600 mb-3">
+                      <strong>Specialization:</strong> {official.specialization}
+                    </p>
+                  )}
+
+                  {official.experience && (
+                    <p className="text-sm text-gray-600 mb-3">
+                      <strong>Experience:</strong> {official.experience}
+                    </p>
+                  )}
+
+                  {official.office && (
+                    <div className="flex items-center justify-center text-sm text-gray-600 mb-3">
+                      <MapPin className="h-4 w-4 mr-1" />
+                      <span>{official.office}</span>
+                    </div>
+                  )}
+
+                  <div className="flex items-center justify-center text-sm text-blue-600">
+                    <Mail className="h-4 w-4 mr-1" />
+                    <span>{official.email}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wing Structure */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Wing-Based Organization
+            </h2>
+            <p className="text-lg text-gray-600">
+              Seven specialized wings managing different aspects of the HEAT
+              project
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {wings.map((wing, index) => (
+              <div
+                key={index}
+                className={`${wing.color} rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow`}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <div className="text-3xl">{wing.icon}</div>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {wing.name}
+                    </h3>
+                    <p className="text-sm text-gray-700 mb-4">
+                      {wing.description}
+                    </p>
+
+                    {wing.officials.map((official, officialIndex) => (
+                      <div
+                        key={officialIndex}
+                        className="bg-white rounded-lg p-4 mb-3"
+                      >
+                        <h4 className="font-semibold text-gray-900 mb-1">
+                          {official.name}
+                        </h4>
+                        <p className="text-blue-600 font-medium mb-2">
+                          {official.position}
+                        </p>
+
+                        {official.specialization && (
+                          <p className="text-sm text-gray-600 mb-2">
+                            <strong>Specialization:</strong>{" "}
+                            {official.specialization}
+                          </p>
+                        )}
+
+                        {official.experience && (
+                          <p className="text-sm text-gray-600 mb-2">
+                            <strong>Experience:</strong> {official.experience}
+                          </p>
+                        )}
+
+                        <div className="flex items-center text-sm text-blue-600">
+                          <Mail className="h-4 w-4 mr-1" />
+                          <span>{official.email}</span>
+                        </div>
+
+                        {official.phone && (
+                          <div className="flex items-center text-sm text-gray-600 mt-1">
+                            <Phone className="h-4 w-4 mr-1" />
+                            <span>{official.phone}</span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wing Details */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Wing Specializations
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Academic Development",
+                description:
+                  "ATF implementation, curriculum development, quality assurance",
+                icon: "🎓",
+                color: "bg-blue-100",
+              },
+              {
+                title: "Training & Capacity Building",
+                description:
+                  "Faculty development, professional training, skill enhancement",
+                icon: "👥",
+                color: "bg-green-100",
+              },
+              {
+                title: "Infrastructure & Technology",
+                description:
+                  "Network infrastructure, technical systems, digital solutions",
+                icon: "🔧",
+                color: "bg-orange-100",
+              },
+              {
+                title: "BdREN & International Relations",
+                description:
+                  "Research network, global partnerships, international collaboration",
+                icon: "🌐",
+                color: "bg-purple-100",
+              },
+              {
+                title: "Project Monitoring & Evaluation",
+                description:
+                  "Project tracking, performance monitoring, evaluation systems",
+                icon: "📊",
+                color: "bg-yellow-100",
+              },
+              {
+                title: "Emergency Response & Risk Management",
+                description:
+                  "Crisis management, business continuity, risk assessment",
+                icon: "🚨",
+                color: "bg-red-100",
+              },
+              {
+                title: "Administration & Communication",
+                description:
+                  "Administrative support, public relations, stakeholder management",
+                icon: "📋",
+                color: "bg-indigo-100",
+              },
+            ].map((wing, index) => (
+              <div
+                key={index}
+                className={`${wing.color} rounded-lg p-6 hover:shadow-lg transition-shadow`}
+              >
+                <div className="text-4xl mb-4">{wing.icon}</div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {wing.title}
+                </h3>
+                <p className="text-gray-700">{wing.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Directory */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Contact Directory
+            </h2>
+          </div>
+          <div className="bg-white rounded-lg shadow-sm p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Main Office
+                </h3>
+                <p className="text-gray-600">{contactInfo.mainOffice}</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Phone className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Emergency Hotline
+                </h3>
+                <p className="text-gray-600">{contactInfo.emergencyHotline}</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Mail className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Email
+                </h3>
+                <p className="text-gray-600">{contactInfo.email}</p>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Address
+                  </h3>
+                  <p className="text-gray-600">{contactInfo.address}</p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    Office Hours
+                  </h3>
+                  <p className="text-gray-600">{contactInfo.officeHours}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
