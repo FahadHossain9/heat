@@ -16,7 +16,14 @@ import {
   ToggleLeft,
   ToggleRight,
 } from "lucide-react";
-import { notices, featuredEvents, wings, wingStructure, atfSupportingDocuments } from "@/data/demoData";
+import {
+  notices,
+  featuredEvents,
+  wings,
+  wingStructure,
+  atfSupportingDocuments,
+  recentCirculars,
+} from "@/data/demoData";
 
 export default function Admin() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -24,8 +31,10 @@ export default function Admin() {
   const tabs = [
     { id: "dashboard", name: "Dashboard", icon: BarChart3 },
     { id: "content", name: "Content Management", icon: FileText },
+    { id: "atf-docs", name: "ATF Documents", icon: FileText },
     { id: "notices", name: "Notices", icon: FileText },
     { id: "events", name: "Events", icon: Calendar },
+    { id: "circulars", name: "Circulars", icon: FileText },
     { id: "wings", name: "Wing Management", icon: Users },
   ];
 
@@ -214,6 +223,18 @@ export default function Admin() {
     capacity: "",
   });
 
+  // Circular Management State
+  const [showAddCircularModal, setShowAddCircularModal] = useState(false);
+  const [newCircular, setNewCircular] = useState({
+    number: "",
+    date: "",
+    subject: "",
+    category: "",
+    authority: "",
+    status: "Active",
+    expiryDate: "",
+  });
+
   // Wing Management State
   const [showAddWingModal, setShowAddWingModal] = useState(false);
   const [showAddWingPersonModal, setShowAddWingPersonModal] = useState(false);
@@ -335,7 +356,14 @@ export default function Admin() {
                 onClick={() => {
                   // Handle file upload logic here
                   setShowAddNoticeModal(false);
-                  setNewNotice({ name: "", description: "", date: "", pdf: null, priority: "General", category: "" });
+                  setNewNotice({
+                    name: "",
+                    description: "",
+                    date: "",
+                    pdf: null,
+                    priority: "General",
+                    category: "",
+                  });
                 }}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
               >
@@ -863,7 +891,7 @@ export default function Admin() {
           Add Notice
         </button>
       </div>
-      
+
       <div className="bg-white rounded-lg shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
@@ -905,11 +933,15 @@ export default function Admin() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      notice.priority === 'Critical' ? 'bg-red-100 text-red-800' :
-                      notice.priority === 'Important' ? 'bg-orange-100 text-orange-800' :
-                      'bg-blue-100 text-blue-800'
-                    }`}>
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                        notice.priority === "Critical"
+                          ? "bg-red-100 text-red-800"
+                          : notice.priority === "Important"
+                          ? "bg-orange-100 text-orange-800"
+                          : "bg-blue-100 text-blue-800"
+                      }`}
+                    >
                       {notice.priority}
                     </span>
                   </td>
@@ -945,7 +977,7 @@ export default function Admin() {
           Add Event
         </button>
       </div>
-      
+
       <div className="bg-white rounded-lg shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
@@ -978,7 +1010,8 @@ export default function Admin() {
                         src={event.image}
                         alt={event.name}
                         onError={(e) => {
-                          e.currentTarget.src = "https://via.placeholder.com/40x40/4F46E5/FFFFFF?text=E";
+                          e.currentTarget.src =
+                            "https://via.placeholder.com/40x40/4F46E5/FFFFFF?text=E";
                         }}
                       />
                       <div>
@@ -1000,13 +1033,170 @@ export default function Admin() {
                     {event.date}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      event.status === 'Registration Open' ? 'bg-green-100 text-green-800' :
-                      event.status === 'Applications Under Review' ? 'bg-yellow-100 text-yellow-800' :
-                      'bg-blue-100 text-blue-800'
-                    }`}>
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                        event.status === "Registration Open"
+                          ? "bg-green-100 text-green-800"
+                          : event.status === "Applications Under Review"
+                          ? "bg-yellow-100 text-yellow-800"
+                          : "bg-blue-100 text-blue-800"
+                      }`}
+                    >
                       {event.status}
                     </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button className="text-blue-600 hover:text-blue-900 mr-3">
+                      <Edit className="h-4 w-4" />
+                    </button>
+                    <button className="text-red-600 hover:text-red-900">
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderATFDocumentManagementNew = () => (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold text-gray-900">ATF Supporting Documents</h2>
+        <button
+          onClick={() => setShowAddNoticeModal(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+        >
+          <Plus className="h-4 w-4 inline mr-2" />
+          Add Document
+        </button>
+      </div>
+
+      <div className="bg-white rounded-lg shadow">
+        <div className="p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+            Current Supporting Documents
+          </h3>
+          <div className="space-y-4">
+            {atfSupportingDocuments.map((doc) => (
+              <div
+                key={doc.id}
+                className="flex items-center justify-between p-4 border border-gray-200 rounded-lg"
+              >
+                <div className="flex items-center">
+                  <FileText className="h-8 w-8 text-blue-600 mr-4" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">{doc.title}</h4>
+                    <p className="text-sm text-gray-600">{doc.description}</p>
+                    <div className="flex items-center space-x-4 mt-2">
+                      <span className="text-xs text-gray-500">
+                        {doc.type} • {doc.size}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        Downloads: {doc.downloads}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        {new Date(doc.uploadDate).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      doc.isActive
+                        ? "bg-green-100 text-green-800"
+                        : "bg-gray-100 text-gray-800"
+                    }`}
+                  >
+                    {doc.isActive ? "Active" : "Inactive"}
+                  </span>
+                  <button className="text-blue-600 hover:text-blue-800">
+                    <Edit className="h-4 w-4" />
+                  </button>
+                  <button className="text-red-600 hover:text-red-800">
+                    <Trash2 className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderCircularManagement = () => (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold text-gray-900">Circular Management</h2>
+        <button
+          onClick={() => setShowAddCircularModal(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+        >
+          <Plus className="h-4 w-4 inline mr-2" />
+          Add Circular
+        </button>
+      </div>
+
+      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Circular
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Category
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Authority
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Status
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Date
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {recentCirculars.map((circular) => (
+                <tr key={circular.id}>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div>
+                      <div className="text-sm font-medium text-gray-900">
+                        {circular.number}
+                      </div>
+                      <div className="text-sm text-gray-500 truncate max-w-xs">
+                        {circular.subject}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                      {circular.category}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {circular.authority}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                      circular.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                    }`}>
+                      {circular.status}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {circular.date}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <button className="text-blue-600 hover:text-blue-900 mr-3">
@@ -1031,10 +1221,14 @@ export default function Admin() {
         return renderDashboard();
       case "content":
         return renderContentManagement();
+      case "atf-docs":
+        return renderATFDocumentManagementNew();
       case "notices":
         return renderNoticesManagement();
       case "events":
         return renderEventsManagement();
+      case "circulars":
+        return renderCircularManagement();
       case "wings":
         return renderWingManagement();
       default:

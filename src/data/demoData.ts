@@ -237,7 +237,8 @@ export const upcomingEvents: EventItem[] = [
   {
     id: "3",
     name: "Digital Learning Excellence Conference 2025",
-    description: "International conference on digital transformation in higher education",
+    description:
+      "International conference on digital transformation in higher education",
     date: "March 25-27, 2025",
     image: "/images/events/digital-learning-conference.jpg",
     location: "Dhaka University",
@@ -318,7 +319,8 @@ export const notices: Notice[] = [
   {
     id: "1",
     name: "Network Maintenance Schedule - March 15, 2025",
-    description: "Scheduled maintenance of core network infrastructure will occur on March 15, 2025, from 2:00 AM to 4:00 AM. Universities may experience temporary connectivity issues during this period. Emergency support will be available at +880-1700-000000.",
+    description:
+      "Scheduled maintenance of core network infrastructure will occur on March 15, 2025, from 2:00 AM to 4:00 AM. Universities may experience temporary connectivity issues during this period. Emergency support will be available at +880-1700-000000.",
     date: "March 10, 2025",
     pdf: "/documents/notices/network-maintenance-march-2025.pdf",
     priority: "Critical",
@@ -327,7 +329,8 @@ export const notices: Notice[] = [
   {
     id: "2",
     name: "New Training Program Registration Open",
-    description: "Applications are now open for the Advanced Faculty Development Program starting April 2025. Registration deadline: March 30, 2025. Limited seats available.",
+    description:
+      "Applications are now open for the Advanced Faculty Development Program starting April 2025. Registration deadline: March 30, 2025. Limited seats available.",
     date: "March 8, 2025",
     pdf: "/documents/notices/training-program-registration.pdf",
     priority: "Important",
@@ -336,7 +339,8 @@ export const notices: Notice[] = [
   {
     id: "3",
     name: "HEAT Annual Report 2024 Published",
-    description: "The comprehensive annual report highlighting HEAT project achievements and impact for 2024 is now available for download.",
+    description:
+      "The comprehensive annual report highlighting HEAT project achievements and impact for 2024 is now available for download.",
     date: "March 5, 2025",
     pdf: "/documents/notices/heat-annual-report-2024.pdf",
     priority: "General",
@@ -356,7 +360,8 @@ export const featuredEvents: EventItem[] = [
   {
     id: "1",
     name: "Digital Learning Excellence Conference 2025",
-    description: "Three-day international conference featuring leading experts in digital transformation of higher education",
+    description:
+      "Three-day international conference featuring leading experts in digital transformation of higher education",
     date: "March 25-27, 2025",
     image: "/images/events/digital-learning-conference-2025.jpg",
     location: "Dhaka University",
@@ -367,7 +372,8 @@ export const featuredEvents: EventItem[] = [
   {
     id: "2",
     name: "Faculty Development Intensive Workshop",
-    description: "Five-day intensive professional development program for university faculty members",
+    description:
+      "Five-day intensive professional development program for university faculty members",
     date: "April 15-20, 2025",
     image: "/images/events/faculty-development-workshop.jpg",
     location: "BUET, Dhaka",

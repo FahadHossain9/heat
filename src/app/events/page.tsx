@@ -135,11 +135,12 @@ export default function Events() {
                     alt={event.name}
                     className="w-full h-full object-cover"
                     onError={(e) => {
-                      e.currentTarget.src = "https://via.placeholder.com/400x200/4F46E5/FFFFFF?text=Event+Image";
+                      e.currentTarget.src =
+                        "https://via.placeholder.com/400x200/4F46E5/FFFFFF?text=Event+Image";
                     }}
                   />
                 </div>
-                
+
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
@@ -148,7 +149,9 @@ export default function Events() {
                     <div className="flex items-center space-x-2">
                       {getStatusIcon(event.status)}
                       <span
-                        className={`text-sm font-semibold px-2 py-1 rounded-full ${getStatusColor(event.status)}`}
+                        className={`text-sm font-semibold px-2 py-1 rounded-full ${getStatusColor(
+                          event.status
+                        )}`}
                       >
                         {event.status}
                       </span>
