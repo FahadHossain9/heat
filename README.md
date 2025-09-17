@@ -1,36 +1,152 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HEAT Portfolio Website
 
-## Getting Started
+A comprehensive Next.js website for the Higher Education Acceleration and Transformation (HEAT) project by the University Grants Commission (UGC) of Bangladesh.
 
-First, run the development server:
+## 🚀 Features
 
+- **12 Complete Pages**: Home, About, Components (ATF, Training, Network, BdREN, Monitoring, Emergency), Notices, Events, Circulars, Officials, and Admin Panel
+- **Admin Panel**: Full content management system for administrators
+- **ATF Six Windows System**: Complete implementation of the Academic Transformation Fund windows
+- **Wing-Based Organization**: Detailed officials directory with specializations
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Local Data Persistence**: Demo data stored in local arrays
+- **Modern UI**: Clean, professional design with interactive components
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Deployment**: Netlify Ready
+
+## 📋 Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── admin/             # Admin panel
+│   ├── components/        # Component pages (ATF, Training, etc.)
+│   ├── about/             # About page
+│   ├── notices/           # Notices page
+│   ├── events/            # Events page
+│   ├── circulars/         # Circulars page
+│   ├── officials/         # Officials directory
+│   └── page.tsx           # Home page
+├── components/            # Reusable components
+│   └── Layout.tsx         # Main layout component
+└── data/                  # Demo data
+    └── demoData.ts        # All project data
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/FahadHossain9/heat.git
+cd heat
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📱 Pages Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Public Pages
+- **Home**: Project overview with statistics and component cards
+- **About**: Project background, objectives, and target beneficiaries
+- **Components**: Six detailed component pages (ATF, Training, Network, BdREN, Monitoring, Emergency)
+- **Notices**: Dynamic notice system with search and filtering
+- **Events**: Event management with categories and calendar view
+- **Circulars**: Administrative communications system
+- **Officials**: Wing-based staff directory
 
-## Learn More
+### Admin Panel
+- **Dashboard**: Overview of system statistics
+- **Content Management**: Edit homepage statistics and content
+- **ATF Management**: Manage ATF windows and documents
+- **Document Management**: Upload and manage files
+- **User Management**: Admin user controls
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Key Components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ATF (Academic Transformation Fund)
+- Six windows system with detailed focus areas
+- SPP document downloads
+- Application guidelines and evaluation criteria
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Training Programs
+- Local and international expert programs
+- Digital skills development
+- Research capacity building
 
-## Deploy on Vercel
+### Campus Network
+- Universal connectivity initiative
+- High-speed internet access for all public universities
+- Implementation features and benefits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### BdREN Strengthening
+- Network expansion overview
+- Virtual Desktop Infrastructure (VDI)
+- Learning Management Infrastructure (LMI)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Deployment
+
+### Netlify Deployment
+
+1. Connect your GitHub repository to Netlify
+2. Set build command: `npm run build`
+3. Set publish directory: `.next`
+4. Deploy!
+
+### Environment Variables
+
+No environment variables required for basic functionality.
+
+## 📊 Data Management
+
+All demo data is stored in `src/data/demoData.ts` and includes:
+- Homepage statistics
+- ATF windows and documents
+- Wing structure and officials
+- Project overview and objectives
+- Events, notices, and circulars
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+This project is developed for the University Grants Commission (UGC) of Bangladesh.
+
+## 📞 Contact
+
+For questions or support, contact the HEAT project team at info@heat.ugc.gov.bd
+
+---
+
+**HEAT Project** - Transforming Bangladesh's Higher Education Through Strategic Development
