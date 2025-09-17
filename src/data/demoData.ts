@@ -486,6 +486,191 @@ export const wingStructure: Official[] = [
   },
 ];
 
+// ATF Supporting Documents - Admin manageable
+export interface ATFDocument {
+  id: string;
+  title: string;
+  category: string;
+  type: "PDF" | "Word" | "Excel" | "PowerPoint";
+  url: string;
+  size: string;
+  uploadDate: string;
+  downloads: number;
+  isActive: boolean;
+  description?: string;
+}
+
+export const atfSupportingDocuments: ATFDocument[] = [
+  {
+    id: "atf-doc-1",
+    title: "Appendix-3 ATFOM SPP Annexes (full)",
+    category: "Application Forms",
+    type: "PDF",
+    url: "/documents/atf/appendix-3-atfom-spp-annexes.pdf",
+    size: "2.1 MB",
+    uploadDate: "2025-01-10",
+    downloads: 245,
+    isActive: true,
+    description: "Complete ATFOM SPP Annexes for proposal submission",
+  },
+  {
+    id: "atf-doc-2",
+    title: "Environment and Safety Checklist Small",
+    category: "Compliance",
+    type: "PDF",
+    url: "/documents/atf/environment-safety-checklist.pdf",
+    size: "0.8 MB",
+    uploadDate: "2025-01-10",
+    downloads: 189,
+    isActive: true,
+    description: "Environmental and safety compliance checklist",
+  },
+  {
+    id: "atf-doc-3",
+    title: "Environmental Monitoring and Mitigation Plan",
+    category: "Compliance",
+    type: "PDF",
+    url: "/documents/atf/environmental-monitoring-plan.pdf",
+    size: "1.5 MB",
+    uploadDate: "2025-01-10",
+    downloads: 156,
+    isActive: true,
+    description: "Environmental monitoring and mitigation planning template",
+  },
+  {
+    id: "atf-doc-4",
+    title: "Milestones",
+    category: "Project Planning",
+    type: "Excel",
+    url: "/documents/atf/milestones-template.xlsx",
+    size: "0.3 MB",
+    uploadDate: "2025-01-10",
+    downloads: 278,
+    isActive: true,
+    description: "Project milestones tracking template",
+  },
+  {
+    id: "atf-doc-5",
+    title: "Partnership Agreement",
+    category: "Legal",
+    type: "Word",
+    url: "/documents/atf/partnership-agreement.docx",
+    size: "0.6 MB",
+    uploadDate: "2025-01-10",
+    downloads: 198,
+    isActive: true,
+    description: "Partnership agreement template for collaborative projects",
+  },
+  {
+    id: "atf-doc-6",
+    title: "Social Screening Form",
+    category: "Application Forms",
+    type: "PDF",
+    url: "/documents/atf/social-screening-form.pdf",
+    size: "0.9 MB",
+    uploadDate: "2025-01-10",
+    downloads: 167,
+    isActive: true,
+    description: "Social screening and impact assessment form",
+  },
+  {
+    id: "atf-doc-7",
+    title: "Sub-project Management Team",
+    category: "Project Planning",
+    type: "Word",
+    url: "/documents/atf/subproject-management-team.docx",
+    size: "0.4 MB",
+    uploadDate: "2025-01-10",
+    downloads: 234,
+    isActive: true,
+    description: "Sub-project management team structure template",
+  },
+  {
+    id: "atf-doc-8",
+    title: "Sub-project Proposal Endorsement by University Management",
+    category: "Approval",
+    type: "PDF",
+    url: "/documents/atf/proposal-endorsement.pdf",
+    size: "0.7 MB",
+    uploadDate: "2025-01-10",
+    downloads: 189,
+    isActive: true,
+    description: "University management endorsement form",
+  },
+  {
+    id: "atf-doc-9",
+    title: "Training Plan",
+    category: "Project Planning",
+    type: "Word",
+    url: "/documents/atf/training-plan.docx",
+    size: "0.5 MB",
+    uploadDate: "2025-01-10",
+    downloads: 201,
+    isActive: true,
+    description: "Training and capacity building plan template",
+  },
+  {
+    id: "atf-doc-10",
+    title: "Work Activities Plan (Indicative)",
+    category: "Project Planning",
+    type: "Excel",
+    url: "/documents/atf/work-activities-plan.xlsx",
+    size: "0.4 MB",
+    uploadDate: "2025-01-10",
+    downloads: 223,
+    isActive: true,
+    description: "Indicative work activities planning template",
+  },
+  {
+    id: "atf-doc-11",
+    title: "Appendix-2 ATFOM-SPP Formats",
+    category: "Application Forms",
+    type: "PDF",
+    url: "/documents/atf/appendix-2-atfom-spp-formats.pdf",
+    size: "1.8 MB",
+    uploadDate: "2025-01-10",
+    downloads: 267,
+    isActive: true,
+    description: "ATFOM-SPP application formats and guidelines",
+  },
+  {
+    id: "atf-doc-12",
+    title: "Appendix-4 ATFOM-Eval Annexes",
+    category: "Evaluation",
+    type: "PDF",
+    url: "/documents/atf/appendix-4-atfom-eval-annexes.pdf",
+    size: "1.3 MB",
+    uploadDate: "2025-01-10",
+    downloads: 145,
+    isActive: true,
+    description: "ATFOM evaluation annexes and criteria",
+  },
+  {
+    id: "atf-doc-13",
+    title: "Financial Budget Format New",
+    category: "Financial",
+    type: "Excel",
+    url: "/documents/atf/financial-budget-format.xlsx",
+    size: "0.6 MB",
+    uploadDate: "2025-01-10",
+    downloads: 312,
+    isActive: true,
+    description: "Updated financial budget preparation format",
+  },
+  {
+    id: "atf-doc-14",
+    title: "Procurement Plan",
+    category: "Project Planning",
+    type: "Word",
+    url: "/documents/atf/procurement-plan.docx",
+    size: "0.7 MB",
+    uploadDate: "2025-01-10",
+    downloads: 178,
+    isActive: true,
+    description: "Procurement planning template and guidelines",
+  },
+];
+
 export const contactInfo = {
   mainOffice: "+880-2-9129666",
   emergencyHotline: "+880-1700-000000 (24/7)",
@@ -507,7 +692,6 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Supporting research initiatives focused on pandemic preparedness and response capabilities",
     sppFormat: "SPP Format W-1",
-    deadline: "March 31, 2025",
     status: "Open",
   },
   {
@@ -521,7 +705,6 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Enhancing physical and digital infrastructure for improved teaching and learning experiences",
     sppFormat: "SPP Format W-2",
-    deadline: "April 15, 2025",
     status: "Open",
   },
   {
@@ -536,7 +719,6 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Supporting advanced research across priority academic disciplines and emerging fields",
     sppFormat: "SPP Format W-3a",
-    deadline: "May 30, 2025",
     status: "Open",
   },
   {
@@ -552,7 +734,6 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Fostering collaboration between universities and industry for practical research applications",
     sppFormat: "SPP Format W-3b",
-    deadline: "June 15, 2025",
     status: "Open",
   },
   {
@@ -566,7 +747,6 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Creating physical spaces and facilities to support innovation and entrepreneurship",
     sppFormat: "SPP Format W-4",
-    deadline: "July 31, 2025",
     status: "Open",
   },
   {
@@ -580,7 +760,6 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Establishing offices to manage technology transfer and intellectual property commercialization",
     sppFormat: "SPP Format W-5",
-    deadline: "August 30, 2025",
     status: "Open",
   },
 ];

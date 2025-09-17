@@ -40,44 +40,62 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {/* Header */}
       <header className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Top Row - Logos */}
           <div className="flex justify-between items-center h-16">
-            {/* Logo */}
+            {/* HEAT Main Logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
-                <div className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-xl">
-                  HEAT
-                </div>
-                <span className="ml-3 text-xl font-semibold text-gray-900">
-                  Portfolio
-                </span>
+                <img
+                  src="https://heat.ugc.gov.bd/images/logo_4.png"
+                  alt="HEAT Logo"
+                  className="h-12 w-auto"
+                />
               </Link>
             </div>
 
+            {/* Partner Logos */}
+            <div className="flex items-center space-x-6">
+              <img
+                src="https://heat.ugc.gov.bd/images/logo_1.png"
+                alt="Partner Logo 1"
+                className="h-10 w-auto"
+              />
+              <img
+                src="https://heat.ugc.gov.bd/images/logo_2.png"
+                alt="Partner Logo 2"
+                className="h-10 w-auto"
+              />
+              <img
+                src="https://heat.ugc.gov.bd/images/logo_3.png"
+                alt="Partner Logo 3"
+                className="h-10 w-auto"
+              />
+            </div>
+          </div>
+
+          {/* Bottom Row - Navigation */}
+          <div className="flex justify-center items-center h-12 border-t border-gray-100">
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-8">
               {navigation.map((item) => (
                 <div key={item.name} className="relative">
                   {item.children ? (
-                    <div className="relative group">
-                      <button
-                        className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
-                        onMouseEnter={() => setIsComponentsOpen(true)}
-                        onMouseLeave={() => setIsComponentsOpen(false)}
-                      >
+                    <div
+                      className="relative group"
+                      onMouseEnter={() => setIsComponentsOpen(true)}
+                      onMouseLeave={() => setIsComponentsOpen(false)}
+                    >
+                      <button className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
                         {item.name}
                         <ChevronDown className="ml-1 h-4 w-4" />
                       </button>
                       {isComponentsOpen && (
-                        <div
-                          className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-50"
-                          onMouseEnter={() => setIsComponentsOpen(true)}
-                          onMouseLeave={() => setIsComponentsOpen(false)}
-                        >
+                        <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-100">
                           {item.children.map((child) => (
                             <Link
                               key={child.name}
                               href={child.href}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                             >
                               {child.name}
                             </Link>
@@ -186,7 +204,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <span className="ml-3 text-xl font-semibold">Portfolio</span>
               </div>
               <p className="text-gray-300 mb-4">
-               {` Higher Education Acceleration and Transformation (HEAT) -
+                {` Higher Education Acceleration and Transformation (HEAT) -
                 Transforming Bangladesh's Higher Education Through Strategic
                 Development`}
               </p>

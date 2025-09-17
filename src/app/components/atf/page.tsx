@@ -8,10 +8,9 @@ import {
   CheckCircle,
   Target,
   Download,
-  Calendar,
   FileText,
 } from "lucide-react";
-import { atfWindows, supportingDocuments } from "@/data/demoData";
+import { atfWindows, atfSupportingDocuments } from "@/data/demoData";
 
 export default function ATF() {
   const getStatusColor = (status: string) => {
@@ -183,13 +182,6 @@ export default function ATF() {
                     Download
                   </button>
                 </div>
-
-                {window.deadline && (
-                  <div className="mt-3 flex items-center text-sm text-gray-600">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    <span>Deadline: {window.deadline}</span>
-                  </div>
-                )}
               </div>
             ))}
           </div>
@@ -207,36 +199,91 @@ export default function ATF() {
               Essential documents and templates for ATF applications
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {supportingDocuments.map((doc) => (
-              <div
-                key={doc.id}
-                className="bg-gray-50 rounded-lg p-4 hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div className="flex items-center">
-                    <FileText className="h-8 w-8 text-blue-600 mr-3" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-sm">
-                        {doc.title}
-                      </h3>
-                      <p className="text-xs text-gray-600">
-                        {doc.type} • {doc.size}
-                      </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {atfSupportingDocuments
+              .filter((doc) => doc.isActive)
+              .map((doc) => (
+                <div
+                  key={doc.id}
+                  className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow border border-gray-100"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center">
+                      {doc.type === "PDF" && (
+                        <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                          <FileText className="h-5 w-5 text-red-600" />
+                        </div>
+                      )}
+                      {doc.type === "Word" && (
+                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                          <FileText className="h-5 w-5 text-blue-600" />
+                        </div>
+                      )}
+                      {doc.type === "Excel" && (
+                        <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                          <FileText className="h-5 w-5 text-green-600" />
+                        </div>
+                      )}
+                      {doc.type === "PowerPoint" && (
+                        <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                          <FileText className="h-5 w-5 text-orange-600" />
+                        </div>
+                      )}
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-gray-900 text-sm mb-1">
+                          {doc.title}
+                        </h3>
+                        <div className="text-xs text-gray-600">
+                          {doc.type} • {doc.size}
+                        </div>
+                      </div>
                     </div>
                   </div>
+
+                  {doc.description && (
+                    <p className="text-xs text-gray-600 mb-3 line-clamp-2">
+                      {doc.description}
+                    </p>
+                  )}
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-gray-500">
+                      Uploaded: {new Date(doc.uploadDate).toLocaleDateString()}
+                    </span>
+                    <button className="bg-blue-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-blue-700 transition-colors">
+                      <Download className="h-3 w-3 inline mr-1" />
+                      Download
+                    </button>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-500">
-                    {doc.downloads} downloads
-                  </span>
-                  <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                    <Download className="h-4 w-4 inline mr-1" />
-                    Download
-                  </button>
-                </div>
-              </div>
-            ))}
+              ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Submission Section */}
+      <section className="py-16 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="bg-white border border-blue-200 rounded-lg p-8 max-w-2xl mx-auto shadow-sm">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                Ready to Submit Your ATF Proposal?
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Access the official ATF submission portal to submit your
+                proposal and track your application status.
+              </p>
+              <a
+                href="https://cfp4atf-heat.bdren.net.bd/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg"
+              >
+                <Target className="h-6 w-6 mr-3" />
+                Submit ATF Proposal
+              </a>
+            </div>
           </div>
         </div>
       </section>
