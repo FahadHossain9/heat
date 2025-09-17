@@ -1,9 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import { Mail, MapPin, Phone, Award } from "lucide-react";
 import { projectLeadership, wings, contactInfo } from "@/data/demoData";
 
 export default function Officials() {
+  const [activeWing, setActiveWing] = useState(0);
+
+  // Separate PD/DPD from other leadership
+  const pdAndDpd = projectLeadership.filter(
+    (official) => 
+      official.position.includes("Project Director") || 
+      official.position.includes("Deputy Project Director")
+  );
+
+  const otherLeadership = projectLeadership.filter(
+    (official) => 
+      !official.position.includes("Project Director") && 
+      !official.position.includes("Deputy Project Director")
+  );
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -21,63 +36,66 @@ export default function Officials() {
         </div>
       </section>
 
-      {/* Project Leadership */}
+      {/* Project Director & Deputy Project Director */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Project Leadership Team
+              Project Leadership
             </h2>
+            <p className="text-lg text-gray-600">
+              Leading the HEAT project transformation
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projectLeadership.map((official, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {pdAndDpd.map((official, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 hover:shadow-lg transition-shadow border border-blue-200"
               >
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white text-2xl font-bold">
+                  <div className="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span className="text-white text-3xl font-bold">
                       {official.name
                         .split(" ")
                         .map((n) => n[0])
                         .join("")}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
                     {official.name}
                   </h3>
-                  <p className="text-blue-600 font-semibold mb-3">
+                  <p className="text-blue-700 font-semibold text-lg mb-4">
                     {official.position}
                   </p>
 
                   {official.background && (
-                    <p className="text-sm text-gray-600 mb-3">
+                    <p className="text-sm text-gray-700 mb-4">
                       {official.background}
                     </p>
                   )}
 
                   {official.specialization && (
-                    <p className="text-sm text-gray-600 mb-3">
+                    <p className="text-sm text-gray-700 mb-3">
                       <strong>Specialization:</strong> {official.specialization}
                     </p>
                   )}
 
                   {official.experience && (
-                    <p className="text-sm text-gray-600 mb-3">
+                    <p className="text-sm text-gray-700 mb-3">
                       <strong>Experience:</strong> {official.experience}
                     </p>
                   )}
 
                   {official.office && (
-                    <div className="flex items-center justify-center text-sm text-gray-600 mb-3">
+                    <div className="flex items-center justify-center text-sm text-gray-700 mb-3">
                       <MapPin className="h-4 w-4 mr-1" />
                       <span>{official.office}</span>
                     </div>
                   )}
 
-                  <div className="flex items-center justify-center text-sm text-blue-600">
-                    <Mail className="h-4 w-4 mr-1" />
+                  <div className="flex items-center justify-center text-sm text-blue-700 font-medium">
+                    <Mail className="h-4 w-4 mr-2" />
                     <span>{official.email}</span>
                   </div>
                 </div>
@@ -87,7 +105,7 @@ export default function Officials() {
         </div>
       </section>
 
-      {/* Wing Structure */}
+      {/* Wing Structure with Tabs */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -95,70 +113,94 @@ export default function Officials() {
               Wing-Based Organization
             </h2>
             <p className="text-lg text-gray-600">
-              Seven specialized wings managing different aspects of the HEAT
-              project
+              Seven specialized wings managing different aspects of the HEAT project
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {wings.map((wing, index) => (
-              <div
-                key={index}
-                className={`${wing.color} rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow`}
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="text-3xl">{wing.icon}</div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      {wing.name}
-                    </h3>
-                    <p className="text-sm text-gray-700 mb-4">
-                      {wing.description}
-                    </p>
 
-                    {wing.officials.map((official, officialIndex) => (
-                      <div
-                        key={officialIndex}
-                        className="bg-white rounded-lg p-4 mb-3"
-                      >
-                        <h4 className="font-semibold text-gray-900 mb-1">
-                          {official.name}
-                        </h4>
-                        <p className="text-blue-600 font-medium mb-2">
-                          {official.position}
-                        </p>
+          {/* Wing Tabs */}
+          <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+            {/* Tab Navigation */}
+            <div className="border-b border-gray-200">
+              <nav className="flex overflow-x-auto">
+                {wings.map((wing, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveWing(index)}
+                    className={`flex-shrink-0 px-6 py-4 text-sm font-medium border-b-2 transition-colors ${
+                      activeWing === index
+                        ? "border-blue-500 text-blue-600 bg-blue-50"
+                        : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                    }`}
+                  >
+                    <span className="mr-2">{wing.icon}</span>
+                    {wing.name}
+                  </button>
+                ))}
+              </nav>
+            </div>
 
-                        {official.specialization && (
-                          <p className="text-sm text-gray-600 mb-2">
-                            <strong>Specialization:</strong>{" "}
-                            {official.specialization}
-                          </p>
-                        )}
-
-                        {official.experience && (
-                          <p className="text-sm text-gray-600 mb-2">
-                            <strong>Experience:</strong> {official.experience}
-                          </p>
-                        )}
-
-                        <div className="flex items-center text-sm text-blue-600">
-                          <Mail className="h-4 w-4 mr-1" />
-                          <span>{official.email}</span>
-                        </div>
-
-                        {official.phone && (
-                          <div className="flex items-center text-sm text-gray-600 mt-1">
-                            <Phone className="h-4 w-4 mr-1" />
-                            <span>{official.phone}</span>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+            {/* Tab Content */}
+            <div className="p-6">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {wings[activeWing].name}
+                </h3>
+                <p className="text-gray-600">
+                  {wings[activeWing].description}
+                </p>
               </div>
-            ))}
+
+              {/* Wing Officials */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {wings[activeWing].officials.map((official, officialIndex) => (
+                  <div
+                    key={officialIndex}
+                    className="bg-gray-50 rounded-lg p-6 hover:shadow-md transition-shadow border border-gray-100"
+                  >
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-white text-lg font-bold">
+                          {official.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </span>
+                      </div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-1">
+                        {official.name}
+                      </h4>
+                      <p className="text-blue-600 font-medium mb-3">
+                        {official.position}
+                      </p>
+
+                      {official.specialization && (
+                        <p className="text-sm text-gray-600 mb-2">
+                          <strong>Specialization:</strong> {official.specialization}
+                        </p>
+                      )}
+
+                      {official.experience && (
+                        <p className="text-sm text-gray-600 mb-2">
+                          <strong>Experience:</strong> {official.experience}
+                        </p>
+                      )}
+
+                      <div className="flex items-center justify-center text-sm text-blue-600 mb-2">
+                        <Mail className="h-4 w-4 mr-1" />
+                        <span>{official.email}</span>
+                      </div>
+
+                      {official.phone && (
+                        <div className="flex items-center justify-center text-sm text-gray-600">
+                          <Phone className="h-4 w-4 mr-1" />
+                          <span>{official.phone}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

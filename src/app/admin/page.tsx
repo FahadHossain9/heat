@@ -23,6 +23,7 @@ import {
   wingStructure,
   atfSupportingDocuments,
   recentCirculars,
+  contactInfo,
 } from "@/data/demoData";
 
 export default function Admin() {
@@ -36,6 +37,7 @@ export default function Admin() {
     { id: "events", name: "Events", icon: Calendar },
     { id: "circulars", name: "Circulars", icon: FileText },
     { id: "wings", name: "Wing Management", icon: Users },
+    { id: "contact", name: "Contact Management", icon: FileText },
   ];
 
   const renderDashboard = () => (
@@ -246,6 +248,16 @@ export default function Admin() {
     phone: "",
     wing: "",
     background: "",
+  });
+
+  // Contact Management State
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [contactDetails, setContactDetails] = useState({
+    mainOffice: contactInfo.mainOffice,
+    emergencyHotline: contactInfo.emergencyHotline,
+    email: contactInfo.email,
+    address: contactInfo.address,
+    officeHours: contactInfo.officeHours,
   });
 
   const renderATFManagement = () => null; // Removed function
@@ -1065,7 +1077,9 @@ export default function Admin() {
   const renderATFDocumentManagementNew = () => (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">ATF Supporting Documents</h2>
+        <h2 className="text-2xl font-bold text-gray-900">
+          ATF Supporting Documents
+        </h2>
         <button
           onClick={() => setShowAddNoticeModal(true)}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
@@ -1132,7 +1146,9 @@ export default function Admin() {
   const renderCircularManagement = () => (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">Circular Management</h2>
+        <h2 className="text-2xl font-bold text-gray-900">
+          Circular Management
+        </h2>
         <button
           onClick={() => setShowAddCircularModal(true)}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
@@ -1189,9 +1205,13 @@ export default function Admin() {
                     {circular.authority}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      circular.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                    }`}>
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                        circular.status === "Active"
+                          ? "bg-green-100 text-green-800"
+                          : "bg-gray-100 text-gray-800"
+                      }`}
+                    >
                       {circular.status}
                     </span>
                   </td>
@@ -1215,6 +1235,166 @@ export default function Admin() {
     </div>
   );
 
+  const renderContactManagement = () => (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold text-gray-900">
+          Contact Information Management
+        </h2>
+        <button
+          onClick={() => setShowContactModal(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+        >
+          <Edit className="h-4 w-4 inline mr-2" />
+          Edit Contact Details
+        </button>
+      </div>
+
+      <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Main Office
+              </h3>
+              <p className="text-gray-600">{contactDetails.mainOffice}</p>
+            </div>
+
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Emergency Hotline
+              </h3>
+              <p className="text-gray-600">{contactDetails.emergencyHotline}</p>
+            </div>
+
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Email
+              </h3>
+              <p className="text-gray-600">{contactDetails.email}</p>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Address
+              </h3>
+              <p className="text-gray-600">{contactDetails.address}</p>
+            </div>
+
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Office Hours
+              </h3>
+              <p className="text-gray-600">{contactDetails.officeHours}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Edit Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <h3 className="text-lg font-semibold text-gray-900 mb-6">
+              Edit Contact Information
+            </h3>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Main Office
+                </label>
+                <input
+                  type="text"
+                  value={contactDetails.mainOffice}
+                  onChange={(e) =>
+                    setContactDetails({ ...contactDetails, mainOffice: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Emergency Hotline
+                </label>
+                <input
+                  type="text"
+                  value={contactDetails.emergencyHotline}
+                  onChange={(e) =>
+                    setContactDetails({ ...contactDetails, emergencyHotline: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  value={contactDetails.email}
+                  onChange={(e) =>
+                    setContactDetails({ ...contactDetails, email: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Address
+                </label>
+                <textarea
+                  value={contactDetails.address}
+                  onChange={(e) =>
+                    setContactDetails({ ...contactDetails, address: e.target.value })
+                  }
+                  rows={3}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Office Hours
+                </label>
+                <input
+                  type="text"
+                  value={contactDetails.officeHours}
+                  onChange={(e) =>
+                    setContactDetails({ ...contactDetails, officeHours: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-end space-x-3 mt-6">
+              <button
+                onClick={() => setShowContactModal(false)}
+                className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => {
+                  // Handle contact update logic here
+                  setShowContactModal(false);
+                }}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
   const renderTabContent = () => {
     switch (activeTab) {
       case "dashboard":
@@ -1231,6 +1411,8 @@ export default function Admin() {
         return renderCircularManagement();
       case "wings":
         return renderWingManagement();
+      case "contact":
+        return renderContactManagement();
       default:
         return renderDashboard();
     }
