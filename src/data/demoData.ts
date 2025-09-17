@@ -28,23 +28,28 @@ export interface NewsItem {
 }
 
 export interface EventItem {
-  title: string;
+  id: string;
+  name: string;
+  description: string;
   date: string;
+  image: string;
   location: string;
   status: string;
   type?: string;
-  description?: string;
   registration?: string;
   capacity?: string;
+  title?: string;
 }
 
 export interface Notice {
   id: string;
-  title: string;
+  name: string;
+  description: string;
+  date: string;
+  pdf: string;
   priority: "Critical" | "Important" | "General";
   category: string;
-  date: string;
-  content: string;
+  content?: string;
   featured?: boolean;
 }
 
@@ -230,20 +235,29 @@ export const latestNews: NewsItem[] = [
 
 export const upcomingEvents: EventItem[] = [
   {
-    title: "Digital Learning Excellence Conference 2025",
+    id: "3",
+    name: "Digital Learning Excellence Conference 2025",
+    description: "International conference on digital transformation in higher education",
     date: "March 25-27, 2025",
+    image: "/images/events/digital-learning-conference.jpg",
     location: "Dhaka University",
     status: "Registration Open",
   },
   {
-    title: "Faculty Development Intensive Workshop",
+    id: "4",
+    name: "Faculty Development Intensive Workshop",
+    description: "Comprehensive training program for university faculty",
     date: "April 15-20, 2025",
+    image: "/images/events/faculty-workshop.jpg",
     location: "BUET, Dhaka",
     status: "Applications Under Review",
   },
   {
-    title: "Network Infrastructure Summit",
+    id: "5",
+    name: "Network Infrastructure Summit",
+    description: "Technical summit on network infrastructure and connectivity",
     date: "May 10-12, 2025",
+    image: "/images/events/network-summit.jpg",
     location: "Chittagong University",
     status: "Coming Soon",
   },
@@ -303,30 +317,30 @@ export const strategicObjectives: Objective[] = [
 export const notices: Notice[] = [
   {
     id: "1",
-    title: "Network Maintenance Schedule - March 15, 2025",
+    name: "Network Maintenance Schedule - March 15, 2025",
+    description: "Scheduled maintenance of core network infrastructure will occur on March 15, 2025, from 2:00 AM to 4:00 AM. Universities may experience temporary connectivity issues during this period. Emergency support will be available at +880-1700-000000.",
+    date: "March 10, 2025",
+    pdf: "/documents/notices/network-maintenance-march-2025.pdf",
     priority: "Critical",
     category: "Infrastructure",
-    date: "March 10, 2025",
-    content:
-      "Scheduled maintenance of core network infrastructure will occur on March 15, 2025, from 2:00 AM to 4:00 AM. Universities may experience temporary connectivity issues during this period. Emergency support will be available at +880-1700-000000.",
   },
   {
     id: "2",
-    title: "New Training Program Registration Open",
+    name: "New Training Program Registration Open",
+    description: "Applications are now open for the Advanced Faculty Development Program starting April 2025. Registration deadline: March 30, 2025. Limited seats available.",
+    date: "March 8, 2025",
+    pdf: "/documents/notices/training-program-registration.pdf",
     priority: "Important",
     category: "Training",
-    date: "March 8, 2025",
-    content:
-      "Applications are now open for the Advanced Faculty Development Program starting April 2025. Registration deadline: March 30, 2025. Limited seats available.",
   },
   {
     id: "3",
-    title: "HEAT Annual Report 2024 Published",
+    name: "HEAT Annual Report 2024 Published",
+    description: "The comprehensive annual report highlighting HEAT project achievements and impact for 2024 is now available for download.",
+    date: "March 5, 2025",
+    pdf: "/documents/notices/heat-annual-report-2024.pdf",
     priority: "General",
     category: "Documentation",
-    date: "March 5, 2025",
-    content:
-      "The comprehensive annual report highlighting HEAT project achievements and impact for 2024 is now available for download.",
   },
 ];
 
@@ -338,25 +352,27 @@ export const eventCategories = {
   Seminar: 15,
 };
 
-export const featuredEvents = [
+export const featuredEvents: EventItem[] = [
   {
-    title: "Digital Learning Excellence Conference 2025",
-    type: "Conference",
+    id: "1",
+    name: "Digital Learning Excellence Conference 2025",
+    description: "Three-day international conference featuring leading experts in digital transformation of higher education",
     date: "March 25-27, 2025",
+    image: "/images/events/digital-learning-conference-2025.jpg",
     location: "Dhaka University",
-    venue: "TSC Auditorium Complex",
-    description:
-      "Three-day international conference featuring leading experts in digital transformation of higher education",
+    status: "Registration Open",
+    type: "Conference",
     registration: "Open (245/300 registered)",
-    deadline: "March 20, 2025",
   },
   {
-    title: "Faculty Development Intensive Workshop",
-    type: "Workshop",
+    id: "2",
+    name: "Faculty Development Intensive Workshop",
+    description: "Five-day intensive professional development program for university faculty members",
     date: "April 15-20, 2025",
+    image: "/images/events/faculty-development-workshop.jpg",
     location: "BUET, Dhaka",
-    venue: "Department of CSE",
-    description: "Five-day intensive professional development program",
+    status: "Applications Under Review",
+    type: "Workshop",
     registration: "Applications Under Review",
     capacity: "50 participants",
   },

@@ -123,44 +123,40 @@ export default function Events() {
             </h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {featuredEvents.map((event, index) => (
+            {featuredEvents.map((event) => (
               <div
-                key={index}
-                className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                key={event.id}
+                className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden"
               >
+                {/* Event Image */}
+                <div className="h-48 bg-gray-200">
+                  <img
+                    src={event.image}
+                    alt={event.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "https://via.placeholder.com/400x200/4F46E5/FFFFFF?text=Event+Image";
+                    }}
+                  />
+                </div>
+                
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">
                       {event.type}
                     </span>
                     <div className="flex items-center space-x-2">
-                      {getStatusIcon(
-                        event.registration.includes("Open")
-                          ? "Open"
-                          : event.registration.includes("Under Review")
-                          ? "Applications Under Review"
-                          : "Coming Soon"
-                      )}
+                      {getStatusIcon(event.status)}
                       <span
-                        className={`text-sm font-semibold px-2 py-1 rounded-full ${getStatusColor(
-                          event.registration.includes("Open")
-                            ? "Open"
-                            : event.registration.includes("Under Review")
-                            ? "Applications Under Review"
-                            : "Coming Soon"
-                        )}`}
+                        className={`text-sm font-semibold px-2 py-1 rounded-full ${getStatusColor(event.status)}`}
                       >
-                        {event.registration.includes("Open")
-                          ? "Open"
-                          : event.registration.includes("Under Review")
-                          ? "Under Review"
-                          : "Coming Soon"}
+                        {event.status}
                       </span>
                     </div>
                   </div>
 
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {event.title}
+                    {event.name}
                   </h3>
 
                   <div className="space-y-3 mb-4">
@@ -172,10 +168,6 @@ export default function Events() {
                       <MapPin className="h-4 w-4 mr-2" />
                       <span>{event.location}</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
-                      <MapPin className="h-4 w-4 mr-2" />
-                      <span>{event.venue}</span>
-                    </div>
                   </div>
 
                   <p className="text-gray-700 mb-4">{event.description}</p>
@@ -184,9 +176,9 @@ export default function Events() {
                     <div className="text-sm text-gray-600">
                       {event.registration}
                     </div>
-                    {event.deadline && (
+                    {event.capacity && (
                       <div className="text-sm text-gray-500">
-                        Deadline: {event.deadline}
+                        Capacity: {event.capacity}
                       </div>
                     )}
                   </div>

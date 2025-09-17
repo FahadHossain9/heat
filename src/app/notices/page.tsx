@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, AlertCircle, Clock, FileText } from "lucide-react";
+import { Search, AlertCircle, Clock, FileText, Download } from "lucide-react";
 import { notices } from "@/data/demoData";
 
 export default function Notices() {
@@ -11,8 +11,8 @@ export default function Notices() {
 
   const filteredNotices = notices.filter((notice) => {
     const matchesSearch =
-      notice.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      notice.content.toLowerCase().includes(searchTerm.toLowerCase());
+      notice.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      notice.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesPriority =
       priorityFilter === "All Priorities" || notice.priority === priorityFilter;
     const matchesCategory =
@@ -181,11 +181,24 @@ export default function Notices() {
                           </span>
                         </div>
                         <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                          {notice.title}
+                          {notice.name}
                         </h3>
-                        <p className="text-gray-700 leading-relaxed">
-                          {notice.content}
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                          {notice.description}
                         </p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm text-gray-500">
+                            Published: {notice.date}
+                          </span>
+                          <a
+                            href={notice.pdf}
+                            download
+                            className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+                          >
+                            <Download className="h-4 w-4 mr-2" />
+                            Download PDF
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>

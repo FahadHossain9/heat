@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import {
-  Settings,
   Users,
   FileText,
   BarChart3,
-  Upload,
   Edit,
   Trash2,
   Plus,
@@ -14,10 +12,11 @@ import {
   Calendar,
   Eye,
   Download,
+  Upload,
   ToggleLeft,
   ToggleRight,
 } from "lucide-react";
-import { atfSupportingDocuments, wings, wingStructure } from "@/data/demoData";
+import { notices, featuredEvents, wings, wingStructure, atfSupportingDocuments } from "@/data/demoData";
 
 export default function Admin() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -25,12 +24,9 @@ export default function Admin() {
   const tabs = [
     { id: "dashboard", name: "Dashboard", icon: BarChart3 },
     { id: "content", name: "Content Management", icon: FileText },
-    { id: "atf", name: "ATF Management", icon: Settings },
-    { id: "atf-docs", name: "ATF Documents", icon: FileText },
     { id: "notices", name: "Notices", icon: FileText },
     { id: "events", name: "Events", icon: Calendar },
     { id: "wings", name: "Wing Management", icon: Users },
-    { id: "documents", name: "Documents", icon: Upload },
   ];
 
   const renderDashboard = () => (
@@ -193,11 +189,32 @@ export default function Admin() {
     </div>
   );
 
-  const [showAddFileModal, setShowAddFileModal] = useState(false);
-  const [newFile, setNewFile] = useState({
+  // Notice Management State
+  const [showAddNoticeModal, setShowAddNoticeModal] = useState(false);
+  const [newNotice, setNewNotice] = useState({
     name: "",
-    file: null as File | null,
+    description: "",
+    date: "",
+    pdf: null as File | null,
+    priority: "General" as "Critical" | "Important" | "General",
+    category: "",
   });
+
+  // Event Management State
+  const [showAddEventModal, setShowAddEventModal] = useState(false);
+  const [newEvent, setNewEvent] = useState({
+    name: "",
+    description: "",
+    date: "",
+    image: null as File | null,
+    location: "",
+    status: "Coming Soon",
+    type: "",
+    registration: "",
+    capacity: "",
+  });
+
+  // Wing Management State
   const [showAddWingModal, setShowAddWingModal] = useState(false);
   const [showAddWingPersonModal, setShowAddWingPersonModal] = useState(false);
   const [newWing, setNewWing] = useState({ name: "", description: "" });
@@ -210,14 +227,15 @@ export default function Admin() {
     background: "",
   });
 
-  const renderATFManagement = () => (
+  const renderATFManagement = () => null; // Removed function
+  const renderATFManagementOld = () => (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-900">
           ATF Supporting Files
         </h2>
         <button
-          onClick={() => setShowAddFileModal(true)}
+          onClick={() => setShowAddNoticeModal(true)}
           className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
         >
           <Plus className="h-4 w-4 inline mr-2" />
@@ -269,7 +287,7 @@ export default function Admin() {
       </div>
 
       {/* Add File Modal */}
-      {showAddFileModal && (
+      {showAddNoticeModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-md">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
@@ -282,9 +300,9 @@ export default function Admin() {
                 </label>
                 <input
                   type="text"
-                  value={newFile.name}
+                  value={newNotice.name}
                   onChange={(e) =>
-                    setNewFile({ ...newFile, name: e.target.value })
+                    setNewNotice({ ...newNotice, name: e.target.value })
                   }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter file name"
@@ -297,9 +315,9 @@ export default function Admin() {
                 <input
                   type="file"
                   onChange={(e) =>
-                    setNewFile({
-                      ...newFile,
-                      file: e.target.files?.[0] || null,
+                    setNewNotice({
+                      ...newNotice,
+                      pdf: e.target.files?.[0] || null,
                     })
                   }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -308,7 +326,7 @@ export default function Admin() {
             </div>
             <div className="flex justify-end space-x-3 mt-6">
               <button
-                onClick={() => setShowAddFileModal(false)}
+                onClick={() => setShowAddNoticeModal(false)}
                 className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
               >
                 Cancel
@@ -316,8 +334,8 @@ export default function Admin() {
               <button
                 onClick={() => {
                   // Handle file upload logic here
-                  setShowAddFileModal(false);
-                  setNewFile({ name: "", file: null });
+                  setShowAddNoticeModal(false);
+                  setNewNotice({ name: "", description: "", date: "", pdf: null, priority: "General", category: "" });
                 }}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
               >
@@ -833,20 +851,192 @@ export default function Admin() {
     </div>
   );
 
+  const renderNoticesManagement = () => (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold text-gray-900">Notices Management</h2>
+        <button
+          onClick={() => setShowAddNoticeModal(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+        >
+          <Plus className="h-4 w-4 inline mr-2" />
+          Add Notice
+        </button>
+      </div>
+      
+      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Notice
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Category
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Priority
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Date
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {notices.map((notice) => (
+                <tr key={notice.id}>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div>
+                      <div className="text-sm font-medium text-gray-900">
+                        {notice.name}
+                      </div>
+                      <div className="text-sm text-gray-500 truncate max-w-xs">
+                        {notice.description}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                      {notice.category}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                      notice.priority === 'Critical' ? 'bg-red-100 text-red-800' :
+                      notice.priority === 'Important' ? 'bg-orange-100 text-orange-800' :
+                      'bg-blue-100 text-blue-800'
+                    }`}>
+                      {notice.priority}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {notice.date}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button className="text-blue-600 hover:text-blue-900 mr-3">
+                      <Edit className="h-4 w-4" />
+                    </button>
+                    <button className="text-red-600 hover:text-red-900">
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderEventsManagement = () => (
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold text-gray-900">Events Management</h2>
+        <button
+          onClick={() => setShowAddEventModal(true)}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+        >
+          <Plus className="h-4 w-4 inline mr-2" />
+          Add Event
+        </button>
+      </div>
+      
+      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Event
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Type
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Date
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Status
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {featuredEvents.map((event) => (
+                <tr key={event.id}>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="flex items-center">
+                      <img
+                        className="h-10 w-10 rounded-lg object-cover mr-3"
+                        src={event.image}
+                        alt={event.name}
+                        onError={(e) => {
+                          e.currentTarget.src = "https://via.placeholder.com/40x40/4F46E5/FFFFFF?text=E";
+                        }}
+                      />
+                      <div>
+                        <div className="text-sm font-medium text-gray-900">
+                          {event.name}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {event.location}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">
+                      {event.type}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {event.date}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                      event.status === 'Registration Open' ? 'bg-green-100 text-green-800' :
+                      event.status === 'Applications Under Review' ? 'bg-yellow-100 text-yellow-800' :
+                      'bg-blue-100 text-blue-800'
+                    }`}>
+                      {event.status}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button className="text-blue-600 hover:text-blue-900 mr-3">
+                      <Edit className="h-4 w-4" />
+                    </button>
+                    <button className="text-red-600 hover:text-red-900">
+                      <Trash2 className="h-4 w-4" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+
   const renderTabContent = () => {
     switch (activeTab) {
       case "dashboard":
         return renderDashboard();
       case "content":
         return renderContentManagement();
-      case "atf":
-        return renderATFManagement();
-      case "atf-docs":
-        return renderATFDocumentManagement();
+      case "notices":
+        return renderNoticesManagement();
+      case "events":
+        return renderEventsManagement();
       case "wings":
         return renderWingManagement();
-      case "documents":
-        return renderDocumentManagement();
       default:
         return renderDashboard();
     }
