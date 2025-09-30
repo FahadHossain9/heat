@@ -28,9 +28,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         { name: "Emergency Response", href: "/components/emergency" },
       ],
     },
-    { name: "Notice", href: "/notices" },
-    { name: "Event", href: "/events" },
-    { name: "Circular", href: "/circulars" },
+    { name: "Notices", href: "/notices" },
+    { name: "Events", href: "/events" },
+    { name: "Tenders & Circulars", href: "/circulars" },
     { name: "Officials", href: "/officials" },
     { name: "Admin", href: "/admin" },
   ];
@@ -246,7 +246,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     href="/circulars"
                     className="text-gray-300 hover:text-white transition-colors"
                   >
-                    Circulars
+                    Tenders & Circulars
                   </Link>
                 </li>
               </ul>
