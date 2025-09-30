@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useParams } from "next/navigation";
 import {
   ArrowLeft,
   FileText,
@@ -17,7 +17,6 @@ import Link from "next/link";
 
 export default function CircularDetails() {
   const params = useParams();
-  const router = useRouter();
   const circularId = params.id as string;
 
   const circular = recentCirculars.find((c) => c.id === circularId);
@@ -31,7 +30,7 @@ export default function CircularDetails() {
             Circular Not Found
           </h1>
           <p className="text-gray-600 mb-6">
-            The circular you're looking for doesn't exist.
+            The circular you&apos;re looking for doesn&apos;t exist.
           </p>
           <Link
             href="/circulars"

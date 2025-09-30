@@ -18,7 +18,7 @@ export default function Training() {
       duration: "Short-term intensive programs",
       focus:
         "Teaching methodologies and pedagogical skills, Research techniques and supervision, Administrative and leadership skills",
-      participants: 2500,
+      participants: 5000,
       completionRate: 92,
       type: "Local",
     },

@@ -15,6 +15,7 @@ import {
   Upload,
   ToggleLeft,
   ToggleRight,
+  X,
 } from "lucide-react";
 import {
   notices,
@@ -218,23 +219,30 @@ export default function Admin() {
     description: "",
     date: "",
     image: null as File | null,
+    images: [] as File[],
     location: "",
     status: "Coming Soon",
     type: "",
     registration: "",
     capacity: "",
+    organizer: "",
+    contact: "",
+    agenda: [] as string[],
+    requirements: [] as string[],
   });
 
   // Circular Management State
   const [showAddCircularModal, setShowAddCircularModal] = useState(false);
   const [newCircular, setNewCircular] = useState({
-    number: "",
-    date: "",
-    subject: "",
+    type: "Circular" as "Tender" | "Circular" | "EOI" | "Notice",
+    name: "",
+    description: "",
+    deadline: "",
+    publishDate: "",
+    pdf: "",
     category: "",
     authority: "",
     status: "Active",
-    expiryDate: "",
   });
 
   // Wing Management State
@@ -983,14 +991,14 @@ export default function Admin() {
         <h2 className="text-2xl font-bold text-gray-900">Events Management</h2>
         <button
           onClick={() => setShowAddEventModal(true)}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+          className="btn-primary btn-icon"
         >
-          <Plus className="h-4 w-4 inline mr-2" />
-          Add Event
+          <Plus className="h-4 w-4 inline mr-2 flex-shrink-0" />
+          <span>Add Event</span>
         </button>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div className="card-enhanced overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
@@ -1143,97 +1151,122 @@ export default function Admin() {
     </div>
   );
 
-  const renderCircularManagement = () => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">
-          Circular Management
-        </h2>
-        <button
-          onClick={() => setShowAddCircularModal(true)}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-        >
-          <Plus className="h-4 w-4 inline mr-2" />
-          Add Circular
-        </button>
-      </div>
+  const renderCircularManagement = () => {
+    const isExpired = (deadline: string) => {
+      return new Date(deadline) < new Date();
+    };
 
-      <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Circular
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Category
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Authority
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Status
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Date
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {recentCirculars.map((circular) => (
-                <tr key={circular.id}>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div>
-                      <div className="text-sm font-medium text-gray-900">
-                        {circular.number}
-                      </div>
-                      <div className="text-sm text-gray-500 truncate max-w-xs">
-                        {circular.subject}
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
-                      {circular.category}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {circular.authority}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span
-                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                        circular.status === "Active"
-                          ? "bg-green-100 text-green-800"
-                          : "bg-gray-100 text-gray-800"
-                      }`}
-                    >
-                      {circular.status}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {circular.date}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button className="text-blue-600 hover:text-blue-900 mr-3">
-                      <Edit className="h-4 w-4" />
-                    </button>
-                    <button className="text-red-600 hover:text-red-900">
-                      <Trash2 className="h-4 w-4" />
-                    </button>
-                  </td>
+    return (
+      <div className="space-y-6">
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-bold text-gray-900">
+            Tenders & Circulars Management
+          </h2>
+          <button
+            onClick={() => setShowAddCircularModal(true)}
+            className="btn-primary btn-icon"
+          >
+            <Plus className="h-4 w-4 mr-2 flex-shrink-0" />
+            <span>Add Circular/Tender</span>
+          </button>
+        </div>
+
+        <div className="card-enhanced overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Type
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Name
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Deadline
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Status
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Category
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Actions
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {recentCirculars.map((circular) => {
+                  const expired = isExpired(circular.deadline);
+                  const currentStatus = expired ? "Expired" : circular.status;
+
+                  return (
+                    <tr key={circular.id}>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span
+                          className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                            circular.type === "Tender"
+                              ? "bg-purple-100 text-purple-800"
+                              : circular.type === "EOI"
+                              ? "bg-yellow-100 text-yellow-800"
+                              : circular.type === "Notice"
+                              ? "bg-orange-100 text-orange-800"
+                              : "bg-blue-100 text-blue-800"
+                          }`}
+                        >
+                          {circular.type}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4">
+                        <div>
+                          <div className="text-sm font-medium text-gray-900">
+                            {circular.name}
+                          </div>
+                          <div className="text-sm text-gray-500 truncate max-w-xs">
+                            {circular.description}
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {new Date(circular.deadline).toLocaleDateString()}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span
+                          className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                            currentStatus === "Active"
+                              ? "bg-green-100 text-green-800"
+                              : currentStatus === "Expired"
+                              ? "bg-red-100 text-red-800"
+                              : "bg-gray-100 text-gray-800"
+                          }`}
+                        >
+                          {currentStatus}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
+                          {circular.category}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button className="text-blue-600 hover:text-blue-900 mr-3">
+                          <Edit className="h-4 w-4" />
+                        </button>
+                        <button className="text-red-600 hover:text-red-900">
+                          <Trash2 className="h-4 w-4" />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   const renderContactManagement = () => (
     <div className="space-y-6">
@@ -1309,7 +1342,10 @@ export default function Admin() {
                   type="text"
                   value={contactDetails.mainOffice}
                   onChange={(e) =>
-                    setContactDetails({ ...contactDetails, mainOffice: e.target.value })
+                    setContactDetails({
+                      ...contactDetails,
+                      mainOffice: e.target.value,
+                    })
                   }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
@@ -1323,7 +1359,10 @@ export default function Admin() {
                   type="text"
                   value={contactDetails.emergencyHotline}
                   onChange={(e) =>
-                    setContactDetails({ ...contactDetails, emergencyHotline: e.target.value })
+                    setContactDetails({
+                      ...contactDetails,
+                      emergencyHotline: e.target.value,
+                    })
                   }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
@@ -1337,7 +1376,10 @@ export default function Admin() {
                   type="email"
                   value={contactDetails.email}
                   onChange={(e) =>
-                    setContactDetails({ ...contactDetails, email: e.target.value })
+                    setContactDetails({
+                      ...contactDetails,
+                      email: e.target.value,
+                    })
                   }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
@@ -1350,7 +1392,10 @@ export default function Admin() {
                 <textarea
                   value={contactDetails.address}
                   onChange={(e) =>
-                    setContactDetails({ ...contactDetails, address: e.target.value })
+                    setContactDetails({
+                      ...contactDetails,
+                      address: e.target.value,
+                    })
                   }
                   rows={3}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -1365,7 +1410,10 @@ export default function Admin() {
                   type="text"
                   value={contactDetails.officeHours}
                   onChange={(e) =>
-                    setContactDetails({ ...contactDetails, officeHours: e.target.value })
+                    setContactDetails({
+                      ...contactDetails,
+                      officeHours: e.target.value,
+                    })
                   }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
@@ -1450,6 +1498,495 @@ export default function Admin() {
         {/* Main Content */}
         <div className="flex-1 p-8">{renderTabContent()}</div>
       </div>
+
+      {/* Add Circular Modal */}
+      {showAddCircularModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Add New Circular/Tender
+              </h3>
+              <button
+                onClick={() => setShowAddCircularModal(false)}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Type
+                </label>
+                <select
+                  value={newCircular.type}
+                  onChange={(e) =>
+                    setNewCircular({
+                      ...newCircular,
+                      type: e.target.value as
+                        | "Tender"
+                        | "Circular"
+                        | "EOI"
+                        | "Notice",
+                    })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="Circular">Circular</option>
+                  <option value="Tender">Tender</option>
+                  <option value="EOI">Expression of Interest</option>
+                  <option value="Notice">Notice</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  value={newCircular.name}
+                  onChange={(e) =>
+                    setNewCircular({ ...newCircular, name: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Enter circular/tender name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Description
+                </label>
+                <textarea
+                  value={newCircular.description}
+                  onChange={(e) =>
+                    setNewCircular({
+                      ...newCircular,
+                      description: e.target.value,
+                    })
+                  }
+                  rows={3}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Enter description"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Deadline
+                  </label>
+                  <input
+                    type="date"
+                    value={newCircular.deadline}
+                    onChange={(e) =>
+                      setNewCircular({
+                        ...newCircular,
+                        deadline: e.target.value,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Publish Date
+                  </label>
+                  <input
+                    type="date"
+                    value={newCircular.publishDate}
+                    onChange={(e) =>
+                      setNewCircular({
+                        ...newCircular,
+                        publishDate: e.target.value,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  PDF File URL
+                </label>
+                <input
+                  type="url"
+                  value={newCircular.pdf}
+                  onChange={(e) =>
+                    setNewCircular({ ...newCircular, pdf: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder="Enter PDF file URL"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Category
+                  </label>
+                  <select
+                    value={newCircular.category}
+                    onChange={(e) =>
+                      setNewCircular({
+                        ...newCircular,
+                        category: e.target.value,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  >
+                    <option value="">Select Category</option>
+                    <option value="Administrative">Administrative</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Financial">Financial</option>
+                    <option value="Training">Training</option>
+                    <option value="Academic">Academic</option>
+                    <option value="HR">HR</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Authority
+                  </label>
+                  <input
+                    type="text"
+                    value={newCircular.authority}
+                    onChange={(e) =>
+                      setNewCircular({
+                        ...newCircular,
+                        authority: e.target.value,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="Issuing authority"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-end space-x-3 mt-6">
+              <button
+                onClick={() => setShowAddCircularModal(false)}
+                className="btn-secondary btn-icon"
+              >
+                <span>Cancel</span>
+              </button>
+              <button
+                onClick={() => {
+                  // Handle circular creation logic here
+                  console.log("New circular:", newCircular);
+                  setNewCircular({
+                    type: "Circular",
+                    name: "",
+                    description: "",
+                    deadline: "",
+                    publishDate: "",
+                    pdf: "",
+                    category: "",
+                    authority: "",
+                    status: "Active",
+                  });
+                  setShowAddCircularModal(false);
+                }}
+                className="btn-primary btn-icon"
+              >
+                <span>Add Circular/Tender</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Event Modal */}
+      {showAddEventModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-lg font-semibold text-gray-900">
+                Add New Event
+              </h3>
+              <button
+                onClick={() => setShowAddEventModal(false)}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Event Name
+                  </label>
+                  <input
+                    type="text"
+                    value={newEvent.name}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, name: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter event name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Description
+                  </label>
+                  <textarea
+                    value={newEvent.description}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, description: e.target.value })
+                    }
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter event description"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Date
+                  </label>
+                  <input
+                    type="text"
+                    value={newEvent.date}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, date: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="e.g., March 25-27, 2025"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Location
+                  </label>
+                  <input
+                    type="text"
+                    value={newEvent.location}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, location: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter event location"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Event Type
+                  </label>
+                  <select
+                    value={newEvent.type}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, type: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  >
+                    <option value="">Select event type</option>
+                    <option value="Conference">Conference</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Seminar">Seminar</option>
+                    <option value="Training">Training</option>
+                    <option value="Summit">Summit</option>
+                    <option value="Meeting">Meeting</option>
+                    <option value="Webinar">Webinar</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Status
+                  </label>
+                  <select
+                    value={newEvent.status}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, status: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  >
+                    <option value="Coming Soon">Coming Soon</option>
+                    <option value="Open">Open</option>
+                    <option value="Applications Under Review">
+                      Applications Under Review
+                    </option>
+                    <option value="Closed">Closed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Capacity
+                  </label>
+                  <input
+                    type="text"
+                    value={newEvent.capacity}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, capacity: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="e.g., 300 participants"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Registration Info
+                  </label>
+                  <input
+                    type="text"
+                    value={newEvent.registration}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, registration: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="e.g., Open (245/300 registered)"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Organizer
+                  </label>
+                  <input
+                    type="text"
+                    value={newEvent.organizer}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, organizer: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="e.g., HEAT Project & University"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Contact Email
+                  </label>
+                  <input
+                    type="email"
+                    value={newEvent.contact}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, contact: e.target.value })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="contact@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Main Event Image
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) =>
+                      setNewEvent({
+                        ...newEvent,
+                        image: e.target.files?.[0] || null,
+                      })
+                    }
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Additional Images (Multiple)
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={(e) => {
+                      const files = Array.from(e.target.files || []);
+                      setNewEvent({
+                        ...newEvent,
+                        images: [...newEvent.images, ...files],
+                      });
+                    }}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                  {newEvent.images.length > 0 && (
+                    <div className="mt-2">
+                      <p className="text-sm text-gray-600 mb-2">
+                        Selected images:
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {newEvent.images.map((file, index) => (
+                          <div
+                            key={index}
+                            className="bg-gray-100 px-2 py-1 rounded text-xs"
+                          >
+                            {file.name}
+                            <button
+                              onClick={() => {
+                                const newImages = newEvent.images.filter(
+                                  (_, i) => i !== index
+                                );
+                                setNewEvent({ ...newEvent, images: newImages });
+                              }}
+                              className="ml-1 text-red-600 hover:text-red-800"
+                            >
+                              ×
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-end space-x-3 mt-6">
+              <button
+                onClick={() => setShowAddEventModal(false)}
+                className="btn-secondary btn-icon"
+              >
+                <span>Cancel</span>
+              </button>
+              <button
+                onClick={() => {
+                  // Add event logic here
+                  setNewEvent({
+                    name: "",
+                    description: "",
+                    date: "",
+                    image: null,
+                    images: [],
+                    location: "",
+                    status: "Coming Soon",
+                    type: "",
+                    registration: "",
+                    capacity: "",
+                    organizer: "",
+                    contact: "",
+                    agenda: [],
+                    requirements: [],
+                  });
+                  setShowAddEventModal(false);
+                }}
+                className="btn-primary btn-icon"
+              >
+                <span>Add Event</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -9,14 +9,14 @@ export default function Officials() {
 
   // Separate PD/DPD from other leadership
   const pdAndDpd = projectLeadership.filter(
-    (official) => 
-      official.position.includes("Project Director") || 
+    (official) =>
+      official.position.includes("Project Director") ||
       official.position.includes("Deputy Project Director")
   );
 
   const otherLeadership = projectLeadership.filter(
-    (official) => 
-      !official.position.includes("Project Director") && 
+    (official) =>
+      !official.position.includes("Project Director") &&
       !official.position.includes("Deputy Project Director")
   );
   return (
@@ -113,7 +113,8 @@ export default function Officials() {
               Wing-Based Organization
             </h2>
             <p className="text-lg text-gray-600">
-              Seven specialized wings managing different aspects of the HEAT project
+              Seven specialized wings managing different aspects of the HEAT
+              project
             </p>
           </div>
 
@@ -145,9 +146,7 @@ export default function Officials() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   {wings[activeWing].name}
                 </h3>
-                <p className="text-gray-600">
-                  {wings[activeWing].description}
-                </p>
+                <p className="text-gray-600">{wings[activeWing].description}</p>
               </div>
 
               {/* Wing Officials */}
@@ -175,7 +174,8 @@ export default function Officials() {
 
                       {official.specialization && (
                         <p className="text-sm text-gray-600 mb-2">
-                          <strong>Specialization:</strong> {official.specialization}
+                          <strong>Specialization:</strong>{" "}
+                          {official.specialization}
                         </p>
                       )}
 

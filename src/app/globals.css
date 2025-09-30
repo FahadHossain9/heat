@@ -24,3 +24,209 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* HEAT Brand Colors */
+:root {
+  --heat-primary: #225E99;
+  --heat-secondary: #F24E4B;
+  --heat-primary-light: #4A7BB8;
+  --heat-primary-dark: #1A4A7A;
+  --heat-secondary-light: #FF6B68;
+  --heat-secondary-dark: #D63B3A;
+}
+
+/* Mesh Gradient Backgrounds with HEAT Colors - Static fallbacks */
+.mesh-gradient-primary {
+  background: linear-gradient(135deg, #225E99 0%, #4A7BB8 100%);
+}
+
+.mesh-gradient-secondary {
+  background: linear-gradient(135deg, #F24E4B 0%, #FF6B68 100%);
+}
+
+.mesh-gradient-success {
+  background: linear-gradient(135deg, #225E99 0%, #4A7BB8 100%);
+}
+
+.mesh-gradient-warning {
+  background: linear-gradient(135deg, #F24E4B 0%, #FF6B68 100%);
+}
+
+.mesh-gradient-info {
+  background: linear-gradient(135deg, #225E99 0%, #F24E4B 100%);
+}
+
+.mesh-gradient-dark {
+  background: linear-gradient(135deg, #1A4A7A 0%, #225E99 100%);
+}
+
+.mesh-gradient-hero {
+  background: linear-gradient(135deg, #225E99 0%, #4A7BB8 50%, #F24E4B 100%);
+}
+
+/* Animated gradients - only apply after hydration */
+@media (prefers-reduced-motion: no-preference) {
+  .mesh-gradient-primary.animate {
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  .mesh-gradient-secondary.animate {
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+  }
+
+  .mesh-gradient-success.animate {
+    background-size: 400% 400%;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  .mesh-gradient-warning.animate {
+    background-size: 400% 400%;
+    animation: gradientShift 7s ease infinite;
+  }
+
+  .mesh-gradient-info.animate {
+    background-size: 400% 400%;
+    animation: gradientShift 9s ease infinite;
+  }
+
+  .mesh-gradient-dark.animate {
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+  }
+
+  .mesh-gradient-hero.animate {
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Enhanced Button Styles with HEAT Colors */
+.btn-primary {
+  @apply px-6 py-3 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out whitespace-nowrap;
+  background: linear-gradient(135deg, var(--heat-primary) 0%, var(--heat-primary-light) 100%);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--heat-primary-dark) 0%, var(--heat-primary) 100%);
+}
+
+/* Animated button gradients - only after hydration */
+@media (prefers-reduced-motion: no-preference) {
+  .btn-primary.animate {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+}
+
+.btn-secondary {
+  @apply px-6 py-3 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out whitespace-nowrap;
+  background: linear-gradient(135deg, var(--heat-secondary) 0%, var(--heat-secondary-light) 100%);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, var(--heat-secondary-dark) 0%, var(--heat-secondary) 100%);
+}
+
+.btn-success {
+  @apply px-6 py-3 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out whitespace-nowrap;
+  background: linear-gradient(135deg, var(--heat-primary) 0%, var(--heat-primary-light) 100%);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, var(--heat-primary-dark) 0%, var(--heat-primary) 100%);
+}
+
+.btn-outline {
+  @apply px-6 py-3 border-2 font-semibold rounded-lg transform hover:scale-105 transition-all duration-300 ease-in-out whitespace-nowrap;
+  border-color: var(--heat-primary);
+  color: var(--heat-primary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--heat-primary);
+  color: white;
+}
+
+/* Button variants for different sizes */
+.btn-sm {
+  @apply px-3 py-2 text-sm;
+}
+
+.btn-lg {
+  @apply px-8 py-4 text-lg;
+}
+
+/* Icon buttons */
+.btn-icon {
+  @apply inline-flex items-center justify-center;
+}
+
+.btn-icon svg {
+  @apply flex-shrink-0;
+}
+
+/* Enhanced Card Styles */
+.card-enhanced {
+  @apply bg-white rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-in-out;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.card-enhanced:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Glassmorphism Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse Animation with HEAT Colors */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(34, 94, 153, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(34, 94, 153, 0.8);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}

@@ -33,12 +33,17 @@ export interface EventItem {
   description: string;
   date: string;
   image: string;
+  images: string[];
   location: string;
   status: string;
   type?: string;
   registration?: string;
   capacity?: string;
   title?: string;
+  organizer?: string;
+  contact?: string;
+  agenda?: string[];
+  requirements?: string[];
 }
 
 export interface Notice {
@@ -55,12 +60,15 @@ export interface Notice {
 
 export interface Circular {
   id: string;
-  number: string;
-  date: string;
-  subject: string;
+  type: "Tender" | "Circular" | "EOI" | "Notice";
+  name: string;
+  description: string;
+  deadline: string;
+  publishDate: string;
+  pdf: string;
   category: string;
-  authority: string;
   status: string;
+  authority: string;
   expiryDate?: string;
 }
 
@@ -175,7 +183,7 @@ export const componentCards: ComponentCard[] = [
   {
     title: "Training",
     subtitle: "Professional Development",
-    description: "Comprehensive faculty and staff training programs",
+    description: "",
     metric: "2,500+ Faculty Trained",
     link: "/components/training",
   },
@@ -241,6 +249,7 @@ export const upcomingEvents: EventItem[] = [
       "International conference on digital transformation in higher education",
     date: "March 25-27, 2025",
     image: "/images/events/digital-learning-conference.jpg",
+    images: ["/images/events/digital-learning-conference.jpg"],
     location: "Dhaka University",
     status: "Registration Open",
   },
@@ -250,6 +259,7 @@ export const upcomingEvents: EventItem[] = [
     description: "Comprehensive training program for university faculty",
     date: "April 15-20, 2025",
     image: "/images/events/faculty-workshop.jpg",
+    images: ["/images/events/faculty-workshop.jpg"],
     location: "BUET, Dhaka",
     status: "Applications Under Review",
   },
@@ -259,6 +269,7 @@ export const upcomingEvents: EventItem[] = [
     description: "Technical summit on network infrastructure and connectivity",
     date: "May 10-12, 2025",
     image: "/images/events/network-summit.jpg",
+    images: ["/images/events/network-summit.jpg"],
     location: "Chittagong University",
     status: "Coming Soon",
   },
@@ -322,7 +333,7 @@ export const notices: Notice[] = [
     description:
       "Scheduled maintenance of core network infrastructure will occur on March 15, 2025, from 2:00 AM to 4:00 AM. Universities may experience temporary connectivity issues during this period. Emergency support will be available at +880-1700-000000.",
     date: "March 10, 2025",
-    pdf: "/documents/notices/network-maintenance-march-2025.pdf",
+    pdf: "https://factoryze.s3.us-east-005.backblazeb2.com/dev/commpro/pdf/agreement-e0f5897a-bfeb-42f4-88d3-238a05829d75.pdf",
     priority: "Critical",
     category: "Infrastructure",
   },
@@ -332,7 +343,7 @@ export const notices: Notice[] = [
     description:
       "Applications are now open for the Advanced Faculty Development Program starting April 2025. Registration deadline: March 30, 2025. Limited seats available.",
     date: "March 8, 2025",
-    pdf: "/documents/notices/training-program-registration.pdf",
+    pdf: "https://factoryze.s3.us-east-005.backblazeb2.com/dev/commpro/pdf/agreement-e0f5897a-bfeb-42f4-88d3-238a05829d75.pdf",
     priority: "Important",
     category: "Training",
   },
@@ -342,7 +353,7 @@ export const notices: Notice[] = [
     description:
       "The comprehensive annual report highlighting HEAT project achievements and impact for 2024 is now available for download.",
     date: "March 5, 2025",
-    pdf: "/documents/notices/heat-annual-report-2024.pdf",
+    pdf: "https://factoryze.s3.us-east-005.backblazeb2.com/dev/commpro/pdf/agreement-e0f5897a-bfeb-42f4-88d3-238a05829d75.pdf",
     priority: "General",
     category: "Documentation",
   },
@@ -361,26 +372,94 @@ export const featuredEvents: EventItem[] = [
     id: "1",
     name: "Digital Learning Excellence Conference 2025",
     description:
-      "Three-day international conference featuring leading experts in digital transformation of higher education",
+      "Three-day international conference featuring leading experts in digital transformation of higher education.",
     date: "March 25-27, 2025",
-    image: "/images/events/digital-learning-conference-2025.jpg",
+    image:
+      "https://i.pinimg.com/1200x/d9/9f/a6/d99fa675e07461fa9a4dc9520315238d.jpg",
+    images: [
+      "https://i.pinimg.com/1200x/d9/9f/a6/d99fa675e07461fa9a4dc9520315238d.jpg",
+      "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
+      "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
+    ],
     location: "Dhaka University",
-    status: "Registration Open",
+    status: "Open",
     type: "Conference",
     registration: "Open (245/300 registered)",
+    capacity: "300 participants",
+    organizer: "HEAT Project & Dhaka University",
+    contact: "events@heat.ugc.gov.bd",
+    agenda: [
+      "Day 1: Opening Ceremony & Keynote Presentations",
+      "Day 2: Panel Discussions & Interactive Sessions",
+      "Day 3: Workshops & Networking Events",
+    ],
+    requirements: [
+      "University faculty or staff member",
+      "Valid institutional email address",
+      "Registration fee payment",
+    ],
   },
   {
     id: "2",
     name: "Faculty Development Intensive Workshop",
     description:
-      "Five-day intensive professional development program for university faculty members",
+      "Five-day intensive professional development program for university faculty members.",
     date: "April 15-20, 2025",
-    image: "/images/events/faculty-development-workshop.jpg",
+    image:
+      "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
+    images: [
+      "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
+      "https://i.pinimg.com/1200x/d9/9f/a6/d99fa675e07461fa9a4dc9520315238d.jpg",
+      "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
+    ],
     location: "BUET, Dhaka",
     status: "Applications Under Review",
     type: "Workshop",
     registration: "Applications Under Review",
     capacity: "50 participants",
+    organizer: "BUET & HEAT Project",
+    contact: "workshop@buet.ac.bd",
+    agenda: [
+      "Day 1-2: Curriculum Design & Assessment",
+      "Day 3-4: Modern Teaching Methodologies",
+      "Day 5: Project Presentations & Certification",
+    ],
+    requirements: [
+      "University faculty member",
+      "Minimum 2 years teaching experience",
+      "Completed application form",
+    ],
+  },
+  {
+    id: "3",
+    name: "Research Innovation & Technology Summit",
+    description:
+      "Annual summit bringing together researchers, academics, and industry leaders.",
+    date: "May 10-12, 2025",
+    image:
+      "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
+    images: [
+      "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
+      "https://i.pinimg.com/1200x/d9/9f/a6/d99fa675e07461fa9a4dc9520315238d.jpg",
+      "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
+    ],
+    location: "Rajshahi University",
+    status: "Coming Soon",
+    type: "Summit",
+    registration: "Registration Opens March 1st",
+    capacity: "200 participants",
+    organizer: "Rajshahi University & HEAT Project",
+    contact: "summit@ru.ac.bd",
+    agenda: [
+      "Day 1: Research Presentations & Innovation Showcase",
+      "Day 2: Industry-Academia Collaboration Sessions",
+      "Day 3: Technology Trends & Future Outlook",
+    ],
+    requirements: [
+      "Researcher or academic professional",
+      "Abstract submission (optional)",
+      "Registration confirmation",
+    ],
   },
 ];
 
@@ -396,29 +475,54 @@ export const circularCategories = {
 export const recentCirculars: Circular[] = [
   {
     id: "1",
-    number: "HEAT/ADM/2025/001",
-    date: "March 1, 2025",
-    subject: "Updated Project Implementation Guidelines for Phase II",
+    type: "Circular",
+    name: "Updated Project Implementation Guidelines for Phase II",
+    description:
+      "Comprehensive guidelines for implementing Phase II activities including budget allocation, timeline management, and quality assurance protocols.",
+    deadline: "2025-04-15",
+    publishDate: "2025-03-01",
+    pdf: "https://factoryze.s3.us-east-005.backblazeb2.com/dev/commpro/pdf/agreement-e0f5897a-bfeb-42f4-88d3-238a05829d75.pdf",
     category: "Administrative",
     authority: "Project Director, HEAT",
     status: "Active",
   },
   {
     id: "2",
-    number: "HEAT/FIN/2025/002",
-    date: "February 28, 2025",
-    subject: "Budget Allocation for Q2 2025 Activities",
-    category: "Financial",
-    authority: "Financial Controller",
+    type: "Tender",
+    name: "IT Infrastructure Development Tender",
+    description:
+      "Invitation for tenders for campus network infrastructure development across participating universities. Includes hardware procurement and installation services.",
+    deadline: "2025-03-20",
+    publishDate: "2025-02-28",
+    pdf: "https://factoryze.s3.us-east-005.backblazeb2.com/dev/commpro/pdf/agreement-e0f5897a-bfeb-42f4-88d3-238a05829d75.pdf",
+    category: "Technical",
+    authority: "Technical Director",
     status: "Active",
   },
   {
     id: "3",
-    number: "HEAT/TECH/2025/003",
-    date: "February 25, 2025",
-    subject: "Network Security Protocol Updates",
-    category: "Technical",
-    authority: "Technical Director",
+    type: "EOI",
+    name: "Expression of Interest - Training Consultants",
+    description:
+      "Seeking qualified training consultants for faculty development programs. EOI should include expertise areas, previous experience, and proposed training methodologies.",
+    deadline: "2025-03-10",
+    publishDate: "2025-02-25",
+    pdf: "https://factoryze.s3.us-east-005.backblazeb2.com/dev/commpro/pdf/agreement-e0f5897a-bfeb-42f4-88d3-238a05829d75.pdf",
+    category: "Training",
+    authority: "Training Coordinator",
+    status: "Expired",
+  },
+  {
+    id: "4",
+    type: "Notice",
+    name: "Budget Allocation for Q2 2025 Activities",
+    description:
+      "Official notice regarding budget allocation for Q2 2025 activities including approved funding amounts and spending guidelines.",
+    deadline: "2025-06-30",
+    publishDate: "2025-03-05",
+    pdf: "https://factoryze.s3.us-east-005.backblazeb2.com/dev/commpro/pdf/agreement-e0f5897a-bfeb-42f4-88d3-238a05829d75.pdf",
+    category: "Financial",
+    authority: "Financial Controller",
     status: "Active",
   },
 ];

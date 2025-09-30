@@ -28,55 +28,32 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         { name: "Emergency Response", href: "/components/emergency" },
       ],
     },
-    { name: "Notices", href: "/notices" },
-    { name: "Events", href: "/events" },
+    { name: "Notice", href: "/notices" },
+    { name: "Event", href: "/events" },
     { name: "Tenders & Circulars", href: "/circulars" },
     { name: "Officials", href: "/officials" },
-    { name: "Admin", href: "/admin" },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-lg sticky top-0 z-50">
+      <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top Row - Logos */}
-          <div className="flex justify-between items-center h-16">
-            {/* HEAT Main Logo */}
+          {/* Single Row - Logos and Navigation */}
+          <div className="flex justify-between items-center h-20">
+            {/* Left Side - HEAT Main Logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
                 <img
                   src="https://heat.ugc.gov.bd/images/logo_4.png"
                   alt="HEAT Logo"
-                  className="h-12 w-auto"
+                  className="h-16 w-auto"
                 />
               </Link>
             </div>
 
-            {/* Partner Logos */}
-            <div className="flex items-center space-x-6">
-              <img
-                src="https://heat.ugc.gov.bd/images/logo_1.png"
-                alt="Partner Logo 1"
-                className="h-10 w-auto"
-              />
-              <img
-                src="https://heat.ugc.gov.bd/images/logo_2.png"
-                alt="Partner Logo 2"
-                className="h-10 w-auto"
-              />
-              <img
-                src="https://heat.ugc.gov.bd/images/logo_3.png"
-                alt="Partner Logo 3"
-                className="h-10 w-auto"
-              />
-            </div>
-          </div>
-
-          {/* Bottom Row - Navigation */}
-          <div className="flex justify-center items-center h-12 border-t border-gray-100">
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex space-x-8">
+            {/* Center - Desktop Navigation */}
+            <nav className="hidden lg:flex space-x-8 items-center">
               {navigation.map((item) => (
                 <div key={item.name} className="relative">
                   {item.children ? (
@@ -85,9 +62,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                       onMouseEnter={() => setIsComponentsOpen(true)}
                       onMouseLeave={() => setIsComponentsOpen(false)}
                     >
-                      <button className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">
+                      <button className="flex items-center text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium transition-colors">
                         {item.name}
-                        <ChevronDown className="ml-1 h-4 w-4" />
+                        <ChevronDown className="ml-1 h-5 w-5" />
                       </button>
                       {isComponentsOpen && (
                         <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-100">
@@ -106,7 +83,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                   ) : (
                     <Link
                       href={item.href}
-                      className={`px-3 py-2 text-sm font-medium transition-colors ${
+                      className={`px-3 py-2 text-base font-medium transition-colors ${
                         pathname === item.href
                           ? "text-blue-600 border-b-2 border-blue-600"
                           : "text-gray-700 hover:text-blue-600"
@@ -119,18 +96,40 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               ))}
             </nav>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600"
-              >
-                {isMenuOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </button>
+            {/* Right Side - Partner Logos and Mobile Menu */}
+            <div className="flex items-center space-x-4">
+              {/* Partner Logos - Hidden on mobile, visible on larger screens */}
+              <div className="hidden md:flex items-center space-x-6">
+                <img
+                  src="https://heat.ugc.gov.bd/images/logo_1.png"
+                  alt="Partner Logo 1"
+                  className="h-12 w-auto"
+                />
+                <img
+                  src="https://heat.ugc.gov.bd/images/logo_2.png"
+                  alt="Partner Logo 2"
+                  className="h-12 w-auto"
+                />
+                <img
+                  src="https://heat.ugc.gov.bd/images/logo_3.png"
+                  alt="Partner Logo 3"
+                  className="h-12 w-auto"
+                />
+              </div>
+
+              {/* Mobile menu button */}
+              <div className="lg:hidden">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600"
+                >
+                  {isMenuOpen ? (
+                    <X className="h-6 w-6" />
+                  ) : (
+                    <Menu className="h-6 w-6" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -193,25 +192,26 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className="flex-1">{children}</main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gradient-to-br from-slate-800 to-blue-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-4">
-                <div className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-xl">
-                  HEAT
-                </div>
-                <span className="ml-3 text-xl font-semibold">Portfolio</span>
+                <img
+                  src="https://heat.ugc.gov.bd/images/logo_4.png"
+                  alt="HEAT Logo"
+                  className="h-12 w-auto bg-white p-2 rounded-lg"
+                />
+                <span className="ml-3 text-xl font-semibold">HEAT</span>
               </div>
-              <p className="text-gray-300 mb-4">
-                {` Higher Education Acceleration and Transformation (HEAT) -
-                Transforming Bangladesh's Higher Education Through Strategic
-                Development`}
-              </p>
               <div className="space-y-2 text-sm text-gray-300">
-                <p>UGC Bhaban, Agargaon, Dhaka-1207</p>
+                <p>
+                  Bangladesh Copyright Bhabon Level-10, Plot-F 20/B West
+                  Agargaon, Dhaka-1207
+                </p>
                 <p>Phone: +880-2-9129666</p>
-                <p>Email: info@heat.ugc.gov.bd</p>
+                <p>Email: pdheat@ugc.gov.bd</p>
               </div>
             </div>
             <div>

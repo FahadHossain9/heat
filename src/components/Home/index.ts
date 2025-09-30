@@ -1,6 +1,4 @@
 export { default as HeroSection } from "./HeroSection";
-export { default as KeyMetrics } from "./KeyMetrics";
-export { default as MainObjectives } from "./MainObjectives";
 export { default as StatisticsDashboard } from "./StatisticsDashboard";
 export { default as PerformanceMetrics } from "./PerformanceMetrics";
 export { default as ComponentsGrid } from "./ComponentsGrid";
