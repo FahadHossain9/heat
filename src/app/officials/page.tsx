@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Mail, Phone, Briefcase, Filter } from "lucide-react";
-import { projectLeadership, wings } from "@/data/demoData";
+import { projectLeadership, wings, Official } from "@/data/demoData";
 import Image from "next/image";
 
 export default function Officials() {
@@ -44,53 +44,79 @@ export default function Officials() {
     showWingBadge = false,
     wingName,
     wingColor,
+    isLeadership = false,
   }: {
-    official: any;
+    official: Official;
     showWingBadge?: boolean;
     wingName?: string;
     wingColor?: string;
+    isLeadership?: boolean;
   }) => (
     <div>
-      <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200">
-        <div className="relative h-56 sm:h-64 ">
+      <div
+        className={`bg-white rounded-sm overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-2 ${
+          isLeadership ? "border-blue-800" : "border-gray-300"
+        }`}
+      >
+        {/* Official Header Banner */}
+        <div
+          className={`h-2 ${
+            isLeadership
+              ? "bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900"
+              : "bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700"
+          }`}
+        ></div>
+
+        <div className="relative h-56 sm:h-64 bg-gray-100 border-b-2 border-gray-300">
           <Image
             src="https://i.pinimg.com/1200x/23/d5/03/23d5039e410cc935fd412b37539d47d3.jpg"
             alt={official.name}
             fill
-            className="object-contain p-2"
+            className="object-contain p-3"
           />
+          {isLeadership && (
+            <div className="absolute top-2 right-2 bg-blue-900 text-white px-3 py-1 text-xs font-bold rounded-sm">
+              LEADERSHIP
+            </div>
+          )}
         </div>
-        <div className="p-3 sm:p-4">
-          <div className="mb-3 text-center">
-            <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1">
+
+        <div className="p-4 sm:p-5 bg-gradient-to-b from-white to-gray-50">
+          <div className="mb-4 text-center border-b-2 border-gray-200 pb-4">
+            <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-1 uppercase tracking-wide">
               {official.name}
             </h3>
             {official.banglaName && (
-              <p className="text-gray-700 text-sm sm:text-base font-medium mb-1">
+              <p className="text-gray-800 text-sm sm:text-base font-semibold mb-2">
                 {official.banglaName}
               </p>
             )}
-            <p className="text-blue-600 text-xs sm:text-sm font-medium">
+            <div
+              className={`inline-block px-4 py-2 ${
+                isLeadership ? "bg-blue-900" : "bg-gray-800"
+              } text-white text-xs sm:text-sm font-semibold rounded-sm mt-1`}
+            >
               {official.position}
-            </p>
+            </div>
           </div>
-          <div className="space-y-1 mt-3 pt-3 border-t border-gray-200">
-            <div className="flex items-center text-xs text-gray-600">
-              <Mail className="h-3.5 w-3.5 mr-1.5 text-blue-600 flex-shrink-0" />
+
+          <div className="space-y-2 bg-white p-3 rounded-sm border border-gray-200">
+            <div className="flex items-start text-xs text-gray-700">
+              <Mail className="h-4 w-4 mr-2 text-gray-700 flex-shrink-0 mt-0.5" />
               <a
                 href={`mailto:${official.email}`}
-                className="hover:text-blue-600 transition-colors break-all"
+                className="hover:text-blue-900 transition-colors break-all font-medium"
               >
                 {official.email}
               </a>
             </div>
 
             {official.phone && (
-              <div className="flex items-center text-xs text-gray-600">
-                <Phone className="h-3.5 w-3.5 mr-1.5 text-blue-600 flex-shrink-0" />
+              <div className="flex items-center text-xs text-gray-700">
+                <Phone className="h-4 w-4 mr-2 text-gray-700 flex-shrink-0" />
                 <a
                   href={`tel:${official.phone}`}
-                  className="hover:text-blue-600 transition-colors"
+                  className="hover:text-blue-900 transition-colors font-medium"
                 >
                   {official.phone}
                 </a>
@@ -98,19 +124,27 @@ export default function Officials() {
             )}
 
             {official.office && (
-              <div className="flex items-center text-xs text-gray-600">
-                <Briefcase className="h-3.5 w-3.5 mr-1.5 text-blue-600 flex-shrink-0" />
-                <span>{official.office}</span>
+              <div className="flex items-start text-xs text-gray-700">
+                <Briefcase className="h-4 w-4 mr-2 text-gray-700 flex-shrink-0 mt-0.5" />
+                <span className="font-medium">{official.office}</span>
               </div>
             )}
           </div>
         </div>
+
+        {/* Official Footer Banner */}
+        <div
+          className={`h-1 ${
+            isLeadership
+              ? "bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900"
+              : "bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700"
+          }`}
+        ></div>
       </div>
+
       {showWingBadge && wingName && wingColor && (
-        <div className="mt-2 text-center">
-          <span
-            className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${wingColor} text-gray-800`}
-          >
+        <div className="mt-3 text-center">
+          <span className="inline-block px-4 py-1.5 bg-gray-800 text-white text-xs font-bold rounded-sm uppercase tracking-wider border border-gray-700">
             {wingName}
           </span>
         </div>
@@ -149,7 +183,7 @@ export default function Officials() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               <div className="lg:col-start-2">
-                <PersonCard official={pd} />
+                <PersonCard official={pd} isLeadership={true} />
               </div>
             </div>
           </div>
@@ -170,7 +204,7 @@ export default function Officials() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               <div className="lg:col-start-2">
-                <PersonCard official={dpd} />
+                <PersonCard official={dpd} isLeadership={true} />
               </div>
             </div>
           </div>
@@ -280,7 +314,7 @@ export default function Officials() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               <div className="lg:col-start-2">
-                <PersonCard official={consultant} />
+                <PersonCard official={consultant} isLeadership={true} />
               </div>
             </div>
           </div>
