@@ -204,9 +204,9 @@ export const componentCards: ComponentCard[] = [
   },
   {
     title: "Monitoring and Evaluation",
-    subtitle: "Project Management",
+    subtitle: "Monitoring and Evaluation",
     description:
-      "Conducting project management, monitoring & evaluation, communication, and technical assistance.",
+      "Conducting monitoring & evaluation, communication, and technical assistance.",
     metric: "98% Success Rate",
     link: "/components/monitoring",
   },
@@ -656,7 +656,7 @@ export const wingStructure: Official[] = [
     responsibility: "Project tracking, performance monitoring",
     teamSize: "10 monitoring specialists",
     email: "monitoring@heat.ugc.gov.bd",
-    wing: "Project Management & Monitoring",
+    wing: "Monitoring and Evaluation",
   },
   {
     name: "Brigadier General (Retd.) Md. Jahangir Alam",

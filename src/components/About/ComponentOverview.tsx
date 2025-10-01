@@ -38,7 +38,7 @@ export default function ComponentOverview() {
               impact: "100+ international network connections",
             },
             {
-              title: "Project Management & Monitoring",
+              title: "Monitoring and Evaluation",
               purpose: "Strategic project implementation and tracking",
               budget: "3% of total project funds",
               impact: "98% project success rate",

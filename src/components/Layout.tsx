@@ -22,7 +22,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         { name: "Campus Network", href: "/components/network" },
         { name: "BdREN Strengthening", href: "/components/bdren" },
         {
-          name: "Project Management & Monitoring",
+          name: "Monitoring and Evaluation",
           href: "/components/monitoring",
         },
         { name: "Emergency Response", href: "/components/emergency" },
