@@ -87,7 +87,7 @@ export default function Training() {
               Comprehensive Training Programs
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-green-100">
-              Building Excellence Through Professional Development
+              Continuously Building Excellence Through Professional Development
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
               <div className="text-3xl font-bold text-yellow-300 mb-2">

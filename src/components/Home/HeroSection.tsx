@@ -11,8 +11,8 @@ export default function HeroSection() {
             Higher Education Acceleration and Transformation (HEAT)
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100">
-            Transforming Bangladesh&apos;s Higher Education Through Strategic
-            Development
+            Continuously Transforming Bangladesh&apos;s Higher Education Through
+            Strategic Development
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

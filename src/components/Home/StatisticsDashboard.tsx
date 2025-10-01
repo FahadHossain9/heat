@@ -19,7 +19,7 @@ export default function StatisticsDashboard() {
             HEAT Project Impact
           </h2>
           <p className="text-lg text-gray-600">
-            Real-time project statistics and achievements
+            Ongoing project statistics and current achievements
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

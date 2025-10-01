@@ -217,18 +217,16 @@ export default function Admin() {
   const [newEvent, setNewEvent] = useState({
     name: "",
     description: "",
+    content: "",
     date: "",
     image: null as File | null,
     images: [] as File[],
     location: "",
     status: "Coming Soon",
     type: "",
-    registration: "",
     capacity: "",
     organizer: "",
     contact: "",
-    agenda: [] as string[],
-    requirements: [] as string[],
   });
 
   // Circular Management State
@@ -1738,16 +1736,31 @@ export default function Admin() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Description
+                    Description (Brief)
                   </label>
                   <textarea
                     value={newEvent.description}
                     onChange={(e) =>
                       setNewEvent({ ...newEvent, description: e.target.value })
                     }
-                    rows={3}
+                    rows={2}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter event description"
+                    placeholder="Enter brief description (shown on cards)"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Full Content (Rich Text)
+                  </label>
+                  <textarea
+                    value={newEvent.content}
+                    onChange={(e) =>
+                      setNewEvent({ ...newEvent, content: e.target.value })
+                    }
+                    rows={8}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter full event details, agenda, requirements, etc."
                   />
                 </div>
 
@@ -1837,21 +1850,6 @@ export default function Admin() {
                     }
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="e.g., 300 participants"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Registration Info
-                  </label>
-                  <input
-                    type="text"
-                    value={newEvent.registration}
-                    onChange={(e) =>
-                      setNewEvent({ ...newEvent, registration: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="e.g., Open (245/300 registered)"
                   />
                 </div>
 
@@ -1964,18 +1962,16 @@ export default function Admin() {
                   setNewEvent({
                     name: "",
                     description: "",
+                    content: "",
                     date: "",
                     image: null,
                     images: [],
                     location: "",
                     status: "Coming Soon",
                     type: "",
-                    registration: "",
                     capacity: "",
                     organizer: "",
                     contact: "",
-                    agenda: [],
-                    requirements: [],
                   });
                   setShowAddEventModal(false);
                 }}

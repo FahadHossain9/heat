@@ -72,7 +72,7 @@ export default function Monitoring() {
               Project Management & Monitoring
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-orange-100">
-              Ensuring Excellence Through Systematic Tracking
+              Continuously Ensuring Excellence Through Systematic Tracking
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
               <div className="text-3xl font-bold text-yellow-300 mb-2">98%</div>

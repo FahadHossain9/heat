@@ -41,7 +41,7 @@ export default function BdREN() {
               BdREN Strengthening
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-indigo-100">
-              Connecting Bangladesh to Global Research Networks
+              Actively Connecting Bangladesh to Global Research Networks
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
               <div className="text-3xl font-bold text-yellow-300 mb-2">
@@ -63,9 +63,9 @@ export default function BdREN() {
               Network Expansion Overview
             </h2>
             <p className="text-lg text-gray-600">
-              Strategic enhancement of Bangladesh Research and Education Network
-              (BdREN) infrastructure supporting advanced digital services
-              nationwide
+              Ongoing strategic enhancement of Bangladesh Research and Education
+              Network (BdREN) infrastructure, currently supporting advanced
+              digital services nationwide
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

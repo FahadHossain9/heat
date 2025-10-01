@@ -54,7 +54,8 @@ export default function Emergency() {
               Emergency Response System
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-red-100">
-              Comprehensive Crisis Management and Business Continuity
+              Maintaining Comprehensive Crisis Management and Business
+              Continuity
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
               <div className="text-3xl font-bold text-yellow-300 mb-2">
@@ -74,7 +75,7 @@ export default function Emergency() {
               Crisis Management Infrastructure
             </h2>
             <p className="text-lg text-gray-600">
-              Ensuring continuity of higher education operations during
+              Working to ensure continuity of higher education operations during
               emergencies, disasters, and crisis situations
             </p>
           </div>

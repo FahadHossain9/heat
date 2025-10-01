@@ -31,19 +31,16 @@ export interface EventItem {
   id: string;
   name: string;
   description: string;
+  content?: string;
   date: string;
   image: string;
   images: string[];
   location: string;
   status: string;
   type?: string;
-  registration?: string;
   capacity?: string;
-  title?: string;
   organizer?: string;
   contact?: string;
-  agenda?: string[];
-  requirements?: string[];
 }
 
 export interface Notice {
@@ -74,6 +71,7 @@ export interface Circular {
 
 export interface Official {
   name: string;
+  banglaName?: string;
   position: string;
   background?: string;
   email: string;
@@ -176,42 +174,46 @@ export const componentCards: ComponentCard[] = [
   {
     title: "ATF",
     subtitle: "Academic Transformation Fund",
-    description: "Quality enhancement and academic excellence initiatives",
+    description:
+      "Providing competitive research grants and supporting ongoing innovation.",
     metric: "50+ Universities Supported",
     link: "/components/atf",
   },
   {
     title: "Training",
     subtitle: "Professional Development",
-    description: "",
-    metric: "2,500+ Faculty Trained",
+    description:
+      "comprehensive training programs for university faculty across Bangladesh, fostering excellence through local, international, digital, and research capacity development.",
+    metric: "5000+ Faculty Trained",
     link: "/components/training",
   },
   {
     title: "Network",
     subtitle: "Campus Network",
-    description: "High-speed network connectivity nationwide",
+    description:
+      "Establishing high-speed network connectivity and infrastructure development in universities.",
     metric: "50 Gbps Network Capacity",
     link: "/components/network",
   },
   {
     title: "BdREN",
     subtitle: "Research Network",
-    description: "Global research and education network access",
+    description: "Maintaining global research and education network access",
     metric: "100+ International Networks",
     link: "/components/bdren",
   },
   {
-    title: "Project Management",
-    subtitle: "Monitoring & Evaluation",
-    description: "Strategic project implementation tracking",
+    title: "Monitoring and Evaluation",
+    subtitle: "Project Management",
+    description:
+      "Conducting project management, monitoring & evaluation, communication, and technical assistance.",
     metric: "98% Success Rate",
     link: "/components/monitoring",
   },
   {
     title: "Emergency Response",
     subtitle: "Crisis Management",
-    description: "24/7 emergency response and continuity",
+    description: "Providing 24/7 emergency response and ensuring continuity",
     metric: "24/7 Coverage",
     link: "/components/emergency",
   },
@@ -219,23 +221,23 @@ export const componentCards: ComponentCard[] = [
 
 export const latestNews: NewsItem[] = [
   {
-    title: "HEAT Training Program Phase 3 Launched Successfully",
+    title: "HEAT Training Program Phase 3 Ongoing",
     summary:
-      "New faculty development initiative reaches 15 additional universities nationwide",
+      "Faculty development initiative is currently reaching 15 additional universities nationwide",
     date: "March 10, 2025",
     category: "Training",
   },
   {
-    title: "BdREN Connectivity Expanded to 5 New Universities",
+    title: "BdREN Connectivity Expansion in Progress",
     summary:
-      "High-speed research network now covers 50 institutions with enhanced capabilities",
+      "High-speed research network is being expanded, currently covering 50 institutions with enhanced capabilities",
     date: "March 8, 2025",
     category: "Infrastructure",
   },
   {
-    title: "International Research Collaboration Agreement Signed",
+    title: "International Research Collaboration Strengthening",
     summary:
-      "Partnership with European research networks enhances global connectivity",
+      "Ongoing partnership with European research networks is enhancing global connectivity",
     date: "March 5, 2025",
     category: "BdREN",
   },
@@ -243,35 +245,55 @@ export const latestNews: NewsItem[] = [
 
 export const upcomingEvents: EventItem[] = [
   {
-    id: "3",
+    id: "1",
     name: "Digital Learning Excellence Conference 2025",
     description:
-      "International conference on digital transformation in higher education",
+      "Three-day international conference featuring leading experts in digital transformation of higher education.",
     date: "March 25-27, 2025",
-    image: "/images/events/digital-learning-conference.jpg",
-    images: ["/images/events/digital-learning-conference.jpg"],
+    image:
+      "https://i.pinimg.com/1200x/d9/9f/a6/d99fa675e07461fa9a4dc9520315238d.jpg",
+    images: [
+      "https://i.pinimg.com/1200x/d9/9f/a6/d99fa675e07461fa9a4dc9520315238d.jpg",
+    ],
     location: "Dhaka University",
-    status: "Registration Open",
+    status: "Open",
+    type: "Conference",
+    capacity: "300 participants",
+    organizer: "HEAT Project & Dhaka University",
   },
   {
-    id: "4",
+    id: "2",
     name: "Faculty Development Intensive Workshop",
-    description: "Comprehensive training program for university faculty",
+    description:
+      "Five-day intensive professional development program for university faculty members.",
     date: "April 15-20, 2025",
-    image: "/images/events/faculty-workshop.jpg",
-    images: ["/images/events/faculty-workshop.jpg"],
+    image:
+      "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
+    images: [
+      "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
+    ],
     location: "BUET, Dhaka",
     status: "Applications Under Review",
+    type: "Workshop",
+    capacity: "50 participants",
+    organizer: "BUET & HEAT Project",
   },
   {
-    id: "5",
-    name: "Network Infrastructure Summit",
-    description: "Technical summit on network infrastructure and connectivity",
+    id: "3",
+    name: "Research Innovation & Technology Summit",
+    description:
+      "Annual summit bringing together researchers, academics, and industry leaders.",
     date: "May 10-12, 2025",
-    image: "/images/events/network-summit.jpg",
-    images: ["/images/events/network-summit.jpg"],
-    location: "Chittagong University",
+    image:
+      "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
+    images: [
+      "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
+    ],
+    location: "Rajshahi University",
     status: "Coming Soon",
+    type: "Summit",
+    capacity: "200 participants",
+    organizer: "Rajshahi University & HEAT Project",
   },
 ];
 
@@ -288,39 +310,39 @@ export const projectBackground = {
 
 export const visionMission = {
   vision:
-    "Excellence in higher education through innovation, quality, and accessibility",
+    "Achieving excellence in higher education through continuous innovation, quality enhancement, and accessibility",
   mission:
-    "To enhance the quality, relevance, and efficiency of higher education in Bangladesh through systematic capacity building, infrastructure development, and institutional strengthening",
+    "Continuously enhancing the quality, relevance, and efficiency of higher education in Bangladesh through systematic capacity building, infrastructure development, and institutional strengthening",
 };
 
 export const strategicObjectives: Objective[] = [
   {
-    title: "Enhance Academic Quality and Relevance",
+    title: "Enhancing Academic Quality and Relevance",
     description:
-      "Improve curriculum design, teaching methodologies, and learning outcomes",
+      "Improving curriculum design, teaching methodologies, and learning outcomes",
     progress: 75,
   },
   {
-    title: "Strengthen Research and Innovation Capacity",
+    title: "Strengthening Research and Innovation Capacity",
     description:
-      "Build research infrastructure and enhance faculty research capabilities",
+      "Building research infrastructure and enhancing faculty research capabilities",
     progress: 68,
   },
   {
-    title: "Improve Digital Infrastructure and Connectivity",
+    title: "Improving Digital Infrastructure and Connectivity",
     description:
-      "Establish robust ICT infrastructure for modern educational delivery",
+      "Establishing robust ICT infrastructure for modern educational delivery",
     progress: 82,
   },
   {
-    title: "Build Institutional Management Capabilities",
-    description: "Strengthen administrative and management systems",
+    title: "Building Institutional Management Capabilities",
+    description: "Strengthening administrative and management systems",
     progress: 71,
   },
   {
-    title: "Ensure Emergency Preparedness and Resilience",
+    title: "Ensuring Emergency Preparedness and Resilience",
     description:
-      "Develop comprehensive crisis management and business continuity",
+      "Developing comprehensive crisis management and business continuity",
     progress: 89,
   },
 ];
@@ -339,9 +361,9 @@ export const notices: Notice[] = [
   },
   {
     id: "2",
-    name: "New Training Program Registration Open",
+    name: "Training Program Registration Ongoing",
     description:
-      "Applications are now open for the Advanced Faculty Development Program starting April 2025. Registration deadline: March 30, 2025. Limited seats available.",
+      "Applications are currently being accepted for the Advanced Faculty Development Program. Registration deadline: March 30, 2025. Limited seats available.",
     date: "March 8, 2025",
     pdf: "https://factoryze.s3.us-east-005.backblazeb2.com/dev/commpro/pdf/agreement-e0f5897a-bfeb-42f4-88d3-238a05829d75.pdf",
     priority: "Important",
@@ -373,6 +395,29 @@ export const featuredEvents: EventItem[] = [
     name: "Digital Learning Excellence Conference 2025",
     description:
       "Three-day international conference featuring leading experts in digital transformation of higher education.",
+    content: `Event Agenda:
+
+Day 1: Opening Ceremony & Keynote Presentations
+- Welcome address by Vice Chancellor
+- Keynote speech on digital transformation trends
+- Panel discussion with international experts
+
+Day 2: Panel Discussions & Interactive Sessions
+- Innovative teaching methodologies
+- Technology integration in classrooms
+- Student engagement strategies
+- Networking lunch
+
+Day 3: Workshops & Networking Events
+- Hands-on workshops on digital tools
+- Best practices sharing sessions
+- Closing ceremony and certificate distribution
+
+Requirements:
+• University faculty or staff member
+• Valid institutional email address
+• Registration fee payment
+• Laptop for workshop sessions`,
     date: "March 25-27, 2025",
     image:
       "https://i.pinimg.com/1200x/d9/9f/a6/d99fa675e07461fa9a4dc9520315238d.jpg",
@@ -384,26 +429,39 @@ export const featuredEvents: EventItem[] = [
     location: "Dhaka University",
     status: "Open",
     type: "Conference",
-    registration: "Open (245/300 registered)",
     capacity: "300 participants",
     organizer: "HEAT Project & Dhaka University",
     contact: "events@heat.ugc.gov.bd",
-    agenda: [
-      "Day 1: Opening Ceremony & Keynote Presentations",
-      "Day 2: Panel Discussions & Interactive Sessions",
-      "Day 3: Workshops & Networking Events",
-    ],
-    requirements: [
-      "University faculty or staff member",
-      "Valid institutional email address",
-      "Registration fee payment",
-    ],
   },
   {
     id: "2",
     name: "Faculty Development Intensive Workshop",
     description:
       "Five-day intensive professional development program for university faculty members.",
+    content: `Workshop Schedule:
+
+Day 1-2: Curriculum Design & Assessment
+- Outcome-based education principles
+- Curriculum mapping and alignment
+- Assessment strategies and rubric design
+- Group activities and peer review
+
+Day 3-4: Modern Teaching Methodologies
+- Active learning techniques
+- Blended learning approaches
+- Student-centered pedagogy
+- Technology-enhanced teaching
+
+Day 5: Project Presentations & Certification
+- Participant project presentations
+- Feedback and discussion sessions
+- Certificate distribution ceremony
+
+Eligibility Criteria:
+• University faculty member
+• Minimum 2 years teaching experience
+• Completed application form
+• Commitment to full attendance`,
     date: "April 15-20, 2025",
     image:
       "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
@@ -415,26 +473,40 @@ export const featuredEvents: EventItem[] = [
     location: "BUET, Dhaka",
     status: "Applications Under Review",
     type: "Workshop",
-    registration: "Applications Under Review",
     capacity: "50 participants",
     organizer: "BUET & HEAT Project",
     contact: "workshop@buet.ac.bd",
-    agenda: [
-      "Day 1-2: Curriculum Design & Assessment",
-      "Day 3-4: Modern Teaching Methodologies",
-      "Day 5: Project Presentations & Certification",
-    ],
-    requirements: [
-      "University faculty member",
-      "Minimum 2 years teaching experience",
-      "Completed application form",
-    ],
   },
   {
     id: "3",
     name: "Research Innovation & Technology Summit",
     description:
       "Annual summit bringing together researchers, academics, and industry leaders.",
+    content: `Summit Program:
+
+Day 1: Research Presentations & Innovation Showcase
+- Opening keynote on research excellence
+- Paper presentations (selected abstracts)
+- Innovation expo and poster sessions
+- Research funding opportunities session
+
+Day 2: Industry-Academia Collaboration Sessions
+- Partnership models and case studies
+- Technology transfer mechanisms
+- Collaborative research opportunities
+- Industry panel discussion
+
+Day 3: Technology Trends & Future Outlook
+- Emerging technologies in education and research
+- AI and machine learning applications
+- Future of higher education research
+- Closing remarks and networking
+
+Participation Requirements:
+• Researcher or academic professional
+• Abstract submission (optional for presenters)
+• Registration confirmation
+• Professional affiliation required`,
     date: "May 10-12, 2025",
     image:
       "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
@@ -446,20 +518,9 @@ export const featuredEvents: EventItem[] = [
     location: "Rajshahi University",
     status: "Coming Soon",
     type: "Summit",
-    registration: "Registration Opens March 1st",
     capacity: "200 participants",
     organizer: "Rajshahi University & HEAT Project",
     contact: "summit@ru.ac.bd",
-    agenda: [
-      "Day 1: Research Presentations & Innovation Showcase",
-      "Day 2: Industry-Academia Collaboration Sessions",
-      "Day 3: Technology Trends & Future Outlook",
-    ],
-    requirements: [
-      "Researcher or academic professional",
-      "Abstract submission (optional)",
-      "Registration confirmation",
-    ],
   },
 ];
 
@@ -531,6 +592,7 @@ export const recentCirculars: Circular[] = [
 export const projectLeadership: Official[] = [
   {
     name: "Dr. M Shafiul Alam",
+    banglaName: "ডঃ এম শফিউল আলম",
     position: "Project Director, HEAT",
     background: "Ph.D. in Education Administration, 20+ years experience",
     email: "director@heat.ugc.gov.bd",
@@ -539,6 +601,7 @@ export const projectLeadership: Official[] = [
   },
   {
     name: "Professor Dr. Rashida Akter",
+    banglaName: "প্রফেসর ডঃ রাশিদা আক্তার",
     position: "Deputy Project Director",
     specialization: "Academic Development and Quality Assurance",
     email: "deputy@heat.ugc.gov.bd",
@@ -546,6 +609,7 @@ export const projectLeadership: Official[] = [
   },
   {
     name: "Mohammad Ashraf Hossain, CPA",
+    banglaName: "মোহাম্মদ আশরাফ হোসেন",
     position: "Financial Controller",
     experience: "15+ years in project financial management",
     email: "finance@heat.ugc.gov.bd",
@@ -901,6 +965,7 @@ export const wings: Wing[] = [
     officials: [
       {
         name: "Engr. Md. Rafiqul Islam",
+        banglaName: "প্রকৌঃ মোঃ রফিকুল ইসলাম",
         position: "Chief Engineer",
         wing: "Engineers Wing",
         email: "engineers@heat.ugc.gov.bd",
@@ -919,6 +984,7 @@ export const wings: Wing[] = [
     officials: [
       {
         name: "Professor Dr. Abdul Karim",
+        banglaName: "প্রফেসর ডঃ আব্দুল করিম",
         position: "Head of Teachers Wing",
         wing: "Teachers Wing",
         email: "teachers@heat.ugc.gov.bd",
@@ -937,6 +1003,7 @@ export const wings: Wing[] = [
     officials: [
       {
         name: "Dr. Nazma Shaheen",
+        banglaName: "ডঃ নাজমা শাহীন",
         position: "PDP Coordinator",
         wing: "PDP Wing",
         email: "pdp@heat.ugc.gov.bd",
@@ -955,6 +1022,7 @@ export const wings: Wing[] = [
     officials: [
       {
         name: "Ms. Sultana Razia",
+        banglaName: "সুলতানা রাজিয়া",
         position: "Administrative Head",
         wing: "Administrative Wing",
         email: "admin@heat.ugc.gov.bd",
@@ -973,6 +1041,7 @@ export const wings: Wing[] = [
     officials: [
       {
         name: "Engr. Md. Kamrul Hassan",
+        banglaName: "প্রকৌঃ মোঃ কামরুল হাসান",
         position: "Technical Director",
         wing: "Technical Wing",
         email: "tech@heat.ugc.gov.bd",
@@ -990,6 +1059,7 @@ export const wings: Wing[] = [
     officials: [
       {
         name: "Mr. Mohammad Ashraf Hossain",
+        banglaName: "মোহাম্মদ আশরাফ হোসেন",
         position: "Procurement Head",
         wing: "Procurement Wing",
         email: "procurement@heat.ugc.gov.bd",
@@ -1007,6 +1077,7 @@ export const wings: Wing[] = [
     officials: [
       {
         name: "Mr. Mohammad Ashraf Hossain, CPA",
+        banglaName: "মোহাম্মদ আশরাফ হোসেন",
         position: "Financial Controller",
         wing: "Finance Wing",
         email: "finance@heat.ugc.gov.bd",

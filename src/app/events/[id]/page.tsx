@@ -187,83 +187,65 @@ export default function EventDetails() {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 Event Details
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-center">
-                  <Calendar className="h-5 w-5 mr-3 text-[#225E99]" />
-                  <div>
-                    <div className="font-medium text-gray-900">Date</div>
-                    <div className="text-gray-600">{event.date}</div>
-                  </div>
+
+              {/* Rich Text Content */}
+              {event.content && (
+                <div className="text-gray-700 leading-relaxed whitespace-pre-wrap text-base">
+                  {event.content}
                 </div>
-                <div className="flex items-center">
-                  <MapPin className="h-5 w-5 mr-3 text-[#225E99]" />
-                  <div>
-                    <div className="font-medium text-gray-900">Location</div>
-                    <div className="text-gray-600">{event.location}</div>
-                  </div>
+              )}
+
+              {/* Debug: Show if content exists */}
+              {!event.content && (
+                <div>
+                  <p className="text-gray-500 italic">
+                    No additional details available for this event.
+                  </p>
                 </div>
-                <div className="flex items-center">
-                  <Users className="h-5 w-5 mr-3 text-[#225E99]" />
-                  <div>
-                    <div className="font-medium text-gray-900">Capacity</div>
-                    <div className="text-gray-600">{event.capacity}</div>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <User className="h-5 w-5 mr-3 text-[#225E99]" />
-                  <div>
-                    <div className="font-medium text-gray-900">Organizer</div>
-                    <div className="text-gray-600">{event.organizer}</div>
-                  </div>
-                </div>
-              </div>
+              )}
             </div>
-
-            {/* Agenda */}
-            {event.agenda && event.agenda.length > 0 && (
-              <div className="card-enhanced p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Event Agenda
-                </h2>
-                <ul className="space-y-3">
-                  {event.agenda.map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <div className="bg-[#225E99] text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                        {index + 1}
-                      </div>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Requirements */}
-            {event.requirements && event.requirements.length > 0 && (
-              <div className="card-enhanced p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Requirements
-                </h2>
-                <ul className="space-y-3">
-                  {event.requirements.map((requirement, index) => (
-                    <li key={index} className="flex items-start">
-                      <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{requirement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Registration Info */}
+            {/* Event Information */}
             <div className="card-enhanced p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Registration
+                Event Information
               </h3>
               <div className="space-y-4">
+                <div>
+                  <div className="flex items-center mb-2">
+                    <Calendar className="h-5 w-5 mr-2 text-[#225E99]" />
+                    <div className="font-medium text-gray-900">Date</div>
+                  </div>
+                  <div className="text-gray-600 ml-7">{event.date}</div>
+                </div>
+                <div>
+                  <div className="flex items-center mb-2">
+                    <MapPin className="h-5 w-5 mr-2 text-[#225E99]" />
+                    <div className="font-medium text-gray-900">Location</div>
+                  </div>
+                  <div className="text-gray-600 ml-7">{event.location}</div>
+                </div>
+                {event.capacity && (
+                  <div>
+                    <div className="flex items-center mb-2">
+                      <Users className="h-5 w-5 mr-2 text-[#225E99]" />
+                      <div className="font-medium text-gray-900">Capacity</div>
+                    </div>
+                    <div className="text-gray-600 ml-7">{event.capacity}</div>
+                  </div>
+                )}
+                {event.organizer && (
+                  <div>
+                    <div className="flex items-center mb-2">
+                      <User className="h-5 w-5 mr-2 text-[#225E99]" />
+                      <div className="font-medium text-gray-900">Organizer</div>
+                    </div>
+                    <div className="text-gray-600 ml-7">{event.organizer}</div>
+                  </div>
+                )}
                 <div>
                   <div className="font-medium text-gray-900 mb-2">Status</div>
                   <div
@@ -274,12 +256,6 @@ export default function EventDetails() {
                     {getStatusIcon(event.status)}
                     <span className="ml-2">{event.status}</span>
                   </div>
-                </div>
-                <div>
-                  <div className="font-medium text-gray-900 mb-2">
-                    Registration Info
-                  </div>
-                  <div className="text-gray-600">{event.registration}</div>
                 </div>
               </div>
             </div>
@@ -312,9 +288,6 @@ export default function EventDetails() {
               <div className="space-y-3">
                 <button className="btn-outline w-full btn-icon">
                   <span>Share Event</span>
-                </button>
-                <button className="btn-secondary w-full btn-icon">
-                  <span>Add to Calendar</span>
                 </button>
                 <button
                   onClick={() => router.push("/events")}

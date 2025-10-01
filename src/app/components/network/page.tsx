@@ -50,7 +50,8 @@ export default function Network() {
               Campus Network Infrastructure
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-purple-100">
-              Connecting Universities Through Advanced Digital Networks
+              Continuously Connecting Universities Through Advanced Digital
+              Networks
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
               <div className="text-3xl font-bold text-yellow-300 mb-2">
@@ -70,8 +71,9 @@ export default function Network() {
               Universal Connectivity Initiative
             </h2>
             <p className="text-lg text-gray-600">
-              Ensuring every public university student has access to high-speed
-              internet through comprehensive network infrastructure development
+              Working to ensure every public university student has access to
+              high-speed internet through ongoing comprehensive network
+              infrastructure development
             </p>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
