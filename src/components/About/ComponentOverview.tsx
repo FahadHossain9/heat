@@ -44,6 +44,19 @@ export default function ComponentOverview() {
               impact: "98% project success rate",
             },
             {
+              title: "Women's Leadership and Network Development",
+              purpose: "Empowering women in higher education and leadership",
+              budget: "8% of total project funds",
+              impact: "Sub-component 1.2.2 activities",
+            },
+            {
+              title: "Quality Assurance & Accreditation",
+              purpose:
+                "Elevating academic standards through international frameworks",
+              budget: "5% of total project funds",
+              impact: "30 programs accredited, IQAC establishment",
+            },
+            {
               title: "Emergency Response",
               purpose: "Comprehensive crisis management and continuity",
               budget: "2% of total project funds",

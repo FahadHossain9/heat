@@ -25,6 +25,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           name: "Monitoring and Evaluation",
           href: "/components/monitoring",
         },
+        { name: "Women's Network", href: "/components/womens-network" },
+        { name: "Quality Assurance", href: "/components/quality-assurance" },
         { name: "Emergency Response", href: "/components/emergency" },
       ],
     },
@@ -284,6 +286,22 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     className="text-gray-300 hover:text-white transition-colors"
                   >
                     BdREN
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/components/womens-network"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    Women's Network
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/components/quality-assurance"
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    Quality Assurance
                   </Link>
                 </li>
               </ul>

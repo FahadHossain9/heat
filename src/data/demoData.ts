@@ -211,6 +211,22 @@ export const componentCards: ComponentCard[] = [
     link: "/components/monitoring",
   },
   {
+    title: "Women's Network",
+    subtitle: "Women's Leadership and Network Development",
+    description:
+      "Empowering women leaders in higher education and fostering female participation in Bangladesh's academic landscape.",
+    metric: "Sub-component 1.2.2",
+    link: "/components/womens-network",
+  },
+  {
+    title: "Quality Assurance",
+    subtitle: "Quality Assurance & Accreditation",
+    description:
+      "Elevating academic standards through international quality frameworks and accreditation support.",
+    metric: "30 Programs Accredited",
+    link: "/components/quality-assurance",
+  },
+  {
     title: "Emergency Response",
     subtitle: "Crisis Management",
     description: "Providing 24/7 emergency response and ensuring continuity",
