@@ -52,19 +52,6 @@ export default function NoticesList({
     return matchesSearch && matchesPriority && matchesCategory;
   });
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case "Critical":
-        return "bg-red-100 text-red-800 border-red-200";
-      case "Important":
-        return "bg-orange-100 text-orange-800 border-orange-200";
-      case "General":
-        return "bg-blue-100 text-blue-800 border-blue-200";
-      default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
-    }
-  };
-
   const getPriorityIcon = (priority: string) => {
     switch (priority) {
       case "Critical":
