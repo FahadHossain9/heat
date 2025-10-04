@@ -25,7 +25,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           name: "Monitoring and Evaluation",
           href: "/components/monitoring",
         },
-        { name: "Women&apos;s Network", href: "/components/womens-network" },
+        { name: `Women's Network`, href: "/components/womens-network" },
         { name: "Quality Assurance", href: "/components/quality-assurance" },
         { name: "Emergency Response", href: "/components/emergency" },
       ],
@@ -293,7 +293,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     href="/components/womens-network"
                     className="text-gray-300 hover:text-white transition-colors"
                   >
-                    Women&apos;s Network
+                    {`Women's Network`}
                   </Link>
                 </li>
                 <li>

@@ -128,17 +128,18 @@ export default function WomensNetwork() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Women&apos;s Leadership and Network Development
+              {`Women's Leadership and Network Development`}
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-pink-100">
               Empowering women leaders in higher education and fostering female
-              participation in Bangladesh&apos;s academic and professional landscape
+              participation in {`Bangladesh's`} academic and professional
+              landscape
             </p>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
               <div className="text-3xl font-bold text-yellow-300 mb-2">
                 Sub-component 1.2.2
               </div>
-              <div className="text-lg">Women&apos;s Network Development</div>
+              <div className="text-lg">{`Women's Network Development`}</div>
             </div>
           </div>
         </div>
@@ -153,7 +154,7 @@ export default function WomensNetwork() {
             </h2>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
               This component represents a core pillar of the HEAT Project,
-              focusing on strengthening women&apos;s participation in higher
+              focusing on strengthening {`women's`} participation in higher
               education and developing female leadership in academic
               institutions.
             </p>
@@ -165,7 +166,7 @@ export default function WomensNetwork() {
                 Strengthening Participation
               </h3>
               <p className="text-gray-600">
-                Women&apos;s participation in higher education
+                {`Women's`} participation in higher education
               </p>
             </div>
             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 text-center">
@@ -296,7 +297,7 @@ export default function WomensNetwork() {
                 <div className="flex items-start">
                   <Users className="h-5 w-5 text-pink-600 mr-3 mt-1 flex-shrink-0" />
                   <span className="text-gray-700">
-                    Regional women&apos;s academic conferences
+                    Regional {`women's`} academic conferences
                   </span>
                 </div>
                 <div className="flex items-start">
@@ -364,8 +365,8 @@ export default function WomensNetwork() {
               Expected Outcomes
             </h2>
             <p className="text-lg text-gray-600">
-              Measurable impact indicators for women&apos;s advancement in higher
-              education
+              Measurable impact indicators for {`women's`} advancement in
+              higher education
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -494,7 +495,7 @@ export default function WomensNetwork() {
       <section className="py-16 bg-gradient-to-r from-pink-600 to-purple-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Join the Women&apos;s Network
+            Join the {`Women's`} Network
           </h2>
           <p className="text-xl text-pink-100 mb-8">
             Be part of the movement to empower women in higher education and

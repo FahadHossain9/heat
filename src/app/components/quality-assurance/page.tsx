@@ -205,9 +205,10 @@ export default function QualityAssurance() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Overview</h2>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
               This component strengthens the quality and governance of
-              Bangladesh&apos;s higher education institutions through implementation
-              of international quality standards, support for program
-              accreditation, and capacity building for quality assurance.
+              {`Bangladesh's`} higher education institutions through
+              implementation of international quality standards, support for
+              program accreditation, and capacity building for quality
+              assurance.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
