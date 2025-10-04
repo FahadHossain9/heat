@@ -5,16 +5,13 @@ import {
   CheckCircle,
   Target,
   Users,
-  BookOpen,
   Globe,
   TrendingUp,
   Shield,
   Star,
   ArrowRight,
-  Calendar,
   FileText,
   GraduationCap,
-  Briefcase,
   BarChart3,
 } from "lucide-react";
 
@@ -208,7 +205,7 @@ export default function QualityAssurance() {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Overview</h2>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
               This component strengthens the quality and governance of
-              Bangladesh's higher education institutions through implementation
+              Bangladesh&apos;s higher education institutions through implementation
               of international quality standards, support for program
               accreditation, and capacity building for quality assurance.
             </p>

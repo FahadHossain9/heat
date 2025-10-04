@@ -20,9 +20,6 @@ export default function CircularsList({
   typeFilter,
 }: CircularsListProps) {
   const filteredCirculars = recentCirculars.filter((circular) => {
-    const isExpired = new Date(circular.deadline) < new Date();
-    const currentStatus = isExpired ? "Expired" : circular.status;
-
     const matchesSearch =
       circular.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       circular.description.toLowerCase().includes(searchTerm.toLowerCase());
