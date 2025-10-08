@@ -2,11 +2,8 @@
 
 import {
   Globe,
-  Zap,
   Database,
-  Video,
   Users,
-  CheckCircle,
   Network,
   Wifi,
   Laptop,

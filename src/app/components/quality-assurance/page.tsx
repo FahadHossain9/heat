@@ -12,8 +12,6 @@ import {
   ArrowRight,
   FileText,
   GraduationCap,
-  BarChart3,
-  Building2,
   DollarSign,
   Database,
   Clipboard,
