@@ -105,7 +105,7 @@ export default function Network() {
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                 <div className="text-3xl font-bold text-yellow-300 mb-1">
-                  <Network className="h-10 w-10 mx-auto" />
+                  <NetworkIcon className="h-10 w-10 mx-auto" />
                 </div>
                 <div className="text-sm">BdREN Upgrade</div>
               </div>
