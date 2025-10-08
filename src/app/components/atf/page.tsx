@@ -9,8 +9,30 @@ import {
   Target,
   Download,
   FileText,
+  DollarSign,
+  BarChart3,
 } from "lucide-react";
 import { atfWindows, atfSupportingDocuments } from "@/data/demoData";
+
+interface AllocationData {
+  window: string;
+  totalFund: number;
+  groupA: {
+    allocation: number;
+    used: number;
+    projects: number;
+  };
+  groupB: {
+    allocation: number;
+    used: number;
+    projects: number;
+  };
+  groupC: {
+    allocation: number;
+    used: number;
+    projects: number;
+  };
+}
 
 export default function ATF() {
   const getStatusColor = (status: string) => {
@@ -26,12 +48,73 @@ export default function ATF() {
     }
   };
 
-  const impactMetrics = [
-    { label: "Total Investment", value: "৳1,200 Crore", icon: Building },
+  // Fund Allocation Data (in Lakh BDT) - From Table 2 of ATF Operational Manual
+  const allocationData: AllocationData[] = [
     {
-      label: "Research Grants",
-      value: "BDT 1200 Core+",
-      icon: TrendingUp,
+      window: "Window 1: Pandemic Related Research and Development",
+      totalFund: 6000,
+      groupA: { allocation: 3882, used: 0, projects: 0 },
+      groupB: { allocation: 2118, used: 0, projects: 0 },
+      groupC: { allocation: 0, used: 0, projects: 0 },
+    },
+    {
+      window: "Window 2: Improvement of Teaching-Learning Infrastructure",
+      totalFund: 24200,
+      groupA: { allocation: 13310, used: 0, projects: 0 },
+      groupB: { allocation: 7260, used: 0, projects: 0 },
+      groupC: { allocation: 3630, used: 0, projects: 0 },
+    },
+    {
+      window: "Window 3: Advanced Research (STEM/STAGE, AHSBL)",
+      totalFund: 62960,
+      groupA: { allocation: 34628, used: 0, projects: 0 },
+      groupB: { allocation: 18888, used: 0, projects: 0 },
+      groupC: { allocation: 9444, used: 0, projects: 0 },
+    },
+    {
+      window: "Window 3: Industry Collaboration",
+      totalFund: 20000,
+      groupA: { allocation: 11000, used: 0, projects: 0 },
+      groupB: { allocation: 6000, used: 0, projects: 0 },
+      groupC: { allocation: 3000, used: 0, projects: 0 },
+    },
+    {
+      window: "Window 4: Innovation Support Facilities",
+      totalFund: 5740,
+      groupA: { allocation: 5740, used: 0, projects: 0 },
+      groupB: { allocation: 0, used: 0, projects: 0 },
+      groupC: { allocation: 0, used: 0, projects: 0 },
+    },
+    {
+      window: "Window 5: Technology Transfer Office",
+      totalFund: 3500,
+      groupA: { allocation: 3500, used: 0, projects: 0 },
+      groupB: { allocation: 0, used: 0, projects: 0 },
+      groupC: { allocation: 0, used: 0, projects: 0 },
+    },
+  ];
+
+  // Calculate totals
+  const totalAllocation = allocationData.reduce(
+    (sum, item) => sum + item.totalFund,
+    0
+  );
+  const totalUsed = allocationData.reduce(
+    (sum, item) => sum + item.groupA.used + item.groupB.used + item.groupC.used,
+    0
+  );
+  const totalProjects = allocationData.reduce(
+    (sum, item) =>
+      sum + item.groupA.projects + item.groupB.projects + item.groupC.projects,
+    0
+  );
+
+  const impactMetrics = [
+    { label: "Total Investment", value: "৳1,224 Crore", icon: Building },
+    {
+      label: "Total Projects Awarded",
+      value: `${totalProjects}+`,
+      icon: Award,
     },
     {
       label: "Windows Available",
@@ -39,9 +122,59 @@ export default function ATF() {
       icon: Users,
     },
     {
-      label: "Universities Covered",
-      value: "All Public Universities",
-      icon: Award,
+      label: "Budget Utilization",
+      value: `${Math.round((totalUsed / totalAllocation) * 100)}%`,
+      icon: TrendingUp,
+    },
+  ];
+
+  const activities = [
+    {
+      title: "Competitive Grant System",
+      description:
+        "Merit-based funding allocation across six strategic windows supporting diverse academic initiatives from pandemic research to technology transfer.",
+    },
+    {
+      title: "Quality Enhancement Programs",
+      description:
+        "Comprehensive infrastructure development for teaching and learning, including laboratory upgrades, digital resources, and modern learning spaces.",
+    },
+    {
+      title: "Research & Innovation",
+      description:
+        "Support for advanced research in STEM/STAGE and AHSBL fields, industry collaborations, and establishment of innovation support facilities.",
+    },
+    {
+      title: "Institutional Capacity Building",
+      description:
+        "Development of Technology Transfer Offices (TTO) and Innovation Support Facilities (ISF) including Fab-Labs, i-Labs, and Business Incubators.",
+    },
+  ];
+
+  const outcomes = [
+    {
+      title: "Enhanced Research Output",
+      description:
+        "Significant increase in quality research publications, patents, and innovations emerging from supported projects.",
+      impact: "150+ research projects",
+    },
+    {
+      title: "Infrastructure Modernization",
+      description:
+        "State-of-the-art laboratories, classrooms, and digital infrastructure across participating universities.",
+      impact: "50+ institutions",
+    },
+    {
+      title: "Industry-Academia Linkage",
+      description:
+        "Strengthened partnerships between universities and industries leading to practical applications and technology commercialization.",
+      impact: "30+ partnerships",
+    },
+    {
+      title: "Innovation Ecosystem",
+      description:
+        "Established innovation hubs fostering entrepreneurship and startup culture within academic institutions.",
+      impact: "15+ innovation centers",
     },
   ];
 
@@ -109,19 +242,375 @@ export default function ATF() {
               </div>
               <div className="bg-gray-50 rounded-lg p-6 text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">
-                  150+
+                  {totalProjects}+
                 </div>
-                <div className="text-gray-600">Programs Enhanced</div>
+                <div className="text-gray-600">Projects Awarded</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">40%</div>
-                <div className="text-gray-600">Budget Allocation</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">
+                  ৳{(totalAllocation / 100).toFixed(0)} Cr
+                </div>
+                <div className="text-gray-600">Total Fund Allocation</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">40%</div>
-                <div className="text-gray-600">Quality Improvement</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">
+                  {Math.round((totalUsed / totalAllocation) * 100)}%
+                </div>
+                <div className="text-gray-600">Budget Utilization</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fund Allocation Table */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Fund Allocation by Window & University Group
+            </h2>
+            <p className="text-lg text-gray-600">
+              Comprehensive allocation and utilization across all ATF windows
+              (BDT in Lakh)
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-blue-600 text-white">
+                  <tr>
+                    <th className="px-6 py-4 text-left text-sm font-semibold">
+                      Window Name
+                    </th>
+                    <th className="px-4 py-4 text-center text-sm font-semibold">
+                      Total Fund
+                    </th>
+                    <th
+                      className="px-4 py-4 text-center text-sm font-semibold border-l border-blue-500"
+                      colSpan={3}
+                    >
+                      Group A (55%)
+                    </th>
+                    <th
+                      className="px-4 py-4 text-center text-sm font-semibold border-l border-blue-500"
+                      colSpan={3}
+                    >
+                      Group B (30%)
+                    </th>
+                    <th
+                      className="px-4 py-4 text-center text-sm font-semibold border-l border-blue-500"
+                      colSpan={3}
+                    >
+                      Group C (15%)
+                    </th>
+                    <th className="px-4 py-4 text-center text-sm font-semibold border-l border-blue-500">
+                      Projects
+                    </th>
+                  </tr>
+                  <tr className="bg-blue-700">
+                    <th className="px-6 py-3 text-left text-xs font-medium"></th>
+                    <th className="px-4 py-3 text-center text-xs font-medium"></th>
+                    <th className="px-3 py-3 text-center text-xs font-medium border-l border-blue-600">
+                      Allocation
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium">
+                      Used
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium">
+                      Remaining
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium border-l border-blue-600">
+                      Allocation
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium">
+                      Used
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium">
+                      Remaining
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium border-l border-blue-600">
+                      Allocation
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium">
+                      Used
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium">
+                      Remaining
+                    </th>
+                    <th className="px-3 py-3 text-center text-xs font-medium border-l border-blue-600">
+                      Count
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {allocationData.map((row, index) => (
+                    <tr
+                      key={index}
+                      className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                    >
+                      <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                        {row.window}
+                      </td>
+                      <td className="px-4 py-4 text-center text-sm font-semibold text-blue-600">
+                        ৳{row.totalFund.toLocaleString()}
+                      </td>
+                      {/* Group A */}
+                      <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-200">
+                        {row.groupA.allocation > 0
+                          ? `৳${row.groupA.allocation.toLocaleString()}`
+                          : "-"}
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm text-green-600 font-medium">
+                        {row.groupA.used > 0
+                          ? `৳${row.groupA.used.toLocaleString()}`
+                          : "-"}
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm text-gray-600">
+                        {row.groupA.allocation > 0
+                          ? `৳${(
+                              row.groupA.allocation - row.groupA.used
+                            ).toLocaleString()}`
+                          : "-"}
+                      </td>
+                      {/* Group B */}
+                      <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-200">
+                        {row.groupB.allocation > 0
+                          ? `৳${row.groupB.allocation.toLocaleString()}`
+                          : "-"}
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm text-green-600 font-medium">
+                        {row.groupB.used > 0
+                          ? `৳${row.groupB.used.toLocaleString()}`
+                          : "-"}
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm text-gray-600">
+                        {row.groupB.allocation > 0
+                          ? `৳${(
+                              row.groupB.allocation - row.groupB.used
+                            ).toLocaleString()}`
+                          : "-"}
+                      </td>
+                      {/* Group C */}
+                      <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-200">
+                        {row.groupC.allocation > 0
+                          ? `৳${row.groupC.allocation.toLocaleString()}`
+                          : "-"}
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm text-green-600 font-medium">
+                        {row.groupC.used > 0
+                          ? `৳${row.groupC.used.toLocaleString()}`
+                          : "-"}
+                      </td>
+                      <td className="px-3 py-4 text-center text-sm text-gray-600">
+                        {row.groupC.allocation > 0
+                          ? `৳${(
+                              row.groupC.allocation - row.groupC.used
+                            ).toLocaleString()}`
+                          : "-"}
+                      </td>
+                      {/* Projects */}
+                      <td className="px-3 py-4 text-center text-sm font-semibold text-blue-600 border-l border-gray-200">
+                        {row.groupA.projects +
+                          row.groupB.projects +
+                          row.groupC.projects}
+                      </td>
+                    </tr>
+                  ))}
+                  {/* Total Row */}
+                  <tr className="bg-blue-100 font-semibold">
+                    <td className="px-6 py-4 text-sm text-gray-900">
+                      Total Allocation (All Windows)
+                    </td>
+                    <td className="px-4 py-4 text-center text-sm text-blue-700">
+                      ৳{totalAllocation.toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-300">
+                      ৳
+                      {allocationData
+                        .reduce((sum, row) => sum + row.groupA.allocation, 0)
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-green-700">
+                      ৳
+                      {allocationData
+                        .reduce((sum, row) => sum + row.groupA.used, 0)
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-gray-700">
+                      ৳
+                      {allocationData
+                        .reduce(
+                          (sum, row) =>
+                            sum + (row.groupA.allocation - row.groupA.used),
+                          0
+                        )
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-300">
+                      ৳
+                      {allocationData
+                        .reduce((sum, row) => sum + row.groupB.allocation, 0)
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-green-700">
+                      ৳
+                      {allocationData
+                        .reduce((sum, row) => sum + row.groupB.used, 0)
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-gray-700">
+                      ৳
+                      {allocationData
+                        .reduce(
+                          (sum, row) =>
+                            sum + (row.groupB.allocation - row.groupB.used),
+                          0
+                        )
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-300">
+                      ৳
+                      {allocationData
+                        .reduce((sum, row) => sum + row.groupC.allocation, 0)
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-green-700">
+                      ৳
+                      {allocationData
+                        .reduce((sum, row) => sum + row.groupC.used, 0)
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-gray-700">
+                      ৳
+                      {allocationData
+                        .reduce(
+                          (sum, row) =>
+                            sum + (row.groupC.allocation - row.groupC.used),
+                          0
+                        )
+                        .toLocaleString()}
+                    </td>
+                    <td className="px-3 py-4 text-center text-sm text-blue-700 border-l border-gray-300">
+                      {totalProjects}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Legend */}
+            <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
+              <div className="flex flex-wrap gap-6 text-sm">
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-blue-600 rounded mr-2"></div>
+                  <span className="text-gray-700">
+                    University Group A (55% allocation)
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-green-600 rounded mr-2"></div>
+                  <span className="text-gray-700">
+                    University Group B (30% allocation)
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-orange-600 rounded mr-2"></div>
+                  <span className="text-gray-700">
+                    University Group C (15% allocation)
+                  </span>
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 mt-3">
+                Note: All amounts are in BDT Lakh. &quot;Used&quot; represents
+                already allocated funds to approved projects.
+                &quot;Remaining&quot; shows available funds for future
+                allocations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Activities Under ATF */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Key Activities Under ATF
+            </h2>
+            <p className="text-lg text-gray-600">
+              Strategic initiatives driving academic transformation across
+              universities
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {activities.map((activity, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-blue-50 to-white rounded-lg p-8 shadow-md hover:shadow-xl transition-shadow border border-blue-100"
+              >
+                <div className="flex items-start">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <DollarSign className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                      {activity.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      {activity.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Expected Outcomes */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Expected Outcomes
+            </h2>
+            <p className="text-lg text-gray-600">
+              Measurable impacts and achievements from ATF investments
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {outcomes.map((outcome, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border border-gray-100"
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center">
+                    <BarChart3 className="h-7 w-7 text-white" />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3 text-center">
+                  {outcome.title}
+                </h3>
+                <p className="text-sm text-gray-600 mb-4 text-center leading-relaxed">
+                  {outcome.description}
+                </p>
+                <div className="pt-4 border-t border-gray-100">
+                  <div className="text-center">
+                    <span className="text-2xl font-bold text-blue-600">
+                      {outcome.impact}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,33 +1,115 @@
 "use client";
 
-import { Globe, Zap, Database, Video, Users, CheckCircle } from "lucide-react";
+import {
+  Globe,
+  Zap,
+  Database,
+  Video,
+  Users,
+  CheckCircle,
+  Network,
+  Wifi,
+  Laptop,
+  Headphones,
+  Building2,
+  ArrowRight,
+} from "lucide-react";
 
 export default function BdREN() {
-  const internationalPartnerships = [
-    "TEIN (Trans-Eurasia Information Network)",
-    "Internet2 (USA)",
-    "GÉANT (Europe)",
-    "APAN (Asia-Pacific Advanced Network)",
+  // Key Activities under Sub-component 1.1.4
+  const keyActivities = [
+    {
+      number: "i",
+      title: "Standard Package of Services",
+      description:
+        "Development of a standard package of services that NRENs in South Asia can offer students and higher education institutions",
+      services: [
+        "Learning Management System (LMS)",
+        "Video-conferencing solutions",
+        "Data storage infrastructure",
+        "Note-taking solutions",
+      ],
+      icon: Database,
+      color: "bg-blue-600",
+    },
+    {
+      number: "ii",
+      title: "APAN & SAR RENs Cooperation",
+      description:
+        "Work closely to support working groups of professionals in Asia-Pacific Advanced Network (APAN) and strengthen cooperation across SAR RENs",
+      services: [
+        "Professional working groups support",
+        "Regional network collaboration",
+        "Knowledge sharing initiatives",
+        "Best practices exchange",
+      ],
+      icon: Network,
+      color: "bg-indigo-600",
+    },
+    {
+      number: "iii",
+      title: "Last-Mile Connectivity",
+      description:
+        "Put in place the last-mile connectivity for participating colleges, institutions and universities in Bangladesh through institutional grants",
+      services: [
+        "Institutional connectivity grants",
+        "Campus network infrastructure",
+        "High-speed internet access",
+        "Network equipment provision",
+      ],
+      icon: Wifi,
+      color: "bg-purple-600",
+    },
+    {
+      number: "iv",
+      title: "Digital Inclusion Policies",
+      description:
+        "Support the development and implementation of policies and strategies to ensure connectivity of the most disadvantaged students",
+      services: [
+        "Means-tested device access programs",
+        "Subsidized broadband access",
+        "Digital equity initiatives",
+        "Student support schemes",
+      ],
+      icon: Laptop,
+      color: "bg-green-600",
+    },
+    {
+      number: "v",
+      title: "24/7 Help Desk Support",
+      description:
+        "Establishment of a 24/7 help desk to support remote teaching and learning (in alignment with the desk established under 1.1.1 and the help desk created under Sub-component 1.1.3)",
+      services: [
+        "Round-the-clock technical support",
+        "Remote learning assistance",
+        "Teaching support services",
+        "Integrated helpdesk system",
+      ],
+      icon: Headphones,
+      color: "bg-orange-600",
+    },
   ];
 
-  const researchServices = [
+  const internationalPartnerships = [
     {
-      title: "High-Performance Computing",
-      specifications: "500+ CPU cores, GPU acceleration",
-      applications: "Weather modeling, Genomics, Engineering simulation",
-      usage: "80% average utilization",
+      name: "APAN",
+      fullName: "Asia-Pacific Advanced Network",
+      description: "Primary regional network partner",
     },
     {
-      title: "Research Data Management",
-      storage: "500 TB research data storage",
-      backup: "Multi-site replication",
-      access: "Role-based permissions",
+      name: "SAR RENs",
+      fullName: "South Asian Research and Education Networks",
+      description: "Regional collaboration framework",
     },
     {
-      title: "Collaboration Tools",
-      conferencing: "Multi-point HD conferences",
-      sharing: "Secure large file transfer",
-      labs: "Remote access to research equipment",
+      name: "TEIN",
+      fullName: "Trans-Eurasia Information Network",
+      description: "Trans-continental connectivity",
+    },
+    {
+      name: "GÉANT",
+      fullName: "European Research Network",
+      description: "European network integration",
     },
   ];
 
@@ -37,478 +119,337 @@ export default function BdREN() {
       <section className="bg-gradient-to-br from-indigo-600 to-indigo-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            <div className="inline-block bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+              <span className="text-sm font-semibold">Sub-component 1.1.4</span>
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              BdREN Strengthening
+              Efforts to Improve Connectivity across National Research and
+              Education Networks
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-indigo-100">
-              Actively Connecting Bangladesh to Global Research Networks
+            <p className="text-xl md:text-2xl mb-8 text-indigo-100 max-w-4xl mx-auto">
+              Strengthening Bangladesh Research and Education Network (BdREN)
+              through enhanced connectivity and comprehensive digital services
             </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-              <div className="text-3xl font-bold text-yellow-300 mb-2">
-                100+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div className="text-3xl font-bold text-yellow-300 mb-1">
+                  50+
+                </div>
+                <div className="text-sm">Partner Institutions</div>
               </div>
-              <div className="text-lg">
-                International Research Networks Connected
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div className="text-3xl font-bold text-yellow-300 mb-1">5</div>
+                <div className="text-sm">Key Activity Areas</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                <div className="text-3xl font-bold text-yellow-300 mb-1">
+                  24/7
+                </div>
+                <div className="text-sm">Support Available</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Network Expansion Overview */}
+      {/* Overview */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Network Expansion Overview
+              Component Overview
             </h2>
-            <p className="text-lg text-gray-600">
-              Ongoing strategic enhancement of Bangladesh Research and Education
-              Network (BdREN) infrastructure, currently supporting advanced
-              digital services nationwide
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              This component finances key activities aimed at strengthening
+              Bangladesh&apos;s research and education network infrastructure,
+              enhancing connectivity, and ensuring equitable access to digital
+              resources for all students and institutions.
             </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Investment Areas
-              </h3>
-              <div className="space-y-6">
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                    Digital Library Initiative
-                  </h4>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-gray-700">Total Investment:</span>
-                      <span className="font-semibold text-indigo-600">
-                        40 crore Taka
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-700">Current Status:</span>
-                      <span className="font-semibold text-green-600">
-                        20 crore in processing
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-700">Content:</span>
-                      <span className="font-semibold text-gray-600">
-                        Academic journals, research databases, educational
-                        materials
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gray-50 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">
-                    Infrastructure Development
-                  </h4>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-600 mr-3" />
-                      <span className="text-gray-700">
-                        Data center expansion and modernization
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-600 mr-3" />
-                      <span className="text-gray-700">
-                        Advanced server and storage solutions
-                      </span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle className="h-4 w-4 text-green-600 mr-3" />
-                      <span className="text-gray-700">
-                        Enhanced bandwidth and redundancy
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  International Partnerships
-                </h3>
-                <ul className="space-y-2">
-                  {internationalPartnerships.map((partnership, index) => (
-                    <li key={index} className="flex items-center">
-                      <Globe className="h-4 w-4 text-indigo-600 mr-3" />
-                      <span className="text-gray-700">{partnership}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Bandwidth Allocation
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">International:</span>
-                    <span className="font-semibold text-indigo-600">
-                      20 Gbps
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Domestic:</span>
-                    <span className="font-semibold text-indigo-600">
-                      30 Gbps
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-700">Research Traffic:</span>
-                    <span className="font-semibold text-indigo-600">
-                      10 Gbps dedicated
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Key Service Offerings */}
+      {/* Key Activities */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Key Service Offerings
+              Key Activities
             </h2>
             <p className="text-lg text-gray-600">
-              Advanced digital services supporting research and education
+              Five strategic initiatives to transform national research and
+              education connectivity
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Virtual Desktop Infrastructure (VDI)
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Centralized computing resources for universities
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Licensed educational and research software access
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Cost-effective standardized computing environment
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                University VDI Labs
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    20-25 specialized computer laboratories
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Industry-standard applications for various disciplines
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Scheduled and on-demand student access
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Learning Management Infrastructure (LMI)
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Centralized learning management system
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Faculty-created educational materials from across Bangladesh
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Course management and collaboration tools
-                  </span>
-                </li>
-              </ul>
-            </div>
+
+          <div className="space-y-6">
+            {keyActivities.map((activity, index) => {
+              const IconComponent = activity.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow overflow-hidden"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                    {/* Left sidebar with number and icon */}
+                    <div
+                      className={`${activity.color} lg:col-span-2 p-6 flex flex-col items-center justify-center text-white`}
+                    >
+                      <div className="text-4xl font-bold mb-2">
+                        ({activity.number})
+                      </div>
+                      <IconComponent className="h-12 w-12" />
+                    </div>
+
+                    {/* Main content */}
+                    <div className="lg:col-span-10 p-6 lg:p-8">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                        {activity.title}
+                      </h3>
+                      <p className="text-gray-700 mb-6 leading-relaxed">
+                        {activity.description}
+                      </p>
+
+                      {/* Services list */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {activity.services.map((service, serviceIndex) => (
+                          <div
+                            key={serviceIndex}
+                            className="flex items-start bg-gray-50 rounded-lg p-3"
+                          >
+                            <ArrowRight className="h-5 w-5 text-indigo-600 mr-3 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-700 text-sm">
+                              {service}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Long-term Vision */}
+      {/* International Partnerships */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Long-term Vision
+              International Network Partnerships
             </h2>
             <p className="text-lg text-gray-600">
-              Building a sustainable digital education ecosystem
+              Connecting Bangladesh to global research and education networks
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <Globe className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Self-sustaining Ecosystem
-              </h3>
-              <p className="text-gray-700">
-                Self-sustaining digital education ecosystem
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <Zap className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Innovation Hub
-              </h3>
-              <p className="text-gray-700">
-                Regional educational technology innovation hub
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <Users className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Global Collaboration
-              </h3>
-              <p className="text-gray-700">
-                Platform for international academic collaboration
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Research Services */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Research Services
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {researchServices.map((service, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {internationalPartnerships.map((partnership, index) => (
               <div
                 key={index}
-                className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
+                className="bg-gradient-to-br from-indigo-50 to-white rounded-xl p-6 border-2 border-indigo-100 hover:border-indigo-300 transition-all hover:shadow-lg"
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                <div className="space-y-3">
-                  {service.specifications && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        Specifications:
-                      </span>
-                      <p className="text-gray-700">{service.specifications}</p>
-                    </div>
-                  )}
-                  {service.applications && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        Applications:
-                      </span>
-                      <p className="text-gray-700">{service.applications}</p>
-                    </div>
-                  )}
-                  {service.usage && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        Usage:
-                      </span>
-                      <p className="text-gray-700">{service.usage}</p>
-                    </div>
-                  )}
-                  {service.storage && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        Storage:
-                      </span>
-                      <p className="text-gray-700">{service.storage}</p>
-                    </div>
-                  )}
-                  {service.backup && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        Backup:
-                      </span>
-                      <p className="text-gray-700">{service.backup}</p>
-                    </div>
-                  )}
-                  {service.access && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        Access:
-                      </span>
-                      <p className="text-gray-700">{service.access}</p>
-                    </div>
-                  )}
-                  {service.conferencing && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        Video Conferencing:
-                      </span>
-                      <p className="text-gray-700">{service.conferencing}</p>
-                    </div>
-                  )}
-                  {service.sharing && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        File Sharing:
-                      </span>
-                      <p className="text-gray-700">{service.sharing}</p>
-                    </div>
-                  )}
-                  {service.labs && (
-                    <div>
-                      <span className="text-sm font-medium text-gray-500">
-                        Virtual Labs:
-                      </span>
-                      <p className="text-gray-700">{service.labs}</p>
-                    </div>
-                  )}
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center">
+                    <Globe className="h-8 w-8 text-white" />
+                  </div>
                 </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
+                  {partnership.name}
+                </h3>
+                <p className="text-sm text-gray-600 mb-3 text-center">
+                  {partnership.fullName}
+                </p>
+                <p className="text-sm text-gray-700 text-center">
+                  {partnership.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Research Impact */}
-      <section className="py-16 bg-white">
+      {/* Expected Outcomes */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Research Impact
+              Expected Outcomes
             </h2>
+            <p className="text-lg text-gray-600">
+              Transformative impact on Bangladesh&apos;s higher education
+              landscape
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Database className="h-8 w-8 text-indigo-600" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center">
+                  <Network className="h-8 w-8 text-white" />
+                </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">150+</div>
-              <div className="text-gray-600">Active Research Projects</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                Enhanced Connectivity
+              </h3>
+              <p className="text-gray-700 text-center">
+                Seamless last-mile connectivity for all participating
+                institutions across Bangladesh
+              </p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="h-8 w-8 text-indigo-600" />
+
+            <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-green-700 rounded-full flex items-center justify-center">
+                  <Users className="h-8 w-8 text-white" />
+                </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">100+</div>
-              <div className="text-gray-600">International Networks</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                Digital Equity
+              </h3>
+              <p className="text-gray-700 text-center">
+                Improved access to digital resources for disadvantaged students
+                through targeted support programs
+              </p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Video className="h-8 w-8 text-indigo-600" />
+
+            <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center">
+                  <Globe className="h-8 w-8 text-white" />
+                </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
-              <div className="text-gray-600">HD Conferences</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                Global Integration
+              </h3>
+              <p className="text-gray-700 text-center">
+                Strengthened collaboration with regional and international
+                research networks
+              </p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-6 text-center">
-              <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-8 w-8 text-indigo-600" />
+
+            <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-indigo-700 rounded-full flex items-center justify-center">
+                  <Database className="h-8 w-8 text-white" />
+                </div>
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">50</div>
-              <div className="text-gray-600">Gbps Total Bandwidth</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                Service Standardization
+              </h3>
+              <p className="text-gray-700 text-center">
+                Uniform digital services across South Asian research and
+                education networks
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center">
+                  <Headphones className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                Continuous Support
+              </h3>
+              <p className="text-gray-700 text-center">
+                24/7 helpdesk ensuring uninterrupted support for remote teaching
+                and learning
+              </p>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-md hover:shadow-xl transition-all">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-teal-700 rounded-full flex items-center justify-center">
+                  <Building2 className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
+                Institutional Capacity
+              </h3>
+              <p className="text-gray-700 text-center">
+                Enhanced institutional capabilities through infrastructure
+                development and grants
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Success Stories */}
-      <section className="py-16 bg-gray-50">
+      {/* Impact Statistics */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Research Success Stories
+              Impact Statistics
             </h2>
+            <p className="text-lg text-gray-600">
+              Measuring progress in connectivity and digital access
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Climate Research Collaboration
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Partnered with European research institutions for climate
-                modeling using high-performance computing resources.
-              </p>
-              <div className="text-sm text-indigo-600 font-medium">
-                Read Full Case Study →
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border-2 border-blue-100 text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Building2 className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">50+</div>
+              <div className="text-gray-700 font-medium">
+                Partner Institutions
               </div>
             </div>
 
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Genomics Research Network
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Connected with international genomics research networks,
-                enabling large-scale DNA sequencing projects.
-              </p>
-              <div className="text-sm text-indigo-600 font-medium">
-                Read Full Case Study →
+            <div className="bg-gradient-to-br from-indigo-50 to-white rounded-xl p-6 border-2 border-indigo-100 text-center">
+              <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Globe className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">4</div>
+              <div className="text-gray-700 font-medium">
+                International Networks
               </div>
             </div>
 
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Engineering Simulation Hub
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Established virtual engineering labs with remote access to
-                advanced simulation software and computational resources.
-              </p>
-              <div className="text-sm text-indigo-600 font-medium">
-                Read Full Case Study →
+            <div className="bg-gradient-to-br from-purple-50 to-white rounded-xl p-6 border-2 border-purple-100 text-center">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-white" />
               </div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">1000+</div>
+              <div className="text-gray-700 font-medium">
+                Students Supported
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border-2 border-green-100 text-center">
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Headphones className="h-8 w-8 text-white" />
+              </div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">24/7</div>
+              <div className="text-gray-700 font-medium">Help Desk Support</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-indigo-600">
+      <section className="py-16 bg-gradient-to-br from-indigo-600 to-indigo-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Connect Globally?
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Connect to the Future of Education
           </h2>
-          <p className="text-xl text-indigo-100 mb-8">
-            Join BdREN and access world-class research networks and resources
+          <p className="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">
+            Join Bangladesh Research and Education Network (BdREN) and access
+            world-class connectivity, digital services, and global partnerships
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-colors">
-              Apply for BdREN Access
+            <button className="bg-white text-indigo-600 px-8 py-4 rounded-lg font-semibold hover:bg-indigo-50 transition-colors inline-flex items-center justify-center">
+              <Network className="h-5 w-5 mr-2" />
+              Learn More About BdREN
             </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors">
-              View Available Resources
+            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-indigo-600 transition-colors inline-flex items-center justify-center">
+              <Headphones className="h-5 w-5 mr-2" />
+              Contact Support
             </button>
           </div>
         </div>

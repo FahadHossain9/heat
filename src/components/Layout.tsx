@@ -26,7 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           href: "/components/monitoring",
         },
         { name: `Women's Network`, href: "/components/womens-network" },
-        { name: "Quality Assurance", href: "/components/quality-assurance" },
+        { name: "QA & Accreditation", href: "/components/quality-assurance" },
         { name: "Emergency Response", href: "/components/emergency" },
       ],
     },
@@ -69,12 +69,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                         <ChevronDown className="ml-1 h-5 w-5" />
                       </button>
                       {isComponentsOpen && (
-                        <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-100">
+                        <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-2 z-50 border border-gray-200">
                           {item.children.map((child) => (
                             <Link
                               key={child.name}
                               href={child.href}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                              className={`block px-4 py-3 text-sm font-medium transition-all duration-200 ${
+                                pathname === child.href
+                                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+                                  : "text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 hover:pl-6"
+                              }`}
                             >
                               {child.name}
                             </Link>
@@ -156,12 +160,16 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                         />
                       </button>
                       {isComponentsOpen && (
-                        <div className="pl-6 space-y-1">
+                        <div className="pl-4 space-y-1 mt-2">
                           {item.children.map((child) => (
                             <Link
                               key={child.name}
                               href={child.href}
-                              className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50"
+                              className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+                                pathname === child.href
+                                  ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white ml-2"
+                                  : "text-gray-600 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-600 hover:ml-2"
+                              }`}
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {child.name}
@@ -301,7 +309,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     href="/components/quality-assurance"
                     className="text-gray-300 hover:text-white transition-colors"
                   >
-                    Quality Assurance
+                    QA & Accreditation
                   </Link>
                 </li>
               </ul>

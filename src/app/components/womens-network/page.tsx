@@ -1,123 +1,82 @@
 "use client";
 
 import {
-  Users,
   GraduationCap,
-  Briefcase,
   Globe,
-  Heart,
-  Target,
   BookOpen,
-  Trophy,
-  ArrowRight,
-  Star,
-  TrendingUp,
+  Microscope,
+  Lightbulb,
+  Building2,
+  CheckCircle,
+  Award,
 } from "lucide-react";
 
 export default function WomensNetwork() {
-  const keyInitiatives = [
+  // Institutional Grant Packages
+  const institutionalPackages = [
     {
-      title: "Women's Leadership Development",
-      icon: Trophy,
-      activities: [
-        "Leadership training programs for female faculty and administrators",
-        "Mentorship initiatives pairing senior and junior female academics",
-        "Career advancement support for women in higher education",
-        "Gender-sensitive institutional policy development",
-      ],
-    },
-    {
-      title: "Student Support Programs",
-      icon: GraduationCap,
-      activities: [
-        "Scholarships and financial support for female students",
-        "Academic counseling and guidance services",
-        "Skills development workshops",
-        "Research opportunities for women students",
-      ],
-    },
-    {
-      title: "Faculty Development for Women",
-      icon: BookOpen,
-      activities: [
-        "Advanced training opportunities (domestic and international)",
-        "Research capacity building",
-        "Professional networking events",
-        "Work-life balance support initiatives",
-      ],
-    },
-    {
-      title: "Employment & Entrepreneurship",
-      icon: Briefcase,
-      activities: [
-        "Career counseling and job placement services",
-        "Industry connections and internship opportunities",
-        "Entrepreneurship training and startup support",
-        "Alumni network building",
-      ],
-    },
-  ];
-
-  const targetGroups = [
-    {
-      group: "Female Undergraduate Students",
-      icon: Users,
-      description: "Supporting academic excellence and career development",
-    },
-    {
-      group: "Female Postgraduate Students",
+      number: "i",
+      title: "Capacity Building and Training",
       icon: GraduationCap,
       description:
-        "MS, MPhil, PhD students with research and mentorship support",
+        "Comprehensive capacity building for academics and students through multiple channels",
+      color: "bg-pink-600",
+      activities: [
+        "E-learning platforms and digital training",
+        "Fellowships for advanced study and research",
+        "Internship opportunities (domestic and international)",
+        "Workshops on specialized topics",
+        "Seminars and academic conferences",
+        "Cross-institutional training programs",
+      ],
     },
     {
-      group: "Female Faculty Members",
+      number: "ii",
+      title: "Research Collaboration",
+      icon: Microscope,
+      description:
+        "Fostering research collaboration among women within sub-regional, regional, and cross-country areas",
+      color: "bg-purple-600",
+      activities: [
+        "Sub-regional research partnerships",
+        "Regional collaboration networks",
+        "Cross-country research initiatives",
+        "Joint research projects with international partners",
+        "Collaborative publication opportunities",
+        "Research mentorship programs",
+      ],
+    },
+    {
+      number: "iii",
+      title: "Faculty and Staff Capacity Building",
       icon: BookOpen,
       description:
-        "Early career to senior positions with leadership development",
+        "Building support for faculty and staff capacity and knowledge by strengthening their teaching, learning, and research opportunities",
+      color: "bg-indigo-600",
+      activities: [
+        "Teaching methodology enhancement programs",
+        "Advanced pedagogical training",
+        "Research skills development",
+        "Publication and writing workshops",
+        "Academic leadership training",
+        "Professional development pathways",
+      ],
     },
     {
-      group: "Female Administrators",
-      icon: Briefcase,
-      description: "Higher education institution leaders and managers",
-    },
-    {
-      group: "Women Researchers",
-      icon: Target,
-      description: "Research capacity building and collaboration opportunities",
-    },
-  ];
-
-  const expectedOutcomes = [
-    {
-      outcome: "Increased female enrollment in postgraduate programs",
-      metric: "Target: 25% increase",
-      icon: TrendingUp,
-    },
-    {
-      outcome: "Higher percentage of women in academic leadership",
-      metric: "Target: 40% leadership positions",
-      icon: Trophy,
-    },
-    {
-      outcome: "Improved employment rates for female graduates",
-      metric: "Target: 85% employment rate",
-      icon: Briefcase,
-    },
-    {
-      outcome: "Stronger regional/global networks",
-      metric: "Target: 50+ network connections",
-      icon: Globe,
-    },
-    {
-      outcome: "Enhanced research output by women faculty",
-      metric: "Target: 30% increase in publications",
-      icon: BookOpen,
-    },
-    {
-      outcome: "Greater gender equity in institutions",
-      metric: "Target: 60% female participation",
-      icon: Heart,
+      number: "iv",
+      title: "STEM Promotion and Participation",
+      icon: Lightbulb,
+      description:
+        "Promoting mechanisms for encouraging female participation in STEM and other academic programs",
+      color: "bg-blue-600",
+      activities: [
+        "STEM awareness and outreach programs",
+        "Female-focused STEM scholarships",
+        "Mentorship in STEM fields",
+        "Career guidance in technical disciplines",
+        "Industry partnerships for STEM programs",
+        "Support for women in non-traditional fields",
+      ],
     },
   ];
 
@@ -127,115 +86,169 @@ export default function WomensNetwork() {
       <section className="bg-gradient-to-br from-pink-600 to-purple-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6">
+              <span className="text-yellow-300 font-semibold">
+                Sub-Component 1.2.2
+              </span>
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              {`Women's Leadership and Network Development`}
+              International Network of {`Women's`} Universities and Colleges
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-pink-100">
-              Empowering women leaders in higher education and fostering female
-              participation in {`Bangladesh's`} academic and professional
-              landscape
+            <p className="text-xl md:text-2xl mb-8 text-pink-100 max-w-4xl mx-auto">
+              Supporting overall access of women to higher education,
+              particularly STEM, through institutional grants and capacity
+              building programs
             </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-              <div className="text-3xl font-bold text-yellow-300 mb-2">
-                Sub-component 1.2.2
+            <div className="flex items-center justify-center gap-8 mt-12">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-yellow-300">4</div>
+                <div className="text-sm text-pink-100 mt-1">
+                  Key Focus Areas
+                </div>
               </div>
-              <div className="text-lg">{`Women's Network Development`}</div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-yellow-300">2</div>
+                <div className="text-sm text-pink-100 mt-1">
+                  Participating Institutions
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Overview & Importance */}
+      {/* Overview */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Overview & Importance
+              Component Overview
             </h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              This component represents a core pillar of the HEAT Project,
-              focusing on strengthening {`women's`} participation in higher
-              education and developing female leadership in academic
-              institutions.
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-8">
+              The sub-component will support the overall access of women to
+              higher education, particularly STEM. This will be facilitated
+              through institutional grants to participating institutions for
+              capacity building, research collaboration, and promotion of female
+              participation in STEM and other academic programs.
             </p>
           </div>
+
+          {/* Institutional Support Overview */}
+          <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-8 mb-8">
+            <div className="flex items-start gap-4">
+              <div className="bg-pink-600 p-3 rounded-lg">
+                <Building2 className="h-8 w-8 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  Institutional Grants
+                </h3>
+                <p className="text-lg text-gray-700">
+                  Both institutions in Bangladesh will receive institutional
+                  grants to implement comprehensive packages for capacity
+                  building, research collaboration, and promotion of female
+                  participation in STEM and other academic programs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Key Focus Areas */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 text-center">
-              <Users className="h-12 w-12 text-pink-600 mx-auto mb-4" />
+              <GraduationCap className="h-12 w-12 text-pink-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Strengthening Participation
+                Capacity Building
               </h3>
               <p className="text-gray-600">
-                {`Women's`} participation in higher education
+                Training for academics and students
               </p>
             </div>
             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 text-center">
-              <Trophy className="h-12 w-12 text-pink-600 mx-auto mb-4" />
+              <Microscope className="h-12 w-12 text-purple-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Leadership Development
+                Research Collaboration
               </h3>
               <p className="text-gray-600">
-                Female leadership in academic institutions
+                Regional and cross-country partnerships
               </p>
             </div>
             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 text-center">
-              <Briefcase className="h-12 w-12 text-pink-600 mx-auto mb-4" />
+              <BookOpen className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Employment Outcomes
+                Faculty Development
               </h3>
               <p className="text-gray-600">
-                Improved graduate employment for women
+                Teaching, learning, and research opportunities
               </p>
             </div>
             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 text-center">
-              <Globe className="h-12 w-12 text-pink-600 mx-auto mb-4" />
+              <Lightbulb className="h-12 w-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Global Networks
+                STEM Promotion
               </h3>
               <p className="text-gray-600">
-                Regional and global academic networks
+                Encouraging female participation in STEM
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Key Initiatives */}
+      {/* Institutional Grant Packages */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Key Initiatives
+              Institutional Grant Packages
             </h2>
-            <p className="text-lg text-gray-600">
-              Comprehensive programs designed to support women at every stage of
-              their academic and professional journey
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              Each institution will receive an institutional grant to implement
+              packages for comprehensive support to academics and students
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {keyInitiatives.map((initiative, index) => {
-              const IconComponent = initiative.icon;
+          <div className="space-y-8">
+            {institutionalPackages.map((pkg, index) => {
+              const IconComponent = pkg.icon;
               return (
                 <div
                   key={index}
-                  className="bg-white rounded-lg p-8 shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-white rounded-lg overflow-hidden shadow-lg"
                 >
-                  <div className="flex items-center mb-6">
-                    <div className="bg-pink-100 p-3 rounded-lg mr-4">
-                      <IconComponent className="h-8 w-8 text-pink-600" />
+                  {/* Header */}
+                  <div className={`${pkg.color} text-white p-6`}>
+                    <div className="flex items-start gap-4">
+                      <div className="bg-white/20 p-3 rounded-lg">
+                        <IconComponent className="h-8 w-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-2xl font-bold">
+                            ({pkg.number})
+                          </span>
+                          <h3 className="text-2xl font-bold">{pkg.title}</h3>
+                        </div>
+                        <p className="text-white/90 text-lg">
+                          {pkg.description}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      {initiative.title}
-                    </h3>
                   </div>
-                  <ul className="space-y-3">
-                    {initiative.activities.map((activity, activityIndex) => (
-                      <li key={activityIndex} className="flex items-start">
-                        <Star className="h-5 w-5 text-pink-500 mr-3 mt-1 flex-shrink-0" />
-                        <span className="text-gray-700">{activity}</span>
-                      </li>
-                    ))}
-                  </ul>
+
+                  {/* Activities */}
+                  <div className="p-6">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                      Key Activities:
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {pkg.activities.map((activity, actIndex) => (
+                        <div key={actIndex} className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-gray-700">{activity}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -243,116 +256,42 @@ export default function WomensNetwork() {
         </div>
       </section>
 
-      {/* Regional & Global Network Participation */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Regional & Global Network Participation
-            </h2>
-            <p className="text-lg text-gray-600">
-              Connecting Bangladeshi women academics with international networks
-              for knowledge exchange and collaboration
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Objectives
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <Globe className="h-5 w-5 text-purple-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Connect Bangladeshi women academics with regional and
-                    international networks
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <Globe className="h-5 w-5 text-purple-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Facilitate knowledge exchange and collaboration
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <Globe className="h-5 w-5 text-purple-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Create platforms for sharing best practices
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <Globe className="h-5 w-5 text-purple-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Support participation in international conferences and
-                    forums
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                Network Activities
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <Users className="h-5 w-5 text-pink-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Regional {`women's`} academic conferences
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <Users className="h-5 w-5 text-pink-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Cross-border research collaborations
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <Users className="h-5 w-5 text-pink-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Exchange programs with partner institutions
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <Users className="h-5 w-5 text-pink-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Virtual networking platforms
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Target Groups */}
+      {/* Primary Beneficiaries */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Target Groups
+              Primary Beneficiaries
             </h2>
             <p className="text-lg text-gray-600">
-              Primary beneficiaries across all levels of higher education
+              Supporting women academics and students at all levels
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {targetGroups.map((group, index) => {
-              const IconComponent = group.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow text-center"
-                >
-                  <div className="bg-pink-100 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                    <IconComponent className="h-8 w-8 text-pink-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {group.group}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{group.description}</p>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg p-8 shadow-sm text-center">
+              <div className="bg-pink-100 p-4 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <GraduationCap className="h-10 w-10 text-pink-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Students
+              </h3>
+              <p className="text-gray-600">
+                Female students across undergraduate and postgraduate programs,
+                especially in STEM fields
+              </p>
+            </div>
+            <div className="bg-white rounded-lg p-8 shadow-sm text-center">
+              <div className="bg-purple-100 p-4 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                <BookOpen className="h-10 w-10 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Academics & Staff
+              </h3>
+              <p className="text-gray-600">
+                Female faculty and staff members seeking to enhance their
+                teaching, learning, and research capacity
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -365,127 +304,106 @@ export default function WomensNetwork() {
               Expected Outcomes
             </h2>
             <p className="text-lg text-gray-600">
-              Measurable impact indicators for {`women's`} advancement in
+              Measurable impact on {`women's`} participation and advancement in
               higher education
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {expectedOutcomes.map((outcome, index) => {
-              const IconComponent = outcome.icon;
-              return (
-                <div
-                  key={index}
-                  className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-                >
-                  <div className="flex items-start">
-                    <div className="bg-pink-100 p-2 rounded-lg mr-4 flex-shrink-0">
-                      <IconComponent className="h-6 w-6 text-pink-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        {outcome.outcome}
-                      </h3>
-                      <p className="text-pink-600 font-medium">
-                        {outcome.metric}
-                      </p>
-                    </div>
-                  </div>
+            <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 shadow-sm">
+              <div className="flex items-start">
+                <div className="bg-pink-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                  <GraduationCap className="h-6 w-6 text-pink-600" />
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Resources & Support */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Resources & Support
-            </h2>
-            <p className="text-lg text-gray-600">
-              Comprehensive support services and resources for all participants
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <GraduationCap className="h-6 w-6 text-pink-600 mr-3" />
-                For Female Students
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Information on scholarship applications
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Career guidance resources
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Mentorship program enrollment
-                  </span>
-                </li>
-              </ul>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Increased Female Enrollment
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    Higher participation of women in higher education,
+                    especially in STEM programs
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <BookOpen className="h-6 w-6 text-pink-600 mr-3" />
-                For Female Faculty
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Training program calendar
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Research grant opportunities
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Leadership development resources
-                  </span>
-                </li>
-              </ul>
+            <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 shadow-sm">
+              <div className="flex items-start">
+                <div className="bg-purple-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                  <Microscope className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Enhanced Research Capacity
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    Strengthened research collaboration and publication output
+                    among women academics
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Target className="h-6 w-6 text-pink-600 mr-3" />
-                For Institutions
-              </h3>
-              <ul className="space-y-2">
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Guidelines for gender-inclusive policies
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Best practices for supporting women in academia
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <ArrowRight className="h-4 w-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700">
-                    Implementation support and guidance
-                  </span>
-                </li>
-              </ul>
+            <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 shadow-sm">
+              <div className="flex items-start">
+                <div className="bg-indigo-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                  <BookOpen className="h-6 w-6 text-indigo-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Improved Teaching Quality
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    Enhanced teaching and learning capabilities of female
+                    faculty and staff
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 shadow-sm">
+              <div className="flex items-start">
+                <div className="bg-blue-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                  <Globe className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Regional Network Integration
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    Stronger connections with regional and international
+                    academic networks
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 shadow-sm">
+              <div className="flex items-start">
+                <div className="bg-green-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                  <Award className="h-6 w-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    Professional Development
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    Increased opportunities for fellowships, internships, and
+                    advanced training
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg p-6 shadow-sm">
+              <div className="flex items-start">
+                <div className="bg-yellow-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                  <Lightbulb className="h-6 w-6 text-yellow-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    STEM Excellence
+                  </h3>
+                  <p className="text-gray-600 mt-2">
+                    Greater female representation and achievement in STEM
+                    disciplines
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -495,18 +413,19 @@ export default function WomensNetwork() {
       <section className="py-16 bg-gradient-to-r from-pink-600 to-purple-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Join the {`Women's`} Network
+            Empowering {`Women's`} Higher Education
           </h2>
-          <p className="text-xl text-pink-100 mb-8">
-            Be part of the movement to empower women in higher education and
-            build stronger academic networks
+          <p className="text-xl text-pink-100 mb-8 max-w-3xl mx-auto">
+            Supporting access to higher education for women through centers of
+            excellence, regional networks, and comprehensive capacity building
+            programs
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-pink-600 px-8 py-3 rounded-lg font-semibold hover:bg-pink-50 transition-colors">
               Apply for Programs
             </button>
             <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-pink-600 transition-colors">
-              Download Resources
+              Institutional Grant Information
             </button>
           </div>
         </div>

@@ -13,79 +13,96 @@ import {
   FileText,
   GraduationCap,
   BarChart3,
+  Building2,
+  DollarSign,
+  Database,
+  Clipboard,
 } from "lucide-react";
 
 export default function QualityAssurance() {
+  // Three main pillars based on Sub-component 2.3
   const threePillars = [
     {
-      title: "Quality Assurance Systems",
+      number: "i",
+      title: "Improving Higher Education Management",
+      icon: TrendingUp,
+      description:
+        "Development and initiation of innovative management system for the higher education of Bangladesh",
+      color: "bg-blue-600",
+      initiatives: [
+        {
+          name: "Performance Based Financing Scheme",
+          description:
+            "Design and implementation of performance-based funding mechanisms to incentivize quality and excellence",
+          icon: DollarSign,
+        },
+        {
+          name: "Centralized Admission System",
+          description:
+            "Development of a unified admission platform for streamlined and transparent student enrollment",
+          icon: Clipboard,
+        },
+        {
+          name: "Higher Education Management Information System",
+          description:
+            "Further development of comprehensive HEMIS for data-driven decision making and sector monitoring",
+          icon: Database,
+        },
+      ],
+    },
+    {
+      number: "ii",
+      title: "Enhanced Quality Assurance Mechanisms",
       icon: Shield,
       description:
-        "Establish and strengthen institutional quality assurance mechanisms",
-      activities: [
-        "Development of quality assurance frameworks",
-        "Implementation of assessment and evaluation systems",
-        "Regular monitoring of academic quality",
-        "Continuous improvement processes",
+        "Institutional Quality Assurance Cells (IQACs) will be scaled up and extended to all 153 universities in Bangladesh",
+      color: "bg-green-600",
+      keyActivities: [
+        "IQAC establishment in all 153 universities",
+        "Capacity building and training for IQAC members",
+        "Development of quality assurance frameworks and guidelines",
+        "Implementation of self-assessment processes",
+        "Regular monitoring and evaluation systems",
         "Quality culture development within institutions",
+        "Peer review and external quality audit mechanisms",
       ],
-      focus: [
-        "Curriculum quality and relevance",
-        "Teaching and learning effectiveness",
-        "Research quality and output",
-        "Faculty qualifications and development",
-        "Infrastructure and facilities adequacy",
-        "Student support services",
-        "Governance and management",
-      ],
-    },
-    {
-      title: "International Quality Assurance Collaboration (IQAC)",
-      icon: Globe,
-      description:
-        "Framework for international collaboration bringing global quality standards to Bangladeshi institutions",
-      requirements: [
-        "Number of foreign students enrolled",
-        "International collaboration agreements in place",
-        "Number of collaborative research projects",
-        "Faculty exchange programs",
-        "Joint degree programs or partnerships",
-      ],
-      activities: [
-        "IQAC establishment in participating universities",
-        "Regular IQAC meetings and coordination",
-        "Quality assurance training and workshops",
-        "Self-assessment processes",
-        "Peer review mechanisms",
-      ],
-      metrics: [
-        "Total entities eligible for self-assessment",
-        "Entities assessed per year",
-        "Self-assessment committees formed",
-        "Approved assessment committees (SAC)",
-        "SARs peer reviewed",
-        "Peer review reports completed",
+      impact: [
+        "Comprehensive quality coverage across all universities",
+        "Standardized quality assurance practices",
+        "Enhanced institutional accountability",
+        "Improved teaching-learning outcomes",
+        "Data-driven quality improvement",
       ],
     },
     {
-      title: "Accreditation Support",
+      number: "iii",
+      title: "Strengthening of Institutional and Program Accreditation",
       icon: Award,
       description:
-        "Support 30 academic programs to achieve accreditation through Bangladesh Accreditation Council",
-      process: [
-        "Pre-accreditation readiness assessment",
-        "Documentation preparation assistance",
-        "Quality improvement planning",
-        "Accreditation application support",
-        "Post-accreditation sustainability planning",
+        "Support the full operationalization of Bangladesh Accreditation Council (BAC) and program accreditations of universities by BAC",
+      color: "bg-purple-600",
+      targets: [
+        {
+          metric: "At least 30 programs",
+          description:
+            "will be accredited in universities under BAC during implementation",
+        },
+      ],
+      activities: [
+        "Full operationalization of Bangladesh Accreditation Council (BAC)",
+        "Development of accreditation standards and criteria",
+        "Capacity building for accreditation assessors",
+        "Pre-accreditation support for universities",
+        "Program accreditation processes and procedures",
+        "Post-accreditation monitoring and follow-up",
+        "International accreditation alignment",
       ],
       benefits: [
-        "International recognition",
-        "Enhanced credibility and reputation",
-        "Improved student outcomes",
-        "Quality benchmarking",
-        "Employer confidence",
-        "Student mobility opportunities",
+        "International recognition of programs",
+        "Enhanced program quality and credibility",
+        "Improved graduate employability",
+        "Benchmarking against global standards",
+        "Increased stakeholder confidence",
       ],
     },
   ];
@@ -181,18 +198,36 @@ export default function QualityAssurance() {
       <section className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6">
+              <span className="text-yellow-300 font-semibold">
+                Sub-Component 2.3
+              </span>
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Improving Governance and Quality of Higher Education Sector
+              QA & Accreditation
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Elevating academic standards through international quality
-              frameworks and accreditation support
+            <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto">
+              Improving the Governance and Quality of the Higher Education
+              Sector through strengthened management capacity, quality assurance
+              mechanisms, and institutional accreditation
             </p>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto">
-              <div className="text-3xl font-bold text-yellow-300 mb-2">
-                Sub-component 2.3
+            <div className="flex items-center justify-center gap-8 mt-12">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-yellow-300">153</div>
+                <div className="text-sm text-blue-100 mt-1">Universities</div>
               </div>
-              <div className="text-lg">Quality Assurance & Accreditation</div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-yellow-300">30+</div>
+                <div className="text-sm text-blue-100 mt-1">
+                  Programs to Accredit
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-yellow-300">3</div>
+                <div className="text-sm text-blue-100 mt-1">
+                  Key Focus Areas
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -202,174 +237,205 @@ export default function QualityAssurance() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Overview</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Component Overview
+            </h2>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              This component strengthens the quality and governance of
-              {`Bangladesh's`} higher education institutions through
-              implementation of international quality standards, support for
-              program accreditation, and capacity building for quality
-              assurance.
+              The objective of this sub-component is to support activities to
+              enhance the overall management capacity of the higher education
+              sector in Bangladesh. Technical assistance will be provided to
+              support implementation of improved management systems, enhanced
+              quality assurance mechanisms, and strengthened accreditation
+              processes.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 text-center">
-              <Shield className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <TrendingUp className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                Higher Education Management
+              </h3>
+              <p className="text-gray-600">
+                Innovative management systems for the sector
+              </p>
+            </div>
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 text-center">
+              <Shield className="h-12 w-12 text-green-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Quality Assurance
               </h3>
               <p className="text-gray-600">
-                International quality standards implementation
+                IQACs scaled to all 153 universities
               </p>
             </div>
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 text-center">
-              <Globe className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">IQAC</h3>
-              <p className="text-gray-600">
-                International Quality Assurance Collaboration
-              </p>
-            </div>
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 text-center">
-              <Award className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-lg p-6 text-center">
+              <Award className="h-12 w-12 text-purple-600 mx-auto mb-4" />
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 Accreditation
               </h3>
-              <p className="text-gray-600">Program accreditation support</p>
+              <p className="text-gray-600">
+                BAC operationalization and program accreditation
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Three Pillars */}
+      {/* Key Focus Areas */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Three Pillars of Quality Enhancement
+              Key Focus Areas
             </h2>
             <p className="text-lg text-gray-600">
-              Comprehensive approach to quality improvement across all aspects
-              of higher education
+              Technical assistance will be provided to support implementation
+              across three strategic areas
             </p>
           </div>
-          <div className="space-y-12">
+          <div className="space-y-8">
             {threePillars.map((pillar, index) => {
               const IconComponent = pillar.icon;
               return (
-                <div key={index} className="bg-white rounded-lg p-8 shadow-sm">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                      <IconComponent className="h-8 w-8 text-blue-600" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-gray-900">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-gray-600">{pillar.description}</p>
+                <div
+                  key={index}
+                  className="bg-white rounded-lg overflow-hidden shadow-lg"
+                >
+                  {/* Header */}
+                  <div className={`${pillar.color} text-white p-6`}>
+                    <div className="flex items-start gap-4">
+                      <div className="bg-white/20 p-3 rounded-lg">
+                        <IconComponent className="h-8 w-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="text-2xl font-bold">
+                            ({pillar.number})
+                          </span>
+                          <h3 className="text-2xl font-bold">{pillar.title}</h3>
+                        </div>
+                        <p className="text-white/90 text-lg">
+                          {pillar.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                        Key Activities:
-                      </h4>
-                      <ul className="space-y-2">
-                        {pillar.activities?.map((activity, activityIndex) => (
-                          <li key={activityIndex} className="flex items-start">
-                            <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700">{activity}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Management Initiatives */}
+                    {pillar.initiatives && (
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {pillar.initiatives.map((initiative, initIndex) => {
+                          const InitIcon = initiative.icon;
+                          return (
+                            <div
+                              key={initIndex}
+                              className="bg-gray-50 rounded-lg p-6"
+                            >
+                              <div className="bg-blue-100 p-3 rounded-lg w-fit mb-4">
+                                <InitIcon className="h-6 w-6 text-blue-600" />
+                              </div>
+                              <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                                {initiative.name}
+                              </h4>
+                              <p className="text-gray-600">
+                                {initiative.description}
+                              </p>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
 
-                    <div>
-                      {pillar.focus && (
-                        <>
+                    {/* Key Activities & Impact (for IQAC) */}
+                    {pillar.keyActivities && (
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
                           <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                            Quality Standards Focus:
+                            Key Activities:
                           </h4>
-                          <ul className="space-y-2">
-                            {pillar.focus.map((item, itemIndex) => (
-                              <li key={itemIndex} className="flex items-start">
+                          <ul className="space-y-3">
+                            {pillar.keyActivities.map((activity, actIndex) => (
+                              <li key={actIndex} className="flex items-start">
+                                <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                                <span className="text-gray-700">
+                                  {activity}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                            Expected Impact:
+                          </h4>
+                          <ul className="space-y-3">
+                            {pillar.impact?.map((impact, impIndex) => (
+                              <li key={impIndex} className="flex items-start">
                                 <Star className="h-5 w-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                                <span className="text-gray-700">{item}</span>
+                                <span className="text-gray-700">{impact}</span>
                               </li>
                             ))}
                           </ul>
-                        </>
-                      )}
+                        </div>
+                      </div>
+                    )}
 
-                      {pillar.requirements && (
-                        <>
-                          <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                            Participation Requirements:
-                          </h4>
-                          <ul className="space-y-2">
-                            {pillar.requirements.map((req, reqIndex) => (
-                              <li key={reqIndex} className="flex items-start">
-                                <Target className="h-5 w-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                                <span className="text-gray-700">{req}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
+                    {/* Accreditation Activities & Benefits */}
+                    {pillar.activities && (
+                      <>
+                        {/* Targets */}
+                        {pillar.targets && (
+                          <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg p-6 mb-6">
+                            <div className="flex items-center gap-3">
+                              <Target className="h-8 w-8 text-purple-600" />
+                              <div>
+                                <span className="text-2xl font-bold text-purple-600">
+                                  {pillar.targets[0].metric}
+                                </span>
+                                <span className="text-gray-700 ml-2">
+                                  {pillar.targets[0].description}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
 
-                      {pillar.process && (
-                        <>
-                          <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                            Accreditation Process:
-                          </h4>
-                          <ul className="space-y-2">
-                            {pillar.process.map((step, stepIndex) => (
-                              <li key={stepIndex} className="flex items-start">
-                                <ArrowRight className="h-5 w-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                                <span className="text-gray-700">{step}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-
-                      {pillar.benefits && (
-                        <>
-                          <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                            Benefits of Accreditation:
-                          </h4>
-                          <ul className="space-y-2">
-                            {pillar.benefits.map((benefit, benefitIndex) => (
-                              <li
-                                key={benefitIndex}
-                                className="flex items-start"
-                              >
-                                <Award className="h-5 w-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                                <span className="text-gray-700">{benefit}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-
-                      {pillar.metrics && (
-                        <>
-                          <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                            Tracking Metrics:
-                          </h4>
-                          <ul className="space-y-2">
-                            {pillar.metrics.map((metric, metricIndex) => (
-                              <li
-                                key={metricIndex}
-                                className="flex items-start"
-                              >
-                                <BarChart3 className="h-5 w-5 text-purple-600 mr-3 mt-1 flex-shrink-0" />
-                                <span className="text-gray-700">{metric}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-                    </div>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                          <div>
+                            <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                              Key Activities:
+                            </h4>
+                            <ul className="space-y-3">
+                              {pillar.activities.map((activity, actIndex) => (
+                                <li key={actIndex} className="flex items-start">
+                                  <CheckCircle className="h-5 w-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
+                                  <span className="text-gray-700">
+                                    {activity}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                              Benefits:
+                            </h4>
+                            <ul className="space-y-3">
+                              {pillar.benefits?.map((benefit, benIndex) => (
+                                <li key={benIndex} className="flex items-start">
+                                  <Star className="h-5 w-5 text-purple-600 mr-3 mt-1 flex-shrink-0" />
+                                  <span className="text-gray-700">
+                                    {benefit}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               );
