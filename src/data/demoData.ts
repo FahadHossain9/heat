@@ -34,7 +34,8 @@ export type EventType =
   | "Conference"
   | "Meeting"
   | "Training Session"
-  | "Seminar";
+  | "Seminar"
+  | "Summit";
 
 export interface EventItem {
   id: string;
