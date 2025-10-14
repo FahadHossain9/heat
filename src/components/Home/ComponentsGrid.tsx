@@ -34,8 +34,8 @@ export default function ComponentsGrid() {
             Explore HEAT Components
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Eight strategic pillars transforming Bangladesh's higher education
-            landscape
+            {`Eight strategic pillars transforming Bangladesh's higher education
+            landscape`}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

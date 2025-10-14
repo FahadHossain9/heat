@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           name: "Monitoring and Evaluation",
           href: "/components/monitoring",
         },
-        { name: `Women's Network`, href: "/components/womens-network" },
+        { name: "Women's Network", href: "/components/womens-network" },
         { name: "QA & Accreditation", href: "/components/quality-assurance" },
         { name: "Emergency Response", href: "/components/emergency" },
       ],
@@ -46,9 +47,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {/* Left Side - HEAT Main Logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
-                <img
+                <Image
                   src="https://heat.ugc.gov.bd/images/logo_4.png"
                   alt="HEAT Logo"
+                  width={64}
+                  height={64}
                   className="h-16 w-auto"
                 />
               </Link>
@@ -106,19 +109,25 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             <div className="flex items-center space-x-4">
               {/* Partner Logos - Hidden on mobile, visible on larger screens */}
               <div className="hidden md:flex items-center space-x-6">
-                <img
+                <Image
                   src="https://heat.ugc.gov.bd/images/logo_1.png"
                   alt="Partner Logo 1"
+                  width={48}
+                  height={48}
                   className="h-12 w-auto"
                 />
-                <img
+                <Image
                   src="https://heat.ugc.gov.bd/images/logo_2.png"
                   alt="Partner Logo 2"
+                  width={48}
+                  height={48}
                   className="h-12 w-auto"
                 />
-                <img
+                <Image
                   src="https://heat.ugc.gov.bd/images/logo_3.png"
                   alt="Partner Logo 3"
+                  width={48}
+                  height={48}
                   className="h-12 w-auto"
                 />
               </div>
@@ -208,9 +217,11 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-4">
-                <img
+                <Image
                   src="https://heat.ugc.gov.bd/images/logo_4.png"
                   alt="HEAT Logo"
+                  width={48}
+                  height={48}
                   className="h-12 w-auto bg-white p-2 rounded-lg"
                 />
                 <span className="ml-3 text-xl font-semibold">HEAT</span>
@@ -301,7 +312,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     href="/components/womens-network"
                     className="text-gray-300 hover:text-white transition-colors"
                   >
-                    {`Women's Network`}
+                    {"Women's Network"}
                   </Link>
                 </li>
                 <li>

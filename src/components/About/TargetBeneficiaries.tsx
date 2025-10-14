@@ -44,7 +44,7 @@ export default function TargetBeneficiaries() {
             Who Benefits from HEAT?
           </h2>
           <p className="text-lg text-gray-600">
-            Direct impact across Bangladesh's higher education ecosystem
+            {`Direct impact across Bangladesh's higher education ecosystem`}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -4,13 +4,13 @@ import {
   Calendar,
   MapPin,
   CheckCircle,
-  AlertCircle,
   Clock,
   XCircle,
   ArrowRight,
 } from "lucide-react";
 import { featuredEvents } from "@/data/demoData";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FeaturedEvents() {
   const getStatusIcon = (status: string) => {
@@ -52,10 +52,11 @@ export default function FeaturedEvents() {
             <div key={event.id} className="card-enhanced overflow-hidden">
               {/* Event Image */}
               <div className="relative h-64 bg-gray-200 overflow-hidden">
-                <img
+                <Image
                   src={event.image}
                   alt={event.name}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-300 hover:scale-105"
                   onError={(e) => {
                     e.currentTarget.src =
                       "https://via.placeholder.com/400x300/225E99/FFFFFF?text=Event+Image";
