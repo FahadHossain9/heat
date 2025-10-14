@@ -236,7 +236,7 @@ export default function Training() {
             </p>
             <p className="text-lg text-green-100 max-w-3xl mx-auto">
               Comprehensive training programs empowering faculty and staff
-              across Bangladesh's universities to excel in teaching, research,
+              {`across Bangladesh's universities to excel in teaching, research,`}
               and institutional management
             </p>
           </div>
@@ -361,7 +361,7 @@ export default function Training() {
               </h3>
               <p className="text-gray-700">
                 Local expert-led programs focusing on contextual needs and
-                practical implementation within Bangladesh's education system
+                {`practical implementation within Bangladesh's education system`}
               </p>
             </div>
 

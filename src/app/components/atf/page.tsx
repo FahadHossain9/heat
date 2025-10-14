@@ -101,10 +101,10 @@ export default function ATF() {
     (sum, item) => sum + item.totalFund,
     0
   );
-  const totalUsed = allocationData.reduce(
-    (sum, item) => sum + item.groupA.used + item.groupB.used + item.groupC.used,
-    0
-  );
+  // const totalUsed = allocationData.reduce(
+  //   (sum, item) => sum + item.groupA.used + item.groupB.used + item.groupC.used,
+  //   0
+  // );
   const totalProjects = allocationData.reduce(
     (sum, item) =>
       sum + item.groupA.projects + item.groupB.projects + item.groupC.projects,

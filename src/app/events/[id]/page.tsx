@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
 import {
   Calendar,
   MapPin,
@@ -138,10 +139,11 @@ export default function EventDetails() {
             {event.images && event.images.length > 0 && (
               <div className="card-enhanced p-0 overflow-hidden">
                 <div className="relative h-96 bg-gray-200">
-                  <img
+                  <Image
                     src={event.images[currentImageIndex]}
                     alt={`${event.name} - Image ${currentImageIndex + 1}`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
 
                   {/* Navigation Arrows */}

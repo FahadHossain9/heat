@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   Users,
   FileText,
@@ -266,9 +267,9 @@ export default function Admin() {
     officeHours: contactInfo.officeHours,
   });
 
-  const renderATFManagement = () => null; // Removed function
-  const renderATFManagementOld = () => (
-    <div className="space-y-6">
+  // const renderATFManagement = () => null; // Removed function
+  // const renderATFManagementOld = () => (
+  //   <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-900">
           ATF Supporting Files
@@ -280,13 +281,13 @@ export default function Admin() {
           <Plus className="h-4 w-4 inline mr-2" />
           Add Supporting File
         </button>
-      </div>
+      // </div>
 
-      <div className="bg-white rounded-lg shadow">
-        <div className="p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Current Supporting Files
-          </h3>
+  //   <div className="bg-white rounded-lg shadow">
+  //     <div className="p-6">
+  //       <h3 className="text-lg font-semibold text-gray-900 mb-4">
+  //         Current Supporting Files
+  //       </h3>
           <div className="space-y-4">
             {atfSupportingDocuments.map((doc) => (
               <div
@@ -394,78 +395,78 @@ export default function Admin() {
     </div>
   );
 
-  const renderDocumentManagement = () => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">
-          Document Management
-        </h2>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-          <Upload className="h-4 w-4 inline mr-2" />
-          Upload Document
-        </button>
-      </div>
+  // const renderDocumentManagement = () => (
+  //   <div className="space-y-6">
+  //   <div className="flex justify-between items-center">
+  //     <h2 className="text-2xl font-bold text-gray-900">
+  //       Document Management
+  //     </h2>
+  //     <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+  //       <Upload className="h-4 w-4 inline mr-2" />
+  //       Upload Document
+  //     </button>
+  //   </div>
 
-      <div className="bg-white rounded-lg shadow">
-        <div className="p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Documents
-          </h3>
-          <div className="space-y-4">
-            {[
-              {
-                name: "ATF Application Guidelines",
-                category: "ATF",
-                size: "2.3 MB",
-                downloads: 245,
-              },
-              {
-                name: "Evaluation Criteria",
-                category: "ATF",
-                size: "1.8 MB",
-                downloads: 189,
-              },
-              {
-                name: "Budget Templates",
-                category: "ATF",
-                size: "0.5 MB",
-                downloads: 312,
-              },
-              {
-                name: "Environmental Checklist",
-                category: "Compliance",
-                size: "1.2 MB",
-                downloads: 156,
-              },
-            ].map((doc, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between p-4 border border-gray-200 rounded-lg"
-              >
-                <div className="flex items-center">
-                  <FileText className="h-8 w-8 text-blue-600 mr-4" />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{doc.name}</h4>
-                    <p className="text-sm text-gray-600">
-                      {doc.category} • {doc.size} • {doc.downloads} downloads
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <button className="text-blue-600 hover:text-blue-800">
-                    <Edit className="h-4 w-4" />
-                  </button>
-                  <button className="text-red-600 hover:text-red-800">
-                    <Trash2 className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  //   <div className="bg-white rounded-lg shadow">
+  //     <div className="p-6">
+  //       <h3 className="text-lg font-semibold text-gray-900 mb-4">
+  //         Documents
+  //       </h3>
+  //       <div className="space-y-4">
+  //         {[
+  //           {
+  //             name: "ATF Application Guidelines",
+  //             category: "ATF",
+  //             size: "2.3 MB",
+  //             downloads: 245,
+  //           },
+  //           {
+  //             name: "Evaluation Criteria",
+  //             category: "ATF",
+  //             size: "1.8 MB",
+  //             downloads: 189,
+  //           },
+  //           {
+  //             name: "Budget Templates",
+  //             category: "ATF",
+  //             size: "0.5 MB",
+  //             downloads: 312,
+  //           },
+  //           {
+  //             name: "Environmental Checklist",
+  //             category: "Compliance",
+  //             size: "1.2 MB",
+  //             downloads: 156,
+  //           },
+  //         ].map((doc, index) => (
+  //           <div
+  //             key={index}
+  //             className="flex items-center justify-between p-4 border border-gray-200 rounded-lg"
+  //           >
+  //             <div className="flex items-center">
+  //               <FileText className="h-8 w-8 text-blue-600 mr-4" />
+  //               <div>
+  //                 <h4 className="font-semibold text-gray-900">{doc.name}</h4>
+  //                 <p className="text-sm text-gray-600">
+  //                   {doc.category} • {doc.size} • {doc.downloads} downloads
+  //                 </p>
+  //               </div>
+  //             </div>
+  //             <div className="flex items-center space-x-2">
+  //               <button className="text-blue-600 hover:text-blue-800">
+  //                 <Edit className="h-4 w-4" />
+  //               </button>
+  //               <button className="text-red-600 hover:text-red-800">
+  //                 <Trash2 className="h-4 w-4" />
+  //               </button>
+  //             </div>
+  //           </div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  // );
 
   const renderWingManagement = () => (
     <div className="space-y-6">
@@ -764,138 +765,138 @@ export default function Admin() {
     </div>
   );
 
-  const renderATFDocumentManagement = () => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-900">
-          ATF Supporting Documents Management
-        </h2>
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-          <Plus className="h-4 w-4 inline mr-2" />
-          Add Document
-        </button>
-      </div>
+  // const renderATFDocumentManagement = () => (
+  //   <div className="space-y-6">
+  //   <div className="flex justify-between items-center">
+  //     <h2 className="text-2xl font-bold text-gray-900">
+  //       ATF Supporting Documents Management
+  //     </h2>
+  //     <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+  //       <Plus className="h-4 w-4 inline mr-2" />
+  //       Add Document
+  //     </button>
+  //   </div>
 
-      <div className="bg-white rounded-lg shadow">
-        <div className="p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            Supporting Documents
-          </h3>
-          <div className="space-y-4">
-            {atfSupportingDocuments.map((doc) => (
-              <div
-                key={doc.id}
-                className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
-              >
-                <div className="flex items-center flex-1">
-                  <div className="mr-4">
-                    {doc.type === "PDF" && (
-                      <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
-                        <FileText className="h-5 w-5 text-red-600" />
-                      </div>
-                    )}
-                    {doc.type === "Word" && (
-                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                        <FileText className="h-5 w-5 text-blue-600" />
-                      </div>
-                    )}
-                    {doc.type === "Excel" && (
-                      <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                        <FileText className="h-5 w-5 text-green-600" />
-                      </div>
-                    )}
-                    {doc.type === "PowerPoint" && (
-                      <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <FileText className="h-5 w-5 text-orange-600" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-gray-900">{doc.title}</h4>
-                    <div className="flex items-center space-x-4 text-sm text-gray-600">
-                      <span className="bg-gray-100 px-2 py-1 rounded text-xs">
-                        {doc.category}
-                      </span>
-                      <span>{doc.type}</span>
-                      <span>{doc.size}</span>
-                      <span>{doc.downloads} downloads</span>
-                      <span>{doc.uploadDate}</span>
-                    </div>
-                    {doc.description && (
-                      <p className="text-sm text-gray-500 mt-1">
-                        {doc.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <button
-                    className="text-blue-600 hover:text-blue-800"
-                    title="Preview"
-                  >
-                    <Eye className="h-4 w-4" />
-                  </button>
-                  <button
-                    className="text-green-600 hover:text-green-800"
-                    title="Download"
-                  >
-                    <Download className="h-4 w-4" />
-                  </button>
-                  <button
-                    className="text-blue-600 hover:text-blue-800"
-                    title="Edit"
-                  >
-                    <Edit className="h-4 w-4" />
-                  </button>
-                  <button
-                    className={`hover:opacity-80 ${
-                      doc.isActive ? "text-green-600" : "text-gray-400"
-                    }`}
-                    title={doc.isActive ? "Deactivate" : "Activate"}
-                  >
-                    {doc.isActive ? (
-                      <ToggleRight className="h-4 w-4" />
-                    ) : (
-                      <ToggleLeft className="h-4 w-4" />
-                    )}
-                  </button>
-                  <button
-                    className="text-red-600 hover:text-red-800"
-                    title="Delete"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+  //   <div className="bg-white rounded-lg shadow">
+  //     <div className="p-6">
+  //       <h3 className="text-lg font-semibold text-gray-900 mb-4">
+  //         Supporting Documents
+  //       </h3>
+  //       <div className="space-y-4">
+  //         {atfSupportingDocuments.map((doc) => (
+  //           <div
+  //             key={doc.id}
+  //             className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+  //           >
+  //             <div className="flex items-center flex-1">
+  //               <div className="mr-4">
+  //                 {doc.type === "PDF" && (
+  //                   <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+  //                     <FileText className="h-5 w-5 text-red-600" />
+  //                   </div>
+  //                 )}
+  //                 {doc.type === "Word" && (
+  //                   <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+  //                     <FileText className="h-5 w-5 text-blue-600" />
+  //                   </div>
+  //                 )}
+  //                 {doc.type === "Excel" && (
+  //                   <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+  //                     <FileText className="h-5 w-5 text-green-600" />
+  //                   </div>
+  //                 )}
+  //                 {doc.type === "PowerPoint" && (
+  //                   <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+  //                     <FileText className="h-5 w-5 text-orange-600" />
+  //                   </div>
+  //                 )}
+  //               </div>
+  //               <div className="flex-1">
+  //                 <h4 className="font-semibold text-gray-900">{doc.title}</h4>
+  //                 <div className="flex items-center space-x-4 text-sm text-gray-600">
+  //                   <span className="bg-gray-100 px-2 py-1 rounded text-xs">
+  //                     {doc.category}
+  //                   </span>
+  //                   <span>{doc.type}</span>
+  //                   <span>{doc.size}</span>
+  //                   <span>{doc.downloads} downloads</span>
+  //                   <span>{doc.uploadDate}</span>
+  //                 </div>
+  //                 {doc.description && (
+  //                   <p className="text-sm text-gray-500 mt-1">
+  //                     {doc.description}
+  //                   </p>
+  //                 )}
+  //               </div>
+  //             </div>
+  //             <div className="flex items-center space-x-2">
+  //               <button
+  //                 className="text-blue-600 hover:text-blue-800"
+  //                 title="Preview"
+  //               >
+  //                 <Eye className="h-4 w-4" />
+  //               </button>
+  //               <button
+  //                 className="text-green-600 hover:text-green-800"
+  //                 title="Download"
+  //               >
+  //                 <Download className="h-4 w-4" />
+  //               </button>
+  //               <button
+  //                 className="text-blue-600 hover:text-blue-800"
+  //                 title="Edit"
+  //               >
+  //                 <Edit className="h-4 w-4" />
+  //               </button>
+  //               <button
+  //                 className={`hover:opacity-80 ${
+  //                   doc.isActive ? "text-green-600" : "text-gray-400"
+  //                 }`}
+  //                 title={doc.isActive ? "Deactivate" : "Activate"}
+  //               >
+  //                 {doc.isActive ? (
+  //                   <ToggleRight className="h-4 w-4" />
+  //                 ) : (
+  //                   <ToggleLeft className="h-4 w-4" />
+  //                 )}
+  //               </button>
+  //               <button
+  //                 className="text-red-600 hover:text-red-800"
+  //                 title="Delete"
+  //               >
+  //                 <Trash2 className="h-4 w-4" />
+  //               </button>
+  //             </div>
+  //           </div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   </div>
 
-      {/* Document Categories Summary */}
-      <div className="bg-white rounded-lg shadow p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">
-          Document Categories Summary
-        </h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {Object.entries(
-            atfSupportingDocuments.reduce((acc, doc) => {
-              acc[doc.category] = (acc[doc.category] || 0) + 1;
-              return acc;
-            }, {} as Record<string, number>)
-          ).map(([category, count]) => (
-            <div
-              key={category}
-              className="bg-gray-50 rounded-lg p-4 text-center"
-            >
-              <div className="text-2xl font-bold text-blue-600">{count}</div>
-              <div className="text-sm text-gray-600">{category}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  //   {/* Document Categories Summary */}
+  //   <div className="bg-white rounded-lg shadow p-6">
+  //     <h3 className="text-lg font-semibold text-gray-900 mb-4">
+  //       Document Categories Summary
+  //     </h3>
+  //     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+  //       {Object.entries(
+  //         atfSupportingDocuments.reduce((acc, doc) => {
+  //           acc[doc.category] = (acc[doc.category] || 0) + 1;
+  //           return acc;
+  //         }, {} as Record<string, number>)
+  //       ).map(([category, count]) => (
+  //         <div
+  //           key={category}
+  //           className="bg-gray-50 rounded-lg p-4 text-center"
+  //         >
+  //           <div className="text-2xl font-bold text-blue-600">{count}</div>
+  //           <div className="text-sm text-gray-600">{category}</div>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   </div>
+  // </div>
+  // );
 
   const renderNoticesManagement = () => (
     <div className="space-y-6">
@@ -1023,10 +1024,12 @@ export default function Admin() {
                 <tr key={event.id}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      <img
+                      <Image
                         className="h-10 w-10 rounded-lg object-cover mr-3"
                         src={event.image}
                         alt={event.name}
+                        width={40}
+                        height={40}
                         onError={(e) => {
                           e.currentTarget.src =
                             "https://via.placeholder.com/40x40/4F46E5/FFFFFF?text=E";

@@ -49,9 +49,11 @@ export default function ProjectPartners() {
             >
               <div className="flex justify-center mb-6">
                 <div className="h-24 flex items-center justify-center">
-                  <img
+                  <Image
                     src={partner.logo}
                     alt={partner.name}
+                    width={80}
+                    height={80}
                     className="h-full w-auto object-contain"
                   />
                 </div>
