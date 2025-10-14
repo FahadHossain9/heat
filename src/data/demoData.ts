@@ -27,6 +27,15 @@ export interface NewsItem {
   category: string;
 }
 
+export type EventType =
+  | "General"
+  | "Workshop"
+  | "Signing Ceremony"
+  | "Conference"
+  | "Meeting"
+  | "Training Session"
+  | "Seminar";
+
 export interface EventItem {
   id: string;
   name: string;
@@ -37,7 +46,7 @@ export interface EventItem {
   images: string[];
   location: string;
   status: string;
-  type?: string;
+  type?: EventType;
   capacity?: string;
   organizer?: string;
   contact?: string;
@@ -97,7 +106,7 @@ export interface ATFWindow {
   description: string;
   sppFormat: string;
   deadline?: string;
-  status: "Open" | "Closed" | "Upcoming";
+  status: "Upcoming" | "Ongoing" | "Completed";
 }
 
 export interface Wing {
@@ -175,7 +184,7 @@ export const componentCards: ComponentCard[] = [
     title: "ATF",
     subtitle: "Academic Transformation Fund",
     description:
-      "Providing competitive research grants and supporting ongoing innovation.",
+      "Empowering Excellence Through Competitive Funding - Providing research grants and supporting innovation across universities.",
     metric: "50+ Universities Supported",
     link: "/components/atf",
   },
@@ -183,7 +192,7 @@ export const componentCards: ComponentCard[] = [
     title: "Training",
     subtitle: "Professional Development",
     description:
-      "comprehensive training programs for university faculty across Bangladesh, fostering excellence through local, international, digital, and research capacity development.",
+      "Building Capacity, Transforming Educators - Comprehensive training programs for university faculty across Bangladesh.",
     metric: "5000+ Faculty Trained",
     link: "/components/training",
   },
@@ -191,14 +200,15 @@ export const componentCards: ComponentCard[] = [
     title: "Network",
     subtitle: "Campus Network",
     description:
-      "Establishing high-speed network connectivity and infrastructure development in universities.",
+      "Connecting Universities, Enabling Innovation - Establishing high-speed network connectivity and infrastructure development.",
     metric: "50 Gbps Network Capacity",
     link: "/components/network",
   },
   {
     title: "BdREN",
     subtitle: "Research Network",
-    description: "Maintaining global research and education network access",
+    description:
+      "Gateway to Global Research Collaboration - Maintaining global research and education network access.",
     metric: "100+ International Networks",
     link: "/components/bdren",
   },
@@ -206,7 +216,7 @@ export const componentCards: ComponentCard[] = [
     title: "Monitoring and Evaluation",
     subtitle: "Monitoring and Evaluation",
     description:
-      "Conducting monitoring & evaluation, communication, and technical assistance.",
+      "Measuring Impact, Ensuring Accountability - Conducting comprehensive monitoring, evaluation, and technical assistance.",
     metric: "98% Success Rate",
     link: "/components/monitoring",
   },
@@ -214,7 +224,7 @@ export const componentCards: ComponentCard[] = [
     title: "Women's Network",
     subtitle: "Women's Leadership and Network Development",
     description:
-      "Empowering women leaders in higher education and fostering female participation in Bangladesh's academic landscape.",
+      "Empowering Women Leaders in Academia - Fostering female participation and leadership in Bangladesh's higher education.",
     metric: "Sub-component 1.2.2",
     link: "/components/womens-network",
   },
@@ -222,14 +232,15 @@ export const componentCards: ComponentCard[] = [
     title: "Quality Assurance",
     subtitle: "Quality Assurance & Accreditation",
     description:
-      "Elevating academic standards through international quality frameworks and accreditation support.",
+      "Elevating Standards, Ensuring Excellence - Implementing international quality frameworks and accreditation support.",
     metric: "30 Programs Accredited",
     link: "/components/quality-assurance",
   },
   {
     title: "Emergency Response",
     subtitle: "Crisis Management",
-    description: "Providing 24/7 emergency response and ensuring continuity",
+    description:
+      "Prepared Today, Resilient Tomorrow - Providing 24/7 emergency response and ensuring continuity.",
     metric: "24/7 Coverage",
     link: "/components/emergency",
   },
@@ -272,7 +283,7 @@ export const upcomingEvents: EventItem[] = [
       "https://i.pinimg.com/1200x/d9/9f/a6/d99fa675e07461fa9a4dc9520315238d.jpg",
     ],
     location: "Dhaka University",
-    status: "Open",
+    status: "Upcoming",
     type: "Conference",
     capacity: "300 participants",
     organizer: "HEAT Project & Dhaka University",
@@ -289,7 +300,7 @@ export const upcomingEvents: EventItem[] = [
       "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
     ],
     location: "BUET, Dhaka",
-    status: "Applications Under Review",
+    status: "Upcoming",
     type: "Workshop",
     capacity: "50 participants",
     organizer: "BUET & HEAT Project",
@@ -306,8 +317,8 @@ export const upcomingEvents: EventItem[] = [
       "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
     ],
     location: "Rajshahi University",
-    status: "Coming Soon",
-    type: "Summit",
+    status: "Upcoming",
+    type: "Conference",
     capacity: "200 participants",
     organizer: "Rajshahi University & HEAT Project",
   },
@@ -315,9 +326,9 @@ export const upcomingEvents: EventItem[] = [
 
 // About page data
 export const projectBackground = {
-  established: "2020",
+  established: "2023",
   authority: "University Grants Commission of Bangladesh",
-  duration: "2020-2027 (7-year implementation)",
+  duration: "2023-2028 (5-year implementation)",
   funding: "World Bank supported initiative",
   scope: "National higher education transformation",
   universities: "50+ partner institutions",
@@ -326,9 +337,9 @@ export const projectBackground = {
 
 export const visionMission = {
   vision:
-    "Achieving excellence in higher education through continuous innovation, quality enhancement, and accessibility",
+    "Building world-class universities in Bangladesh where every student receives quality education, where research drives innovation, and where women lead alongside men in shaping the future of higher education.",
   mission:
-    "Continuously enhancing the quality, relevance, and efficiency of higher education in Bangladesh through systematic capacity building, infrastructure development, and institutional strengthening",
+    "We're transforming Bangladesh's universities through strategic investment in infrastructure, people, and systems - ensuring graduates are job-ready, research solves real problems, and academic excellence becomes the standard.",
 };
 
 export const strategicObjectives: Objective[] = [
@@ -443,7 +454,7 @@ Requirements:
       "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
     ],
     location: "Dhaka University",
-    status: "Open",
+    status: "Upcoming",
     type: "Conference",
     capacity: "300 participants",
     organizer: "HEAT Project & Dhaka University",
@@ -487,7 +498,7 @@ Eligibility Criteria:
       "https://i.pinimg.com/1200x/5c/3f/48/5c3f4830d4a9ebcaf3f7532020192bf6.jpg",
     ],
     location: "BUET, Dhaka",
-    status: "Applications Under Review",
+    status: "Ongoing",
     type: "Workshop",
     capacity: "50 participants",
     organizer: "BUET & HEAT Project",
@@ -532,7 +543,7 @@ Participation Requirements:
       "https://i.pinimg.com/1200x/48/89/38/488938d6eec996de2365b072357aac16.jpg",
     ],
     location: "Rajshahi University",
-    status: "Coming Soon",
+    status: "Upcoming",
     type: "Summit",
     capacity: "200 participants",
     organizer: "Rajshahi University & HEAT Project",
@@ -898,7 +909,7 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Supporting research initiatives focused on pandemic preparedness and response capabilities",
     sppFormat: "SPP Format W-1",
-    status: "Open",
+    status: "Upcoming",
   },
   {
     id: "w2",
@@ -911,7 +922,7 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Enhancing physical and digital infrastructure for improved teaching and learning experiences",
     sppFormat: "SPP Format W-2",
-    status: "Open",
+    status: "Upcoming",
   },
   {
     id: "w3a",
@@ -925,7 +936,7 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Supporting advanced research across priority academic disciplines and emerging fields",
     sppFormat: "SPP Format W-3a",
-    status: "Open",
+    status: "Upcoming",
   },
   {
     id: "w3b",
@@ -940,7 +951,7 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Fostering collaboration between universities and industry for practical research applications",
     sppFormat: "SPP Format W-3b",
-    status: "Open",
+    status: "Upcoming",
   },
   {
     id: "w4",
@@ -953,7 +964,7 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Creating physical spaces and facilities to support innovation and entrepreneurship",
     sppFormat: "SPP Format W-4",
-    status: "Open",
+    status: "Upcoming",
   },
   {
     id: "w5",
@@ -966,7 +977,7 @@ export const atfWindows: ATFWindow[] = [
     description:
       "Establishing offices to manage technology transfer and intellectual property commercialization",
     sppFormat: "SPP Format W-5",
-    status: "Open",
+    status: "Upcoming",
   },
 ];
 

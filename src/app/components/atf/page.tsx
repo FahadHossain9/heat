@@ -11,6 +11,8 @@ import {
   FileText,
   DollarSign,
   BarChart3,
+  BookOpen,
+  Lightbulb,
 } from "lucide-react";
 import { atfWindows, atfSupportingDocuments } from "@/data/demoData";
 
@@ -37,12 +39,12 @@ interface AllocationData {
 export default function ATF() {
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "Open":
-        return "bg-green-100 text-green-800";
-      case "Closed":
-        return "bg-red-100 text-red-800";
       case "Upcoming":
         return "bg-blue-100 text-blue-800";
+      case "Ongoing":
+        return "bg-green-100 text-green-800";
+      case "Completed":
+        return "bg-gray-100 text-gray-800";
       default:
         return "bg-gray-100 text-gray-800";
     }
@@ -122,8 +124,8 @@ export default function ATF() {
       icon: Users,
     },
     {
-      label: "Budget Utilization",
-      value: `${Math.round((totalUsed / totalAllocation) * 100)}%`,
+      label: "Universities Awarded",
+      value: "50+",
       icon: TrendingUp,
     },
   ];
@@ -253,10 +255,8 @@ export default function ATF() {
                 <div className="text-gray-600">Total Fund Allocation</div>
               </div>
               <div className="bg-gray-50 rounded-lg p-6 text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">
-                  {Math.round((totalUsed / totalAllocation) * 100)}%
-                </div>
-                <div className="text-gray-600">Budget Utilization</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                <div className="text-gray-600">Universities Awarded</div>
               </div>
             </div>
           </div>
@@ -289,24 +289,21 @@ export default function ATF() {
                     </th>
                     <th
                       className="px-4 py-4 text-center text-sm font-semibold border-l border-blue-500"
-                      colSpan={3}
+                      colSpan={2}
                     >
                       Group A (55%)
                     </th>
                     <th
                       className="px-4 py-4 text-center text-sm font-semibold border-l border-blue-500"
-                      colSpan={3}
+                      colSpan={2}
                     >
                       Group B (30%)
                     </th>
                     <th
                       className="px-4 py-4 text-center text-sm font-semibold border-l border-blue-500"
-                      colSpan={3}
+                      colSpan={2}
                     >
                       Group C (15%)
-                    </th>
-                    <th className="px-4 py-4 text-center text-sm font-semibold border-l border-blue-500">
-                      Projects
                     </th>
                   </tr>
                   <tr className="bg-blue-700">
@@ -318,29 +315,17 @@ export default function ATF() {
                     <th className="px-3 py-3 text-center text-xs font-medium">
                       Used
                     </th>
-                    <th className="px-3 py-3 text-center text-xs font-medium">
-                      Remaining
-                    </th>
                     <th className="px-3 py-3 text-center text-xs font-medium border-l border-blue-600">
                       Allocation
                     </th>
                     <th className="px-3 py-3 text-center text-xs font-medium">
                       Used
                     </th>
-                    <th className="px-3 py-3 text-center text-xs font-medium">
-                      Remaining
-                    </th>
                     <th className="px-3 py-3 text-center text-xs font-medium border-l border-blue-600">
                       Allocation
                     </th>
                     <th className="px-3 py-3 text-center text-xs font-medium">
                       Used
-                    </th>
-                    <th className="px-3 py-3 text-center text-xs font-medium">
-                      Remaining
-                    </th>
-                    <th className="px-3 py-3 text-center text-xs font-medium border-l border-blue-600">
-                      Count
                     </th>
                   </tr>
                 </thead>
@@ -367,13 +352,6 @@ export default function ATF() {
                           ? `৳${row.groupA.used.toLocaleString()}`
                           : "-"}
                       </td>
-                      <td className="px-3 py-4 text-center text-sm text-gray-600">
-                        {row.groupA.allocation > 0
-                          ? `৳${(
-                              row.groupA.allocation - row.groupA.used
-                            ).toLocaleString()}`
-                          : "-"}
-                      </td>
                       {/* Group B */}
                       <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-200">
                         {row.groupB.allocation > 0
@@ -383,13 +361,6 @@ export default function ATF() {
                       <td className="px-3 py-4 text-center text-sm text-green-600 font-medium">
                         {row.groupB.used > 0
                           ? `৳${row.groupB.used.toLocaleString()}`
-                          : "-"}
-                      </td>
-                      <td className="px-3 py-4 text-center text-sm text-gray-600">
-                        {row.groupB.allocation > 0
-                          ? `৳${(
-                              row.groupB.allocation - row.groupB.used
-                            ).toLocaleString()}`
                           : "-"}
                       </td>
                       {/* Group C */}
@@ -402,19 +373,6 @@ export default function ATF() {
                         {row.groupC.used > 0
                           ? `৳${row.groupC.used.toLocaleString()}`
                           : "-"}
-                      </td>
-                      <td className="px-3 py-4 text-center text-sm text-gray-600">
-                        {row.groupC.allocation > 0
-                          ? `৳${(
-                              row.groupC.allocation - row.groupC.used
-                            ).toLocaleString()}`
-                          : "-"}
-                      </td>
-                      {/* Projects */}
-                      <td className="px-3 py-4 text-center text-sm font-semibold text-blue-600 border-l border-gray-200">
-                        {row.groupA.projects +
-                          row.groupB.projects +
-                          row.groupC.projects}
                       </td>
                     </tr>
                   ))}
@@ -438,16 +396,6 @@ export default function ATF() {
                         .reduce((sum, row) => sum + row.groupA.used, 0)
                         .toLocaleString()}
                     </td>
-                    <td className="px-3 py-4 text-center text-sm text-gray-700">
-                      ৳
-                      {allocationData
-                        .reduce(
-                          (sum, row) =>
-                            sum + (row.groupA.allocation - row.groupA.used),
-                          0
-                        )
-                        .toLocaleString()}
-                    </td>
                     <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-300">
                       ৳
                       {allocationData
@@ -458,16 +406,6 @@ export default function ATF() {
                       ৳
                       {allocationData
                         .reduce((sum, row) => sum + row.groupB.used, 0)
-                        .toLocaleString()}
-                    </td>
-                    <td className="px-3 py-4 text-center text-sm text-gray-700">
-                      ৳
-                      {allocationData
-                        .reduce(
-                          (sum, row) =>
-                            sum + (row.groupB.allocation - row.groupB.used),
-                          0
-                        )
                         .toLocaleString()}
                     </td>
                     <td className="px-3 py-4 text-center text-sm text-gray-900 border-l border-gray-300">
@@ -481,19 +419,6 @@ export default function ATF() {
                       {allocationData
                         .reduce((sum, row) => sum + row.groupC.used, 0)
                         .toLocaleString()}
-                    </td>
-                    <td className="px-3 py-4 text-center text-sm text-gray-700">
-                      ৳
-                      {allocationData
-                        .reduce(
-                          (sum, row) =>
-                            sum + (row.groupC.allocation - row.groupC.used),
-                          0
-                        )
-                        .toLocaleString()}
-                    </td>
-                    <td className="px-3 py-4 text-center text-sm text-blue-700 border-l border-gray-300">
-                      {totalProjects}
                     </td>
                   </tr>
                 </tbody>
@@ -525,8 +450,6 @@ export default function ATF() {
               <p className="text-xs text-gray-600 mt-3">
                 Note: All amounts are in BDT Lakh. &quot;Used&quot; represents
                 already allocated funds to approved projects.
-                &quot;Remaining&quot; shows available funds for future
-                allocations.
               </p>
             </div>
           </div>
@@ -752,6 +675,93 @@ export default function ATF() {
         </div>
       </section>
 
+      {/* ATF Outcomes Section */}
+      <section className="py-16 bg-gradient-to-br from-green-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Expected Outcomes & Impact
+            </h2>
+            <p className="text-lg text-gray-600">
+              Transformational results from ATF investments
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all border border-green-100">
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <BookOpen className="h-6 w-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Enhanced Research Output
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Significant increase in quality research publications,
+                    patents, and innovations emerging from supported projects
+                    across all windows.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all border border-blue-100">
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <Building className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Infrastructure Modernization
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    State-of-the-art laboratories, classrooms, and digital
+                    infrastructure developed across 50 participating
+                    universities.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all border border-purple-100">
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <Users className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Faculty Capacity Development
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Enhanced teaching and research capabilities through training
+                    programs, international collaborations, and advanced
+                    resources.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 shadow-md hover:shadow-xl transition-all border border-orange-100">
+              <div className="flex items-start mb-4">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                  <Lightbulb className="h-6 w-6 text-orange-600" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    Innovation Ecosystem Growth
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Established innovation hubs, technology transfer offices,
+                    and business incubators fostering entrepreneurship culture.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Submission Section */}
       <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -771,7 +781,7 @@ export default function ATF() {
                 className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg"
               >
                 <Target className="h-6 w-6 mr-3" />
-                Submit ATF Proposal
+                Access Application Portal
               </a>
             </div>
           </div>
@@ -804,58 +814,6 @@ export default function ATF() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Success Stories */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Success Stories
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                University of Dhaka
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Implemented comprehensive quality assurance framework resulting
-                in 95% faculty satisfaction and 30% increase in research
-                publications.
-              </p>
-              <div className="text-sm text-blue-600 font-medium">
-                Read Full Case Study →
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">BUET</h3>
-              <p className="text-gray-700 mb-4">
-                Enhanced engineering curriculum with industry partnerships,
-                achieving 100% graduate employment rate and international
-                accreditation.
-              </p>
-              <div className="text-sm text-blue-600 font-medium">
-                Read Full Case Study →
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Jahangirnagar University
-              </h3>
-              <p className="text-gray-700 mb-4">
-                Transformed liberal arts programs with digital integration,
-                increasing student enrollment by 25% and improving learning
-                outcomes.
-              </p>
-              <div className="text-sm text-blue-600 font-medium">
-                Read Full Case Study →
-              </div>
-            </div>
           </div>
         </div>
       </section>

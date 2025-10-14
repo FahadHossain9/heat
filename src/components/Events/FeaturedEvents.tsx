@@ -15,12 +15,12 @@ import Link from "next/link";
 export default function FeaturedEvents() {
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case "Open":
-        return <CheckCircle className="h-4 w-4 text-green-600" />;
-      case "Applications Under Review":
-        return <AlertCircle className="h-4 w-4 text-yellow-600" />;
-      case "Coming Soon":
+      case "Upcoming":
         return <Clock className="h-4 w-4 text-blue-600" />;
+      case "Ongoing":
+        return <CheckCircle className="h-4 w-4 text-green-600" />;
+      case "Completed":
+        return <CheckCircle className="h-4 w-4 text-gray-600" />;
       default:
         return <XCircle className="h-4 w-4 text-gray-600" />;
     }
@@ -28,12 +28,12 @@ export default function FeaturedEvents() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "Open":
-        return "bg-green-100 text-green-800";
-      case "Applications Under Review":
-        return "bg-yellow-100 text-yellow-800";
-      case "Coming Soon":
+      case "Upcoming":
         return "bg-blue-100 text-blue-800";
+      case "Ongoing":
+        return "bg-green-100 text-green-800";
+      case "Completed":
+        return "bg-gray-100 text-gray-800";
       default:
         return "bg-gray-100 text-gray-800";
     }

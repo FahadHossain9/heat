@@ -2,24 +2,26 @@
 
 import {
   HeroSection,
-  ProjectOverview,
-  MainObjectives,
-  TargetBeneficiaries,
+  ProjectPartners,
   VisionMission,
-  StrategicObjectives,
+  MainObjectives,
+  BudgetSection,
+  TargetBeneficiaries,
   ComponentOverview,
+  ContactSection,
 } from "@/components/About";
 
 export default function About() {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <ProjectOverview />
-      <MainObjectives />
-      <TargetBeneficiaries />
+      <ProjectPartners />
       <VisionMission />
-      <StrategicObjectives />
+      <MainObjectives />
+      <BudgetSection />
+      <TargetBeneficiaries />
       <ComponentOverview />
+      <ContactSection />
     </div>
   );
 }

@@ -20,7 +20,7 @@ export default function WomensNetwork() {
       icon: GraduationCap,
       description:
         "Comprehensive capacity building for academics and students through multiple channels",
-      color: "bg-pink-600",
+      color: "bg-pink-100",
       activities: [
         "E-learning platforms and digital training",
         "Fellowships for advanced study and research",
@@ -36,7 +36,7 @@ export default function WomensNetwork() {
       icon: Microscope,
       description:
         "Fostering research collaboration among women within sub-regional, regional, and cross-country areas",
-      color: "bg-purple-600",
+      color: "bg-purple-100",
       activities: [
         "Sub-regional research partnerships",
         "Regional collaboration networks",
@@ -52,7 +52,7 @@ export default function WomensNetwork() {
       icon: BookOpen,
       description:
         "Building support for faculty and staff capacity and knowledge by strengthening their teaching, learning, and research opportunities",
-      color: "bg-indigo-600",
+      color: "bg-indigo-100",
       activities: [
         "Teaching methodology enhancement programs",
         "Advanced pedagogical training",
@@ -68,7 +68,7 @@ export default function WomensNetwork() {
       icon: Lightbulb,
       description:
         "Promoting mechanisms for encouraging female participation in STEM and other academic programs",
-      color: "bg-blue-600",
+      color: "bg-blue-100",
       activities: [
         "STEM awareness and outreach programs",
         "Female-focused STEM scholarships",
@@ -83,7 +83,7 @@ export default function WomensNetwork() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-pink-600 to-purple-700 text-white py-20">
+      <section className="bg-gradient-to-br from-pink-400 to-purple-500 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6">

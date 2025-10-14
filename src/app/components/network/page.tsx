@@ -138,8 +138,8 @@ export default function Network() {
                   <div className="flex justify-center mb-4">
                     <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center">
                       <IconComponent className="h-8 w-8 text-white" />
-                </div>
-              </div>
+                    </div>
+                  </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
                     {feature.title}
                   </h3>
@@ -149,7 +149,7 @@ export default function Network() {
                 </div>
               );
             })}
-              </div>
+          </div>
 
           <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-8 border-2 border-purple-200">
             <div className="flex items-start">
@@ -224,7 +224,7 @@ export default function Network() {
                       <p className="text-gray-700 leading-relaxed">
                         {activity.description}
                       </p>
-                  </div>
+                    </div>
                   </div>
                 </div>
               );
@@ -311,10 +311,10 @@ export default function Network() {
                 <div className="w-16 h-16 bg-gradient-to-br from-orange-600 to-orange-700 rounded-full flex items-center justify-center">
                   <NetworkIcon className="h-8 w-8 text-white" />
                 </div>
-                  </div>
+              </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
                 Enhanced BdREN Capacity
-                  </h3>
+              </h3>
               <p className="text-gray-700 text-center">
                 Upgraded network infrastructure supporting increased service
                 delivery

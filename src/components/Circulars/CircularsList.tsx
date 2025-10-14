@@ -12,12 +12,14 @@ interface CircularsListProps {
   searchTerm: string;
   categoryFilter: string;
   typeFilter: string;
+  statusFilter: string;
 }
 
 export default function CircularsList({
   searchTerm,
   categoryFilter,
   typeFilter,
+  statusFilter,
 }: CircularsListProps) {
   const filteredCirculars = recentCirculars.filter((circular) => {
     const matchesSearch =
@@ -29,7 +31,13 @@ export default function CircularsList({
     const matchesType =
       typeFilter === "All Types" || circular.type === typeFilter;
 
-    return matchesSearch && matchesCategory && matchesType;
+    // Determine if expired
+    const isExpired = new Date(circular.deadline) < new Date();
+    const currentStatus = isExpired ? "Archived" : "Live";
+    const matchesStatus =
+      statusFilter === "All Status" || currentStatus === statusFilter;
+
+    return matchesSearch && matchesCategory && matchesType && matchesStatus;
   });
 
   const getCategoryColor = (category: string) => {
@@ -68,12 +76,10 @@ export default function CircularsList({
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "Active":
+      case "Live":
         return "bg-green-100 text-green-800";
-      case "Inactive":
+      case "Archived":
         return "bg-gray-100 text-gray-800";
-      case "Expired":
-        return "bg-red-100 text-red-800";
       default:
         return "bg-gray-100 text-gray-800";
     }
@@ -102,7 +108,7 @@ export default function CircularsList({
           ) : (
             filteredCirculars.map((circular) => {
               const isExpired = new Date(circular.deadline) < new Date();
-              const currentStatus = isExpired ? "Expired" : circular.status;
+              const currentStatus = isExpired ? "Archived" : "Live";
 
               return (
                 <div key={circular.id} className="card-enhanced p-8">

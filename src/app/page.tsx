@@ -4,6 +4,7 @@ import {
   HeroSection,
   StatisticsDashboard,
   ComponentsGrid,
+  ATFCallToAction,
   LatestUpdates,
   UpcomingEvents,
 } from "@/components/Home";
@@ -13,8 +14,8 @@ export default function Home() {
     <div className="min-h-screen">
       <HeroSection />
       <ComponentsGrid />
+      <ATFCallToAction />
       <StatisticsDashboard />
-      {/* <PerformanceMetrics /> */}
       <LatestUpdates />
       <UpcomingEvents />
     </div>
