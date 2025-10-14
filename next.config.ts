@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "factoryze.s3.us-east-005.backblazeb2.com",
       },
+      {
+        protocol: "https",
+        hostname: "heat.ugc.gov.bd",
+      },
     ],
   },
 };
